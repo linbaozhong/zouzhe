@@ -1,0 +1,212 @@
+<form>
+	<div class="input-control text size3">
+		<input type="text" readonly="readonly" name="" id="datepicker" value="" placeholder="时间" class="input-font-size" />
+		<button class="btn-date" onclick="javascript:;"></button>
+	</div>
+	<div class="input-control text size5">
+		<input id="target" type="text" placeholder="目的地……" class="input-font-size" />
+		<button class="btn-search"></button>
+	</div>
+	<div class="horizontal-list">
+		<dl>
+			<dt>热门目的地：</dt>
+			<dd>杭州</dd>
+			<dd>广州</dd>
+		</dl>
+	</div>
+</form>
+
+<div class="panel pos-abs pop-panel date-panel size5">
+	<div class="panel-content">
+		<div class="horizontal-list">
+			<ul data-target="#datepicker">
+				<li>元旦
+				</li>
+				<li>清明
+				</li>
+				<li>五一
+				</li>
+				<li>端午
+				</li>
+				<li>中秋
+				</li>
+				<li>十一
+				</li>
+				<li>圣诞
+				</li>
+				<li>春节
+				</li>
+				<li>暑假
+				</li>
+				<li>寒假
+				</li>
+			</ul>
+		</div>
+
+		<hr />
+		<div class="horizontal-list">
+			<ul data-role="month" data-target="#datepicker">
+
+			</ul>
+		</div>
+		<hr />
+		<div class="horizontal-list">
+			<ul data-target="#datepicker">
+				<li>上旬
+				</li>
+				<li>中旬
+				</li>
+				<li>下旬
+				</li>
+			</ul>
+		</div>
+		<hr />
+		<div class="horizontal-list">
+			<ul data-role="days" data-target="#datepicker">
+
+			</ul>
+		</div>
+		<hr />
+		<div class="horizontal-list">
+			<ul data-target="#datepicker">
+				<li>春季
+				</li>
+				<li>夏季
+				</li>
+				<li>秋季
+				</li>
+				<li>冬季
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="panel pos-abs pop-panel target-panel size5">
+	<div class="panel-content">
+		<div class="horizontal-list">
+			<ul data-role="area" data-target="#target">
+				<li>东北
+				</li>
+				<li>华北
+				</li>
+				<li>华南
+				</li>
+				<li>东南
+				</li>
+				<li>西北
+				</li>
+				<li>西南
+				</li>
+				<li>中部
+				</li>
+			</ul>
+		</div>
+		<hr />
+		<div class="horizontal-list">
+			<ul data-role="city" data-target="#target">
+				<li>广州
+				</li>
+				<li>大连
+				</li>
+				<li>北京
+				</li>
+				<li>上海
+				</li>
+				<li>昆明
+				</li>
+				<li>西藏
+				</li>
+				<li>张家界
+				</li>
+				<li>……
+				</li>
+			</ul>
+		</div>
+		<hr />
+		<div class="horizontal-list">
+			<ul data-role="tag" data-target="#target">
+				<li>江南水乡
+				</li>
+				<li>黄土高原
+				</li>
+				<li>……
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var __day = snow.day;
+
+	function getDate(month) {
+		var _year = snow.year;
+		// 如果month参数<当前月份，则表明month参数月份是下年月份
+		if (month < snow.month) {
+			_year += 1;
+		}
+
+		$('[data-role="days"]').html((function(y, m) {
+			var _days = new Date(y, m, 0).getDate(),
+				_active = '',
+				_html = [];
+
+			if (__day > _days) {
+				__day = _days;
+			}
+
+			for (var i = 1; i <= _days; i++) {
+
+				_active = i == __day ? 'class="active"' : '';
+
+				_html.push('<li data-value="' + i + '" ' + _active + '>' + i + '</li>');
+			}
+			return _html;
+		})(_year, month));
+	};
+
+	/*
+	 * 生成日历及其事件
+	 */
+	(function() {
+		var _active = '',
+			_html = [];
+		for (var i = 1; i < 13; i++) {
+			_active = i == snow.month ? 'class="active"' : '';
+			_html.push('<li data-value="' + i + '" ' + _active + '>' + i + '月</li>');
+		};
+		// 月
+		$('[data-role="month"]')
+			.html(_html)
+			.on('click', 'li', function() {
+				var _this = $(this);
+
+				getDate(_this.data('value'));
+
+				$(_this.parent().data('target')).val(
+					_this.data('value') + '-' + $('[data-role="days"] li.active').data('value')
+				);
+			})
+			.find('li.active')
+			.trigger('click');
+		// 日期
+		$('[data-role="days"]').on('click', 'li', function() {
+			var _this = $(this);
+			__day = _this.data('value');
+
+			$(_this.parent().data('target')).val(
+				$('[data-role="month"] li.active').data('value') + '-' + __day
+			);
+		});
+		// 城市、标签
+		$('[data-role="city"],[data-role="tag"]').on('click', 'li', function() {
+			var _this = $(this);
+			$(_this.parent().data('target')).val(_this.text());
+			//
+			if (_this.parent().data('role')==='tag') {
+				$('[data-role="city"] li.active').removeClass('active');
+			} else{
+				$('[data-role="tag"] li.active').removeClass('active');
+			}
+		});
+	})();
+</script>

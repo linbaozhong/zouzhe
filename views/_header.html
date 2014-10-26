@@ -1,11 +1,11 @@
-<div class="navigation-bar">
+<div class="navigation-bar fixed-top">
 	<div class="navigation-bar-content container">
 		<span class="element size1"></span>
 		<a href="/" class="element"><span class="icon-grid-view"></span><b> 走着 </b><sup><em>bate</em></sup></a>
 		<span class="element-divider"></span>
 
-		<div class="element input-element form">
-			<form>
+		<div class="element input-element searchform">
+			<!--<form>
 				<div class="input-control text">
 					<input type="text" readonly="readonly" name="" id="datepicker" value="" placeholder="时间" />
 					<button class="btn-date" onclick="javascript:;"></button>
@@ -217,13 +217,13 @@
 						</ul>
 					</div>
 				</div>
-			</div>
+			</div>-->
 		</div>
 		<span class="element place-right size1"></span>
 		<div class="place-right pos-rel">
 			<button class="dropdown-list-toggle element image-button image-left">
 				Snow Lin
-				<img src="images/me.jpg">
+				<img src="http://tp2.sinaimg.cn/1771925961/50/5705822772/1">
 			</button>
 			<ul class="place-top-right dropdown-list border">
 				<li><a href="#"><i class="icon- on-left">　</i>我的主页</a>
@@ -239,3 +239,30 @@
 
 	</div>
 </div>
+<script type="text/javascript">
+$(function(){
+	/*
+	 * 时间和目的地选择
+	 */
+	// 时间
+	$('.searchform').on('mouseenter','#datepicker',function(){
+		var _this = $(this).parent(),
+			_panel = _this.parents('form').siblings('.panel.date-panel').css({
+				'left': _this.position().left,
+				'top': _this.height() + parseInt(_this.parents('.element').css('padding')) + 1
+			});
+		_panel.stop().slideDown(snow.speed).siblings('.pop-panel').hide();
+	});
+	
+	// 目的地
+	$('.searchform').on('mouseenter','#target',function(){
+		var _this = $(this).parent(),
+			_panel = _this.parents('form').siblings('.panel.target-panel').css({
+				'left': _this.position().left,
+				'top': _this.height() + parseInt(_this.parents('.element').css('padding')) + 1
+			});
+		_panel.stop().slideDown(snow.speed).siblings('.pop-panel').hide();
+	});
+	
+});
+</script>

@@ -663,7 +663,7 @@ a {
   font-family: "Open Sans Light";
   font-style: normal;
   font-weight: 300;
-  src: local("Segoe UI Light"), local("Open Sans Light"), local("OpenSans-Light"), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTZ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
+  src: local("Segoe UI Light"), local("Open Sans Light"), local("OpenSans-Light"), url(../fonts/opensanslight.woff) format('woff');
 }
 @font-face {
   font-family: "Open Sans";

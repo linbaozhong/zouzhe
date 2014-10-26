@@ -1,60 +1,73 @@
-<script type="text/javascript">
-	// 动画速度
-	snow.speed = 300;
+<script type="text/javascript">// 动画速度
+snow.speed = 300;
+snow.date = new Date();
+snow.year = snow.date.getYear();
+snow.month = snow.date.getMonth() + 1;
+snow.day = snow.date.getDate();
 
-	function headerPosition() {
-		if ($(window).scrollTop() > $('header').height()) {
-			$("header .navigation-bar")
-				.addClass("fixed-top")
-				.addClass(" shadow");
-		} else {
-			$("header .navigation-bar")
-				.removeClass("fixed-top")
-				.removeClass(" shadow");
-		}
+/*
+ * log
+ */
+function log() {
+	console.log(arguments);
+};
+/*
+ * header位置重绘
+ */
+
+function headerPosition() {
+	if ($(window).scrollTop() > $('header').height()) {
+		$("header .navigation-bar").addClass("shadow");
+	} else {
+		$("header .navigation-bar").removeClass("shadow");
 	}
+};
 
-	$(function() {
-		setTimeout(function() {
-			headerPosition();
-		}, 100);
-		/*
-		 * 时间和目的地选择
-		 */
-		// 时间
-		$('#datepicker').parent().mouseenter(function() {
-			var _panel = $('.panel.date-panel').css('left',$(this).position().left + parseInt($(this).parents('.element').css('paddingLeft')));
-			_panel.stop().slideDown(snow.speed).siblings('.panel').hide();
-		});
-		// 选中
-		$('.horizontal-list ul').on('click', 'li', function() {
-			var _this = $(this).addClass('active');
-			_this.siblings().removeClass('active');
-			$('#'+_this.parent().data('target')).val(_this.text());
-		});
-		// 目的地
-		$('#target').parent().mouseenter(function() {
-			var _panel = $('.panel.target-panel').css('left',$(this).position().left+ parseInt($(this).parents('.element').css('paddingLeft')));
-			_panel.stop().slideDown(snow.speed).siblings('.panel').hide();
-		});
-		//
-		$('header .form').mouseleave(function(){
-			$(this).find('.panel').stop().slideUp(snow.speed)
-		})
-		/*
-		 * 下拉控制菜单
-		 */
-		$('.dropdown-list-toggle').mouseenter(function(){
-			var _this=$(this);
-			_this.siblings('.dropdown-list').css('minWidth',_this.width()).stop().slideDown(snow.speed);
-		}).parent().mouseleave(function(){
-			$(this).find('.dropdown-list').stop().slideUp(snow.speed);
-		});
-	})
+/*
+ * 页面数据拉取
+ */
+function dataLoading() {
 
-	$(window).scroll(function() {
+	$('[data-load]').each(function() {
+		var _this = $(this),
+			_data = _this.data('load');
+		if (_data && _data.length > 0) {
+			_this.load('/static/inc/' + _this.data('load'));
+		}
+	});
+};
+
+$(function() {
+	setTimeout(function() {
 		headerPosition();
+		//拉取数据
+		dataLoading();
+	}, 100);
+	// 选中
+	$('body').on('click', '.horizontal-list ul li', function() {
+		var _this = $(this).addClass('active');
+		_this.siblings().removeClass('active');
 	});
 
-	METRO_AUTO_REINIT = true;
-</script>
+	//
+	$('.searchform').mouseleave(function() {
+		$(this).find('.pop-panel').stop().slideUp(snow.speed);
+	});
+	/*
+	 * 下拉控制菜单
+	 */
+	$('.dropdown-list-toggle').mouseenter(function() {
+		var _this = $(this);
+		_this.siblings('.dropdown-list').css('minWidth', _this.width()).stop().slideDown(snow.speed);
+	}).parent().mouseleave(function() {
+		$(this).find('.dropdown-list').stop().slideUp(snow.speed);
+	});
+})
+
+$(window).scroll(function() {
+	headerPosition();
+}).resize(function() {
+	//footerPosition();
+});
+
+METRO_AUTO_REINIT = true;</script>

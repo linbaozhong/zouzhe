@@ -6,20 +6,20 @@
 		<link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="/static/css/iconFont.min.css"/>
 		<script src="/static/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/js/jquery.widget.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="/static/js/jquery.widget.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/static/js/jquery.mousewheel.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/js/metro.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/js/metro.min.js" type="text/javascript" charset="utf-8"></script>-->
 		{{.Head}}
 	</head>
 
-	<body class="metro">
+	<body class="metro" style="padding-top:45px;">
 		<header>
 			{{.Header}}
 		</header>
 		<div class="container">
 			{{.LayoutContent}}
 		</div>
-		<footer>
+		<footer class="bg-dark fg-white">
 			{{.Footer}}
 		</footer>
 		{{.Scripts}}
