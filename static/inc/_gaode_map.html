@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<!--<meta name="viewport" content="initial-scale=1.1,user-scalable=no">-->
+		<meta name="gaode" content="3f11e9e020722c06218bafc3eb45fc60" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/metro-bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconFont.min.css" />
+		<script src="../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://webapi.amap.com/maps?v=1.3&key=3f11e9e020722c06218bafc3eb45fc60" type="text/javascript"></script>
+		<script type="text/javascript">
+			function mapInit() {
+				var position = new AMap.LngLat(116.397428, 39.90923);
+				var mapObj = new AMap.Map("map-container", {
+					view: new AMap.View2D({ //创建地图二维视口
+						center: position, //创建中心点坐标
+						zoom: 14, //设置地图缩放级别
+						rotation: 0 //设置地图旋转角度
+					}),
+					lang: "zh_cn" //设置地图语言类型，默认：中文简体
+				}); //创建地图实例
+
+				//地图中添加地图操作ToolBar插件
+				mapObj.plugin(["AMap.ToolBar"], function() {
+					toolBar = new AMap.ToolBar(); //设置地位标记为自定义标记
+					mapObj.addControl(toolBar);
+				});
+			}
+		</script>
+	</head>
+
+	<body onload="mapInit()">
+		<div class="map" style="width:700px;height:400px;">
+			<form>
+			<div class="input-control text">
+				<input type="text" name="" id="" value="" placeholder="地名" />
+				<button class="btn-search"></button>
+			</div></form>
+			<div id="map-container" style="width:100%;height:100%;"></div>
+		</div>
+
+	</body>
+
+</html>
