@@ -1,20 +1,12 @@
-<form>
-	<div class="input-control text size3">
-		<input type="text" readonly="readonly" name="" id="datepicker" value="" placeholder="时间" class="input-font-size" />
-		<button class="btn-date" onclick="javascript:;"></button>
-	</div>
-	<div class="input-control text size5">
-		<input id="target" type="text" placeholder="目的地……" class="input-font-size" />
-		<button class="btn-search"></button>
-	</div>
-	<div class="horizontal-list">
-		<dl>
-			<dt>热门目的地：</dt>
-			<dd>杭州</dd>
-			<dd>广州</dd>
-		</dl>
-	</div>
-</form>
+<div class="input-control text size3">
+	<input type="text" readonly="readonly" name="" id="datepicker" value="" placeholder="时间" class="input-font-size" />
+	<button class="btn-date" onclick="javascript:;"></button>
+</div>
+<div class="input-control text size5">
+	<input id="target" type="text" placeholder="目的地……" class="input-font-size" />
+	<button class="btn-search"></button>
+</div>
+
 
 <div class="panel pos-abs pop-panel date-panel size5">
 	<div class="panel-content">
@@ -202,11 +194,37 @@
 			var _this = $(this);
 			$(_this.parent().data('target')).val(_this.text());
 			//
-			if (_this.parent().data('role')==='tag') {
+			if (_this.parent().data('role') === 'tag') {
 				$('[data-role="city"] li.active').removeClass('active');
-			} else{
+			} else {
 				$('[data-role="tag"] li.active').removeClass('active');
 			}
 		});
 	})();
+
+	$(function() {
+		/*
+		 * 时间和目的地选择
+		 */
+		// 时间
+		$('.searchform').on('mouseenter', '#datepicker', function() {
+			var _this = $(this).parent(),
+				_panel = _this.siblings('.panel.date-panel').css({
+					'left': _this.position().left,
+					'top': _this.height() + parseInt(_this.parents('.element').css('padding')) + 1
+				});
+			_panel.stop().slideDown(snow.speed).siblings('.pop-panel').hide();
+		});
+
+		// 目的地
+		$('.searchform').on('mouseenter', '#target', function() {
+			var _this = $(this).parent(),
+				_panel = _this.siblings('.panel.target-panel').css({
+					'left': _this.position().left,
+					'top': _this.height() + parseInt(_this.parents('.element').css('padding')) + 1
+				});
+			_panel.stop().slideDown(snow.speed).siblings('.pop-panel').hide();
+		});
+
+	});
 </script>

@@ -5,6 +5,6 @@ type Home struct {
 }
 
 func (this *Home) Get() {
-	this.Data["Title"] = "走着……"
-	this.TplNames = "index.html"
+	this.Data["Title"] = appTitle
+	this.TplNames = "home/index.html"
 }

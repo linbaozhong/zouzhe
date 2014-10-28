@@ -1,73 +1,90 @@
-<script type="text/javascript">// 动画速度
-snow.speed = 300;
-snow.date = new Date();
-snow.year = snow.date.getYear();
-snow.month = snow.date.getMonth() + 1;
-snow.day = snow.date.getDate();
+<script type="text/javascript">
+	// 动画速度
+	snow.speed = 300;
+	snow.date = new Date();
+	snow.year = snow.date.getYear();
+	snow.month = snow.date.getMonth() + 1;
+	snow.day = snow.date.getDate();
 
-/*
- * log
- */
-function log() {
-	console.log(arguments);
-};
-/*
- * header位置重绘
- */
-
-function headerPosition() {
-	if ($(window).scrollTop() > $('header').height()) {
-		$("header .navigation-bar").addClass("shadow");
-	} else {
-		$("header .navigation-bar").removeClass("shadow");
-	}
-};
-
-/*
- * 页面数据拉取
- */
-function dataLoading() {
-
-	$('[data-load]').each(function() {
-		var _this = $(this),
-			_data = _this.data('load');
-		if (_data && _data.length > 0) {
-			_this.load('/static/inc/' + _this.data('load'));
-		}
-	});
-};
-
-$(function() {
-	setTimeout(function() {
-		headerPosition();
-		//拉取数据
-		dataLoading();
-	}, 100);
-	// 选中
-	$('body').on('click', '.horizontal-list ul li', function() {
-		var _this = $(this).addClass('active');
-		_this.siblings().removeClass('active');
-	});
-
-	//
-	$('.searchform').mouseleave(function() {
-		$(this).find('.pop-panel').stop().slideUp(snow.speed);
-	});
 	/*
-	 * 下拉控制菜单
+	 * log
 	 */
-	$('.dropdown-list-toggle').mouseenter(function() {
-		var _this = $(this);
-		_this.siblings('.dropdown-list').css('minWidth', _this.width()).stop().slideDown(snow.speed);
-	}).parent().mouseleave(function() {
-		$(this).find('.dropdown-list').stop().slideUp(snow.speed);
+	function log() {
+		console.log(arguments);
+	};
+	/*
+	 * header位置重绘
+	 */
+
+	function headerPosition() {
+		if ($(window).scrollTop() > $('header').height()) {
+			$("header .navigation-bar").addClass("shadow");
+		} else {
+			$("header .navigation-bar").removeClass("shadow");
+		}
+	};
+	/*
+	 * footer位置重绘
+	 */
+	function footerPosition() {
+//		var _footer = $('footer'),
+//			_offset = _footer.offset(),
+//			_height = $(window).height();
+//			log(_footer.scrollTop(), _footer.height(),_height);
+//		if (_offset.top + parseInt(_footer.css('height')) < _height) {
+//			_footer.css({
+//				top: _height - parseInt(_footer.css('height'))
+//			});
+//		}
+	};
+	/*
+	 * 页面数据拉取
+	 */
+
+	function dataLoading() {
+
+		$('[data-load]').each(function() {
+			var _this = $(this),
+				_data = _this.data('load');
+			if (_data && _data.length > 0) {
+				_this.load('/static/inc/' + _this.data('load'));
+			}
+		});
+	};
+
+	$(function() {
+		setTimeout(function() {
+			headerPosition();
+			footerPosition();
+			//拉取数据
+			dataLoading();
+		}, 100);
+		// 选中
+		$('body').on('click', '.horizontal-list ul li', function() {
+			var _this = $(this).addClass('active');
+			_this.siblings().removeClass('active');
+		});
+
+		//
+		$('.searchform').mouseleave(function() {
+			$(this).find('.pop-panel').stop().slideUp(snow.speed);
+		});
+		/*
+		 * 下拉控制菜单
+		 */
+		$('.dropdown-list-toggle').mouseenter(function() {
+			var _this = $(this);
+			_this.siblings('.dropdown-list').css('minWidth', _this.width()).stop().slideDown(snow.speed);
+		}).parent().mouseleave(function() {
+			$(this).find('.dropdown-list').stop().slideUp(snow.speed);
+		});
+	})
+
+	$(window).scroll(function() {
+		headerPosition();
+	}).resize(function() {
+		footerPosition();
 	});
-})
 
-$(window).scroll(function() {
-	headerPosition();
-}).resize(function() {
-	//footerPosition();
-});
-
-METRO_AUTO_REINIT = true;</script>
+	METRO_AUTO_REINIT = true;
+</script>

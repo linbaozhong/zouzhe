@@ -4,7 +4,7 @@
 		<a href="/" class="element"><span class="icon-grid-view"></span><b> 走着 </b><sup><em>bate</em></sup></a>
 		<span class="element-divider"></span>
 
-		<div class="element input-element searchform">
+		<div class="element input-element searchform" data-load="_search.html">
 		</div>
 		<span class="element place-right size1"></span>
 		<div class="place-right pos-rel">
@@ -26,30 +26,3 @@
 
 	</div>
 </div>
-<script type="text/javascript">
-$(function(){
-	/*
-	 * 时间和目的地选择
-	 */
-	// 时间
-	$('.searchform').on('mouseenter','#datepicker',function(){
-		var _this = $(this).parent(),
-			_panel = _this.parents('form').siblings('.panel.date-panel').css({
-				'left': _this.position().left,
-				'top': _this.height() + parseInt(_this.parents('.element').css('padding')) + 1
-			});
-		_panel.stop().slideDown(snow.speed).siblings('.pop-panel').hide();
-	});
-	
-	// 目的地
-	$('.searchform').on('mouseenter','#target',function(){
-		var _this = $(this).parent(),
-			_panel = _this.parents('form').siblings('.panel.target-panel').css({
-				'left': _this.position().left,
-				'top': _this.height() + parseInt(_this.parents('.element').css('padding')) + 1
-			});
-		_panel.stop().slideDown(snow.speed).siblings('.pop-panel').hide();
-	});
-	
-});
-</script>
