@@ -78,6 +78,12 @@
 		}).parent().mouseleave(function() {
 			$(this).find('.dropdown-list').stop().slideUp(snow.speed);
 		});
+		/*
+		 * 按钮组--单选
+		 */
+		$('body').on('click','div.button-set button',function(){
+			$(this).addClass('active').siblings().removeClass('active');
+		});
 	})
 
 	$(window).scroll(function() {
