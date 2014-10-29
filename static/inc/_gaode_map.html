@@ -1,33 +1,41 @@
 <style type="text/css">
-	#travel-line .travel-point.active{
-		color:red;
+	#travel-line .travel-point.active {
+		color: red;
 	}
 </style>
-<div class="map pos-rel size11" style="height:434px;">
-	<div class="grid">
-		<div class="row">
-			<div class="span8">
-				<div class="input-control text" style="margin-bottom:0">
-					<input type="text" name="" id="keyword" value="" placeholder="地名" />
-					<button class="btn-search"></button>
-				</div>
-				<div id="result1" name="result1" style="position:absolute;overflow: auto; width: 95%; border: 1px solid gray;display: none;z-index:151;background:#ffffff;"></div>
-				<div id="result" class="hide"></div>
-				<div id="map-container" style="width:100%;height:400px;"></div>
-			</div>
-			<div class="span3 border">
+<div class="map pos-rel" style="height:630px;overflow: hidden;">
+	<!--<div class="grid">
+		<div class="row" style="">-->
+			<div class="size4 border place-left">
 				<h5>路线图：</h5>
-				<div class="border-top" id="travel-line" style="height:370px;overflow: auto;">
+				<div class="border-top" id="travel-line" style="height:566px;overflow: auto;">
 
 				</div>
 				<div class="">
 					<button class="primary place-right" onclick="driving_route();">生成路线图</button>
 				</div>
 			</div>
+			<div class="span0 place-right">
+				<div id="map-container" class="border" style="width:100%;height:630px;"></div>
+			</div>
+
+		<!--</div>
+	</div>-->
+	<div class="window shadow size4" style="position:absolute;height:90%;top:30px;z-index:150;right:20px;">
+		<div class="caption">
+			<h5 class="title fg-white">选择目的地</h5>
+		</div>
+		<div class="content">
+			<div class="input-control text" style="margin-bottom:0">
+				<input type="text" name="" id="keyword" value="" placeholder="地名" />
+				<button class="btn-search"></button>
+			</div>
+			<div id="result1" name="result1" style="position:absolute;overflow: auto; width: 95%; border: 1px solid gray;display: none;z-index:151;background:#ffffff;"></div>
+			<div id="result" class="hide"></div>
 		</div>
 	</div>
-
 </div>
+
 <script type="text/javascript">
 	var mapObj;
 	var route_text, steps;
@@ -178,6 +186,8 @@
 	function stayHere(thiss) { //id, lng, lat, name
 		var _line = $("#travel-line"),
 			_this = $(thiss),
+			_point = [],
+			_by = _this.next().find("button.active").data('value') || 'by-bus',
 			d = {
 				id: _this.data('id'),
 				location: new AMap.LngLat(_this.data('lng'), _this.data('lat')),
@@ -187,18 +197,31 @@
 				type: _this.data('type')
 			};
 
+		_point.push('<div class="travel-point ' + _by + '" data-by="' + _by + '"');
+		_point.push(' onmouseover="onmouseover_MarkerStyle(this)" onclick="openMarkerTipById(this)" onmouseout="onmouseout_MarkerStyle(this)"');
+		_point.push(' data-id="' + d.id);
+		_point.push('" data-lng="' + _this.data('lng'));
+		_point.push('" data-lat="' + _this.data('lat'));
+		_point.push('">' + (_line.find('.travel-point').length + 1) + '. ' + d.name);
+		_point.push('</div>');
+
+		var _newPoint = $(_point.join(''));
+
+		// 允许重复，所以注释掉
 		//if (_line.find('[data-id="' + d.id + '"]').length === 0) {
-		_line.append('<div class="travel-point by-bus" data-by="by-bus" onmouseover="onmouseover_MarkerStyle(this)" onclick="openMarkerTipById(this)" onmouseout="onmouseout_MarkerStyle(this)" data-id="' + d.id + '" data-lng="' + _this.data('lng') + '" data-lat="' + _this.data('lat') + '">' + (_line.find('.travel-point').length + 1) + '. ' + d.name + '</div>')
-			//}
-			//
+		_line.append(_newPoint);
+
+		// 变更消息框内容，主要是变更交通状态
+		windowsArr[d.id].setContent("<h4><font color=\"#00a6ac\">  " + d.name + "</font></h4>" + TipContents(d.id, d.location, d.name, d.address, d.tel, d.type, _by));
+
 		snow.travelPoints.push(d);
-		// 标记图标为红色
-		//_this.attr('disabled', true).find('i').addClass('fg-red');
+		//}
+
 	};
 	//infowindow显示内容
-	function TipContents(id, lnglat, name, address, tel, type) { //窗体内容id, lng, lat, name, address, tel, type    \"" + id + "\"," + lng + "," + lat + ",\"" + name + "\"
+	function TipContents(id, lnglat, name, address, tel, type, _by) {
 		var btn = [],
-			by = $('#travel-line .travel-point.active').data('by');
+			by = _by || $('#travel-line .travel-point.active').data('by') || 'by-bus';
 
 		btn.push('<button id="stay_here" class="place-right"');
 		btn.push(' data-id="' + id + '"');
@@ -218,15 +241,15 @@
 		btn.push('</div>');
 
 		if (type == "" || type == "undefined" || type == null || type == " undefined" || typeof type == "undefined") {
-			type = "暂无";
+			type = "";
 		}
 		if (address == "" || address == "undefined" || address == null || address == " undefined" || typeof address == "undefined") {
-			address = "暂无";
+			address = "";
 		}
 		if (tel == "" || tel == "undefined" || tel == null || tel == " undefined" || typeof address == "tel") {
-			tel = "暂无";
+			tel = "";
 		}
-		var str = "  地址：" + address + "<br />  电话：" + tel + " <br />  " + btn.join('');
+		var str = address + "<br />  " + tel + " <br />  " + btn.join('');
 		return str;
 	};
 
@@ -462,11 +485,23 @@
 					break;
 			}
 		});
+
 		/*
 		 * 更改交通方式
 		 */
 		$('body').on('click', '#traffic button', function() {
 			$('#travel-line .travel-point.active').addClass($(this).data('value')).data('by', $(this).data('value'));
 		});
+		/*
+		 *
+		 */
+		$(window).resize(function() {
+			$('.span0').each(function() {
+				var _this = $(this);
+				_this.css({
+					width: _this.parent().width() - _this.siblings().width() - 10
+				});
+			});
+		}).resize();
 	});
 </script>

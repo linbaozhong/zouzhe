@@ -27,22 +27,27 @@
 	 * footer位置重绘
 	 */
 	function footerPosition() {
-//		var _footer = $('footer'),
-//			_offset = _footer.offset(),
-//			_height = $(window).height();
-//			log(_footer.scrollTop(), _footer.height(),_height);
-//		if (_offset.top + parseInt(_footer.css('height')) < _height) {
-//			_footer.css({
-//				top: _height - parseInt(_footer.css('height'))
-//			});
+//		log($(window).height(),$(document).height(),$('body').height());
+//		if ($('footer').offset().top+$('footer').height() <= $(document).height()) {
+//			$('footer').addClass('pos-fix');
+//		} else {
+//			$('footer').removeClass('pos-fix');
 //		}
+		//		var _footer = $('footer'),
+		//			_offset = _footer.offset(),
+		//			_height = $(window).height();
+		//			log(_footer.scrollTop(), _footer.height(),_height);
+		//		if (_offset.top + parseInt(_footer.css('height')) < _height) {
+		//			_footer.css({
+		//				top: _height - parseInt(_footer.css('height'))
+		//			});
+		//		}
 	};
 	/*
 	 * 页面数据拉取
 	 */
 
 	function dataLoading() {
-
 		$('[data-load]').each(function() {
 			var _this = $(this),
 				_data = _this.data('load');
@@ -81,7 +86,7 @@
 		/*
 		 * 按钮组--单选
 		 */
-		$('body').on('click','div.button-set button',function(){
+		$('body').on('click', 'div.button-set button', function() {
 			$(this).addClass('active').siblings().removeClass('active');
 		});
 	})
