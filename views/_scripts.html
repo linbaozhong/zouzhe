@@ -27,21 +27,13 @@
 	 * footer位置重绘
 	 */
 	function footerPosition() {
-//		log($(window).height(),$(document).height(),$('body').height());
-//		if ($('footer').offset().top+$('footer').height() <= $(document).height()) {
-//			$('footer').addClass('pos-fix');
-//		} else {
-//			$('footer').removeClass('pos-fix');
-//		}
-		//		var _footer = $('footer'),
-		//			_offset = _footer.offset(),
-		//			_height = $(window).height();
-		//			log(_footer.scrollTop(), _footer.height(),_height);
-		//		if (_offset.top + parseInt(_footer.css('height')) < _height) {
-		//			_footer.css({
-		//				top: _height - parseInt(_footer.css('height'))
-		//			});
-		//		}
+		$('footer').removeClass('pos-fix');
+
+		if ($(window).height() < $(document).height()) {
+			$('footer').removeClass('pos-fix');
+		} else {
+			$('footer').addClass('pos-fix');
+		}
 	};
 	/*
 	 * 页面数据拉取
