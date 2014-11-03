@@ -112,6 +112,8 @@
 				top: (_dlg.height() - _win.height()) / 2,
 				left: (_dlg.width() - _win.width()) / 2
 			});
+		}).on('click','button.btn-close',function(){
+			var _dlg = $(this).parents("#checkin-dialog").hide();
 		}).on('click', '#checkout', function() {
 			QC.Login.signOut();
 			/*
@@ -125,14 +127,14 @@
 		});
 
 		/*
-		 *
+		 * 检查登录状态
 		 */
-		if (snow.checkin) {
+		if (snow.checkin || QC.Login.check()) {
 			checkin();
 		} else {
 			checkout();
 		}
-	})
+	});
 
 	$(window).scroll(function() {
 		headerPosition();
