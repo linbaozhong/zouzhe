@@ -1,17 +1,19 @@
 <script type="text/javascript">
-	// 动画速度
-	snow.speed = 300;
-	snow.date = new Date();
-	snow.year = snow.date.getYear();
-	snow.month = snow.date.getMonth() + 1;
-	snow.day = snow.date.getDate();
-
 	/*
 	 * log
 	 */
 	function log() {
 		console.log(arguments);
 	};
+	
+	// 动画速度
+	snow.speed = 300;
+	snow.date = new Date();
+	snow.year = snow.date.getYear();
+	snow.month = snow.date.getMonth() + 1;
+	snow.day = snow.date.getDate();
+	snow.account = {};
+
 	/*
 	 * header位置重绘
 	 */
@@ -50,18 +52,18 @@
 	/*
 	 * 签入
 	 */
-	function checkin() {
+	function checkin(name,avatar) {
 		var _checkin = [];
 		_checkin.push('<button class="dropdown-list-toggle element image-button image-left">');
-		_checkin.push('Snow Lin');
-		_checkin.push('<img src="http://tp2.sinaimg.cn/1771925961/50/5705822772/1">');
+		_checkin.push(name);
+		_checkin.push('<img src="'+avatar+'">');
 		_checkin.push('</button>');
 		_checkin.push('<ul class="place-top-right dropdown-list border">');
 		_checkin.push('<li><a href="#"><i class="icon- on-left">　</i>我的主页</a></li>');
 		_checkin.push('<li><a href="#"><i class="icon- on-left">　</i>私信</a></li>');
 		_checkin.push('<li><a href="#"><i class="icon- on-left">　</i>设置</a></li>');
 		_checkin.push('<li id="checkout"><a href="#"><i class="icon-exit on-left"></i>退出</a></li></ul>');
-		$("#account").html(_checkin.join(''));
+		$("#account").empty().html(_checkin.join(''));
 	};
 	/*
 	 * 签出
@@ -73,8 +75,8 @@
 		_checkout.push('<img src="http://tp2.sinaimg.cn/1771925961/50/5705822772/1">');
 		_checkout.push('</button>');
 
-		$("#account").html(_checkout.join(''));
-	}
+		$("#account").empty().html(_checkout.join(''));
+	};
 
 	$(function() {
 		setTimeout(function() {
@@ -103,25 +105,31 @@
 		/*
 		 * checkin checkout
 		 */
-		$('header').on('click','#checkin',function(){
-			checkin();
-		}).on('click','#checkout',function(){
-			checkout();
-		/*
-		 * 下拉控制菜单
-		 */
-		}).on('mouseenter','.dropdown-list-toggle',function(){
+		$('header').on('click', '#checkin', function() {
+			var _dlg = $("#checkin-dialog").show();
+			var _win = _dlg.children('.window:first');
+			_win.css({
+				top: (_dlg.height() - _win.height()) / 2,
+				left: (_dlg.width() - _win.width()) / 2
+			});
+		}).on('click', '#checkout', function() {
+			QC.Login.signOut();
+			/*
+			 * 下拉控制菜单
+			 */
+		}).on('mouseenter', '.dropdown-list-toggle', function() {
 			var _this = $(this);
 			_this.siblings('.dropdown-list').css('minWidth', _this.width()).stop().slideDown(snow.speed);
-		}).on('mouseleave','#account',function(){
+		}).on('mouseleave', '#account', function() {
 			$(this).find('.dropdown-list').stop().slideUp(snow.speed);
 		});
+
 		/*
-		 * 
+		 *
 		 */
 		if (snow.checkin) {
 			checkin();
-		} else{
+		} else {
 			checkout();
 		}
 	})

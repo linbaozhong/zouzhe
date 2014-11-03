@@ -1,0 +1,69 @@
+<div id="checkin-dialog" class="metro window-overlay" style="background-color: rgba(0, 0, 0, 0.701961);display: none;">
+	<div class="window flat shadow" style="overflow: hidden; position: fixed; z-index: 1050;">
+		<div class="caption">
+			<button class="btn-close"></button>
+			<img src="images/excel2013icon.png" class="icon">
+			<div class="title">用户登录</div>
+		</div>
+		<div class="content" style="padding: 42px 10px 10px;">
+			<form class="user-input">
+				<!--<label>Login</label>-->
+				<div class="input-control text">
+					<input type="text" name="login" placeholder="账户名">
+					<!--<button class="btn-clear" tabindex="-1" type="button"></button>-->
+				</div>
+				<!--<label>Password</label>-->
+				<div class="input-control password">
+					<input type="password" name="password" placeholder="密码">
+					<!--<button class="btn-reveal" tabindex="-1" type="button"></button>-->
+				</div>
+				<div class="input-control checkbox">
+					<label>
+						<input type="checkbox" name="c1" checked=""><span class="check"></span>自动登录</label>
+				</div>
+				<a href="#" style="margin-left: 2em;">忘记密码？</a>
+				<div class="form-actions">
+					<button class="button primary" style="width: 100%;">登录</button>
+				</div>
+				<div class="form-actions">
+					<div class="" style="margin-top:10px;">
+						使用合作网站账户登录
+					</div>
+					<a id="qqLogin" href="#">
+						<img src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/bt_blue_24X24.png" />
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	QC.Login({},
+		function(u, o) {
+			if (u.ret != 0) {
+				return;
+			};
+
+			snow.account.nickName = u.nickname;
+			snow.account.avatar = u.figureurl_1;
+
+			checkin(snow.account.nickName, snow.account.avatar);
+			$("#checkin-dialog").hide();
+
+			QC.Login.getMe(function(openId, accessToken) {
+				snow.account.openFrom = 'qq';
+				snow.account.openId = openId;
+				snow.account.accessToken = accessToken;
+				//检查并写入新账户
+				//register();
+			});
+		},
+		function() {
+			checkout();
+		}
+	);
+	
+	$("#qqLogin").click(function() {
+		QC.Login.showPopup();
+	});
+</script>

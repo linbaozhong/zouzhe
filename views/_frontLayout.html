@@ -3,18 +3,14 @@
 
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="/static/css/iconFont.min.css"/>
-		<script src="/static/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-		<!--<script src="/static/js/jquery.widget.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/js/jquery.mousewheel.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/js/metro.min.js" type="text/javascript" charset="utf-8"></script>-->
 		{{.Head}}
+		{{.Scripts}}
 	</head>
 
 	<body class="metro">
 		<header>
 			{{.Header}}
+			{{.Login}}
 		</header>
 		<div class="container" style="min-height: 640px;padding-top: 45px;">
 			{{.LayoutContent}}
@@ -22,7 +18,6 @@
 		<footer class="bg-dark fg-white" style="width:100%;margin-top: 1.5em;bottom: 0;">
 			{{.Footer}}
 		</footer>
-		{{.Scripts}}
 	</body>
 
 </html>
