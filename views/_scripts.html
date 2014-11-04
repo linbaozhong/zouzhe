@@ -106,14 +106,19 @@
 		 * checkin checkout
 		 */
 		$('header').on('click', '#checkin', function() {
-			var _dlg = $("#checkin-dialog").show();
+			var _dlg = $("#checkin-dialog").fadeIn(snow.speed);
 			var _win = _dlg.children('.window:first');
 			_win.css({
-				top: (_dlg.height() - _win.height()) / 2,
 				left: (_dlg.width() - _win.width()) / 2
-			});
+			}).animate({top: (_dlg.height() - _win.height()) / 2},snow.speed);
 		}).on('click','button.btn-close',function(){
-			var _dlg = $(this).parents("#checkin-dialog").hide();
+			var _win= $(this).parents('.window')
+			_win.animate({top:-_win.height()},snow.speed);
+			_win.queue(function(){
+				_win.parents("#checkin-dialog").fadeOut(snow.speed);
+				$.dequeue(this)
+			});
+
 		}).on('click', '#checkout', function() {
 			QC.Login.signOut();
 			/*

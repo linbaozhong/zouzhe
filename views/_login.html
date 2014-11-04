@@ -2,20 +2,18 @@
 	<div class="window flat shadow" style="overflow: hidden; position: fixed; z-index: 1050;">
 		<div class="caption">
 			<button class="btn-close"></button>
-			<img src="images/excel2013icon.png" class="icon">
+			<i class="icon icon-key-2 fg-orange"></i>
 			<div class="title text-bold">用户登录</div>
 		</div>
-		<div class="content" style="padding: 42px 10px 10px;">
+		<div class="content" style="padding: 70px 40px 20px;width:20em;">
 			<form class="user-input">
-				<label>帐号</label>
 				<div class="input-control text">
-					<input type="text" name="login" placeholder="账户名">
-					<!--<button class="btn-clear" tabindex="-1" type="button"></button>-->
+					<input type="text" name="login" placeholder="账户名" style="padding-left: 2.6em;">
+					<i class="icon-user pos-abs bg-gray fg-white" style=" height: 100%; top: 0;left:0; padding: 6px; font-size: 1.4em; " title="账号"></i>
 				</div>
-				<label>密码</label>
 				<div class="input-control password">
-					<input type="password" name="password" placeholder="密码">
-					<!--<button class="btn-reveal" tabindex="-1" type="button"></button>-->
+					<input type="password" name="password" placeholder="密码" style="padding-left: 2.6em;">
+					<i class="icon-unlocked pos-abs bg-gray fg-white" style=" height: 100%; top: 0;left:0; padding: 6px; font-size: 1.4em; " title="密码"></i>
 				</div>
 				<div class="input-control checkbox">
 					<label>
@@ -23,13 +21,13 @@
 				</div>
 				<a href="#" style="margin-left: 2em;">忘记密码？</a>
 				<div class="form-actions">
-					<button class="button primary" style="width: 100%;">登录</button>
+					<button class="button primary" style="width: 100%;height:3em;margin-top: 1em;">登录</button>
 				</div>
 				<div class="form-actions">
 					<div class="text-muted" style="margin-top:1em;">
 						使用合作网站账户登录:
 						<a id="qqLogin" href="#">
-							<img src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/bt_blue_24X24.png" />
+							<img src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/bt_white_24X24.png" />
 						</a>
 					</div>
 				</div>
@@ -48,7 +46,7 @@
 			snow.account.avatar = u.figureurl_1;
 
 			checkin(snow.account.nickName, snow.account.avatar);
-			$("#checkin-dialog").hide();
+			$("#checkin-dialog").fadeOut(snow.speed);
 
 			QC.Login.getMe(function(openId, accessToken) {
 				snow.account.openFrom = 'qq';
