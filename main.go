@@ -15,7 +15,6 @@ const (
 
 func main() {
 	beego.Info(beego.AppName, APP_VER)
-
 	beego.Run()
 }
 
@@ -23,7 +22,7 @@ func init() {
 	beego.SetLevel(beego.LevelInformational)
 	os.Mkdir("./log", os.ModePerm)
 	//日志文件名
-	beego.BeeLogger.SetLogger("file", `{"filename": "log/log"}`)
+	beego.BeeLogger.SetLogger("file", `{"filename": "log/log.log"}`)
 
 	initStaticPath()
 	initTemplateExt()

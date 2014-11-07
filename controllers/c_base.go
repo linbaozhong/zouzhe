@@ -3,15 +3,15 @@ package controllers
 import (
 	"fmt"
 	"net/url"
-	"zouzhe/models"
-	"zouzhe/utils"
-	"github.com/astaxie/beego"
-	"github.com/beego/i18n"
-
 	"reflect"
 	"regexp"
 	"strings"
 	"time"
+	"zouzhe/models"
+	"zouzhe/utils"
+
+	"github.com/astaxie/beego"
+	"github.com/beego/i18n"
 )
 
 type langType struct {
@@ -36,8 +36,8 @@ func init() {
 	//log = logs.NewLogger(10000)
 
 	// 引用beego官网代码
-	langs := strings.Split(beego.AppConfig.String("lang::types"), "|")
-	names := strings.Split(beego.AppConfig.String("lang::names"), "|")
+	langs := strings.Split(appconf("lang::types"), "|")
+	names := strings.Split(appconf("lang::names"), "|")
 	langTypes = make([]*langType, 0, len(langs))
 	for i, v := range langs {
 		langTypes = append(langTypes, &langType{
@@ -56,7 +56,7 @@ func init() {
 }
 
 //读取配置
-func conf(key string) string {
+func appconf(key string) string {
 	return beego.AppConfig.String(key)
 }
 
