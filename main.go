@@ -15,6 +15,7 @@ const (
 
 func main() {
 	beego.Info(beego.AppName, APP_VER)
+
 	beego.Run()
 }
 

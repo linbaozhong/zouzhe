@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -17,4 +18,9 @@ func Str2int(s string) (int, error) {
 //整形转字符串
 func Int2str(i int) string {
 	return strconv.Itoa(i)
+}
+
+//字符串接口 转 字符串
+func Interface2str(v interface{}) string {
+	return fmt.Sprintf("%s", v)
 }

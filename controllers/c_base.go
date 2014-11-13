@@ -389,6 +389,14 @@ func (this *Base) end() {
 
 	this.StopRun()
 }
+func (this *Base) SetTplNames(name ...string) {
+	c, a := this.Controller.GetControllerAndAction()
+
+	if len(name) > 0 && name[0] != "" {
+		a = name[0]
+	}
+	this.TplNames = strings.ToLower(fmt.Sprintf("%s/%s.html", c, a))
+}
 
 /*
 * 跟踪

@@ -40,32 +40,37 @@
 	</div>
 </div>
 <script type="text/javascript">
-	QC.Login({},
-		function(u, o) {
-			if (u.ret != 0) {
-				return;
-			};
+	// QC.Login({},
+	// 	function(u, o) {
+	// 		if (u.ret != 0) {
+	// 			return;
+	// 		};
 
-			snow.account.nickName = u.nickname;
-			snow.account.avatar = u.figureurl_1;
+	// 		snow.account.nickName = u.nickname;
+	// 		snow.account.avatar = u.figureurl_1;
 
-			checkin(snow.account.nickName, snow.account.avatar);
-			$("#checkin-dialog").fadeOut(snow.speed);
+	// 		checkin(snow.account.nickName, snow.account.avatar);
+	// 		$("#checkin-dialog").fadeOut(snow.speed);
 
-			QC.Login.getMe(function(openId, accessToken) {
-				snow.account.openFrom = 'qq';
-				snow.account.openId = openId;
-				snow.account.accessToken = accessToken;
-				//检查并写入新账户
-				//register();
-			});
-		},
-		function() {
-			checkout();
-		}
-	);
+	// 		QC.Login.getMe(function(openId, accessToken) {
+	// 			snow.account.openFrom = 'qq';
+	// 			snow.account.openId = openId;
+	// 			snow.account.accessToken = accessToken;
+	// 			//检查并写入新账户
+	// 			//register();
+	// 		});
+	// 	},
+	// 	function() {
+	// 		checkout();
+	// 	}
+	// );
 	
 	$("#qqLogin").click(function() {
-		QC.Login.showPopup();
+		//QC.Login.showPopup();
+		window.open('/connect/qq_login');
 	});
+
+	function qq_login(id,token){
+
+	}
 </script>
