@@ -40,37 +40,34 @@
 	</div>
 </div>
 <script type="text/javascript">
-	// QC.Login({},
-	// 	function(u, o) {
-	// 		if (u.ret != 0) {
-	// 			return;
-	// 		};
-
-	// 		snow.account.nickName = u.nickname;
-	// 		snow.account.avatar = u.figureurl_1;
-
-	// 		checkin(snow.account.nickName, snow.account.avatar);
-	// 		$("#checkin-dialog").fadeOut(snow.speed);
-
-	// 		QC.Login.getMe(function(openId, accessToken) {
-	// 			snow.account.openFrom = 'qq';
-	// 			snow.account.openId = openId;
-	// 			snow.account.accessToken = accessToken;
-	// 			//检查并写入新账户
-	// 			//register();
-	// 		});
-	// 	},
-	// 	function() {
-	// 		checkout();
-	// 	}
-	// );
-	
 	$("#qqLogin").click(function() {
 		//QC.Login.showPopup();
-		window.open('/connect/qq_login');
+		window.open('/connect/qq_login','sign_dialog','width=600,height=420,menubar=no,scrollbars=yes, resizable=yes,status=yes,titlebar=no,toolbar=no,location=yes');
 	});
 
-	function qq_login(id,token){
+	function open_login(u){
+		snow.account.nickName = u.Nickname;
+		snow.account.gender = u.Gender;
+		snow.account.avatar = u.Avatar_1;
+		snow.account.openFrom = u.From;
+		snow.account.openId = u.OpenId;
+		snow.account.accessToken = u.Token;
 
+		checkin();
+		$("#checkin-dialog").fadeOut(snow.speed);
+
+		//记录登录状态
+		$.get(snow.api.signTrace,{
+			form:u.From,
+			token:u.Token,
+			openId:u.OpenId,
+			nickName:u.Nickname,
+			gender:u.Gender,
+			refresh:u.Refresh,
+			avatar_1:u.Avatar_1,
+			avatar_2:u.Avatar_2
+		},function(d){
+			log(d);
+		});
 	}
 </script>

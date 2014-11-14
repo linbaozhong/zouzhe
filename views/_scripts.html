@@ -12,7 +12,16 @@
 	snow.year = snow.date.getYear();
 	snow.month = snow.date.getMonth() + 1;
 	snow.day = snow.date.getDate();
-	snow.account = {};
+	snow.account = {
+		nickName:$.cookie('nickname'),
+		avatar:$.cookie('avatar'),
+		openFrom:$.cookie('from'),
+		accessToken:$.cookie('token')
+	};
+	snow.checkin = $.cookie('_snow_key') && $.cookie('_snow_key').length>0;
+	snow.api={
+		signTrace:'/connect/signtrace'
+	};
 
 	/*
 	 * header位置重绘
@@ -52,11 +61,11 @@
 	/*
 	 * 签入
 	 */
-	function checkin(name,avatar) {
+	function checkin() {
 		var _checkin = [];
 		_checkin.push('<button class="dropdown-list-toggle element image-button image-left">');
-		_checkin.push(name);
-		_checkin.push('<img src="'+avatar+'">');
+		_checkin.push(snow.account.nickName);
+		_checkin.push('<img src="'+snow.account.avatar+'">');
 		_checkin.push('</button>');
 		_checkin.push('<ul class="place-top-right dropdown-list border">');
 		_checkin.push('<li><a href="#"><i class="icon- on-left">　</i>我的主页</a></li>');
@@ -64,6 +73,7 @@
 		_checkin.push('<li><a href="#"><i class="icon- on-left">　</i>设置</a></li>');
 		_checkin.push('<li id="checkout"><a href="#"><i class="icon-exit on-left"></i>退出</a></li></ul>');
 		$("#account").empty().html(_checkin.join(''));
+		//
 	};
 	/*
 	 * 签出
@@ -134,7 +144,7 @@
 		/*
 		 * 检查登录状态
 		 */
-		if (snow.checkin || QC.Login.check()) {
+		if (snow.checkin) {
 			checkin();
 		} else {
 			checkout();

@@ -22,5 +22,13 @@ func Int2str(i int) string {
 
 //字符串接口 转 字符串
 func Interface2str(v interface{}) string {
-	return fmt.Sprintf("%s", v)
+	switch v.(type) {
+	case float64, int, int32, int64:
+		return fmt.Sprintf("%g", v)
+	case nil:
+		return "null"
+	default:
+		return fmt.Sprintf("%s", v)
+	}
+
 }

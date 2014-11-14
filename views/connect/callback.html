@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	{{template "_head.html" .}}
+	<script type="text/javascript">
+
+		window.opener.open_login({{.sign}});
+	 	window.opener =null;
+		window.open('','_self','');//for IE7
+		window.close(); 
+
+	</script>
+</head>
+
+<body></body>
+
+</html>

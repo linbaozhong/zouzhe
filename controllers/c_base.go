@@ -28,12 +28,13 @@ type Base struct {
 const sub = "\\w\u4e00-\u9fa5"
 
 var (
-	//log *logs.BeeLogger
-	langTypes []*langType
+	siteDomain string //网站域
+	langTypes  []*langType
 )
 
 func init() {
-	//log = logs.NewLogger(10000)
+
+	siteDomain = appconf("site::domain")
 
 	// 引用beego官网代码
 	langs := strings.Split(appconf("lang::types"), "|")
@@ -389,6 +390,13 @@ func (this *Base) end() {
 
 	this.StopRun()
 }
+
+// 写入cookie
+func (this *Base) cookie(name, value string) {
+	this.Ctx.SetCookie(name, value, 1<<31-1, "/", siteDomain)
+}
+
+// 设置模板文件
 func (this *Base) SetTplNames(name ...string) {
 	c, a := this.Controller.GetControllerAndAction()
 
@@ -396,6 +404,21 @@ func (this *Base) SetTplNames(name ...string) {
 		a = name[0]
 	}
 	this.TplNames = strings.ToLower(fmt.Sprintf("%s/%s.html", c, a))
+}
+
+//签名
+func (this *Base) _sonw_key(id, from string) string {
+	return utils.MD5Ex(fmt.Sprintf("%s_%s", id, from))
+}
+
+// 签入
+func (this *Base) signin(key string) {
+	this.cookie("_snow_key", key)
+}
+
+// 签出
+func (this *Base) signout() {
+	this.cookie("_snow_key", "")
 }
 
 /*
