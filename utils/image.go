@@ -15,6 +15,7 @@ import (
 	"image"
 	"path/filepath"
 	"regexp"
+	"strconv"
 )
 
 type Image struct {
@@ -99,7 +100,7 @@ func (this *Image) dstFilename(t int) (string, error) {
 		this.UserPath = "0"
 	}
 	//文件夹
-	path := filepath.Join(this.imagePath(), Int2str(t))
+	path := filepath.Join(this.imagePath(), strconv.Itoa(t))
 
 	if err := GetDir(path); err != nil {
 		return "", err

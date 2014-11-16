@@ -1,12 +1,12 @@
 package main
 
 import (
+	"github.com/astaxie/beego"
+	"github.com/beego/i18n"
 	"os"
 	"time"
 	_ "zouzhe/routers"
-
-	"github.com/astaxie/beego"
-	"github.com/beego/i18n"
+	//"zouzhe/utils"
 )
 
 const (
@@ -20,7 +20,7 @@ func main() {
 }
 
 func init() {
-	beego.SetLevel(beego.LevelInformational)
+	//beego.SetLevel(beego.LevelInformational)
 	os.Mkdir("./log", os.ModePerm)
 	//日志文件名
 	beego.BeeLogger.SetLogger("file", `{"filename": "log/log.log"}`)

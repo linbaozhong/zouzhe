@@ -2,16 +2,16 @@ package controllers
 
 import (
 	"fmt"
+	"github.com/astaxie/beego"
+	"github.com/beego/i18n"
 	"net/url"
 	"reflect"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 	"zouzhe/models"
 	"zouzhe/utils"
-
-	"github.com/astaxie/beego"
-	"github.com/beego/i18n"
 )
 
 type langType struct {
@@ -62,6 +62,8 @@ func appconf(key string) string {
 }
 
 func (this *Base) Prepare() {
+	this.currentUser = new(models.Current)
+
 	this.initPage()
 }
 
@@ -268,7 +270,7 @@ func (this *Base) isOutLink() bool {
 
 //获取URL参数
 func (this *Base) getParamsInt64(key string) (int64, error) {
-	i64, err := utils.Str2int64(this.getParamsString(key))
+	i64, err := strconv.ParseInt(this.getParamsString(key), 10, 64)
 	return i64, err
 }
 
@@ -282,50 +284,76 @@ func (this *Base) getParamsString(key string) string {
 }
 
 //验证合法用户
-func (this *Base) validUser() (*models.Current, bool) {
-	coo := this.Ctx.GetCookie(beego.AppConfig.String("CookieName"))
+// func (this *Base) validUser() (*models.Current, bool) {
 
-	if coo == "" {
-		return nil, false
-	}
+// 	this.currentUser.Id , _ = utils.Str2int64(this.Ctx.GetCookie("_snow_id"))
 
-	this.currentUser = this.GetCurrentUser(coo)
+// 	if this.currentUser.Id == 0 {
+// 		return nil, false
+// 	}
+// 	// 来自第三方平台的账户
+// 	this.currentUser.From = this.Ctx.GetCookie("from")
+// 	//
+// 	if this._sonw_token(this.currentUser.Id,this.currentUser.From )==this.Ctx.GetCookie("_snow_key") {
 
-	if this.currentUser.Id == 0 {
-		return nil, false
-	}
+// 	}
 
-	return this.currentUser, true
-}
+// 	return this.currentUser, true
+// }
 
 //允许新的请求，数据通用字段初始信息，附带验证用户是否合法(err)，
-func (this *Base) allowRequest() (ok bool) {
-	_, ok = this.validUser()
+func (this *Base) allowRequest() bool {
 
-	return
+	this.currentUser.Id, _ = strconv.ParseInt(this.Ctx.GetCookie("_snow_id"), 10, 64)
+
+	if this.currentUser.Id == 0 {
+		return false
+	}
+	// 来自第三方平台的账户
+	this.currentUser.From = this.Ctx.GetCookie("from")
+	//
+	return this._sonw_token(this.currentUser.Id, this.currentUser.From) == this.Ctx.GetCookie("_snow_token")
 }
 
-//读取登录用户的Cookie信息
-func (this *Base) GetCurrentUser(cookie string) (currentuser *models.Current) {
-	currentuser = new(models.Current)
+// //读取登录用户的Cookie信息
+// func (this *Base) GetCurrentUser(cookie string) (currentuser *models.Current) {
+// 	currentuser = new(models.Current)
 
-	cookie = utils.CookieDecode(cookie)
+// 	cookie = utils.CookieDecode(cookie)
 
-	//拆分cookie
-	curr := strings.Split(cookie, "|")
-	if len(curr) > 0 {
-		currentuser.Id, _ = utils.Str2int64(curr[0]) //strconv.ParseInt(curr[0], 10, 0)
+// 	//拆分cookie
+// 	curr := strings.Split(cookie, "|")
+// 	if len(curr) > 0 {
+// 		currentuser.Id, _ = utils.Str2int64(curr[0]) //strconv.ParseInt(curr[0], 10, 0)
+// 	}
+// 	if len(curr) > 1 {
+// 		currentuser.Name = curr[1]
+// 	}
+// 	if len(curr) > 2 {
+// 		currentuser.Avatar = curr[2]
+// 	}
+// 	if len(curr) > 3 {
+// 		currentuser.Role = curr[3]
+// 	}
+// 	return
+// }
+
+/*
+* 返回form表单中checkbox的状态值的bool形式
+ */
+func (this *Base) getCheckboxBool(key string) bool {
+	return strings.ToLower(this.GetString(key)) == "on"
+}
+
+/*
+* 返回form表单中checkbox的状态值的int形式
+ */
+func (this *Base) getCheckboxInt(key string) int {
+	if this.getCheckboxBool(key) {
+		return 1
+	} else {
+		return 0
 	}
-	if len(curr) > 1 {
-		currentuser.Name = curr[1]
-	}
-	if len(curr) > 2 {
-		currentuser.Avatar = curr[2]
-	}
-	if len(curr) > 3 {
-		currentuser.Role = curr[3]
-	}
-	return
 }
 
 /*
@@ -407,18 +435,20 @@ func (this *Base) SetTplNames(name ...string) {
 }
 
 //签名
-func (this *Base) _sonw_key(id, from string) string {
-	return utils.MD5Ex(fmt.Sprintf("%s_%s", id, from))
+func (this *Base) _sonw_token(id int64, from string) string {
+	return utils.MD5Ex(fmt.Sprintf("%d_%s", id, from))
 }
 
 // 签入
-func (this *Base) signin(key string) {
-	this.cookie("_snow_key", key)
+func (this *Base) loginIn(id int64, from string) {
+	this.cookie("from", from)
+	this.cookie("_snow_id", strconv.FormatInt(id, 10))
+	this.cookie("_snow_token", this._sonw_token(id, from))
 }
 
 // 签出
-func (this *Base) signout() {
-	this.cookie("_snow_key", "")
+func (this *Base) loginOut() {
+	this.cookie("_snow_token", "")
 }
 
 /*
@@ -426,5 +456,5 @@ func (this *Base) signout() {
  */
 func (this *Base) Trace(v ...interface{}) {
 	c, a := this.Controller.GetControllerAndAction()
-	beego.Trace(fmt.Sprintf("Controller:%s Action:%s ", c, a) + fmt.Sprintf("Info:%v", v...))
+	beego.Trace(fmt.Sprintf("%s/%s ", c, a) + fmt.Sprintf("Info:%v", v...))
 }

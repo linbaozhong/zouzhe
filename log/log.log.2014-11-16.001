@@ -1,0 +1,136 @@
+2014/11/15 17:51:49 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 17:52:06 [app.go:96] [I] http server Running on :80
+2014/11/15 18:28:40 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 18:28:41 [app.go:96] [I] http server Running on :80
+2014/11/15 18:29:23 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 18:29:23 [app.go:96] [I] http server Running on :80
+2014/11/15 18:41:12 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 18:41:12 [app.go:96] [I] http server Running on :80
+2014/11/15 18:41:46 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 18:41:46 [app.go:96] [I] http server Running on :80
+2014/11/15 18:42:18 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 18:42:19 [app.go:96] [I] http server Running on :80
+2014/11/15 18:44:47 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 18:44:47 [app.go:96] [I] http server Running on :80
+2014/11/15 18:48:34 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 18:48:34 [app.go:96] [I] http server Running on :80
+2014/11/15 21:06:29 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 21:06:29 [app.go:96] [I] http server Running on :80
+2014/11/15 21:15:54 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 21:15:54 [app.go:96] [I] http server Running on :80
+2014/11/15 21:18:44 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 21:18:44 [app.go:96] [I] http server Running on :80
+2014/11/15 21:20:21 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 21:20:21 [app.go:96] [I] http server Running on :80
+2014/11/15 21:33:04 [log.go:108] [D] Loading language: zh-CN 
+2014/11/15 21:33:04 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 21:33:04 [app.go:96] [I] http server Running on :80
+2014/11/15 21:33:20 [router.go:845] [D] | GET        | /connect/qq_login                        | 14.0008ms        | match      | /connect/qq_login/*                      | 
+2014/11/15 21:33:24 [log.go:108] [D] Controller:Connect Action:QQ_Callback Info:&{0  0 qq 769730D627FD70BF6FBC376B5554E4C5 5B9F45C11278896121B34468BBEE2C0D 17B16261244FECB04470F4002D52FF4E 哈利蔺特 男 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/40 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/100} 
+2014/11/15 21:33:24 [router.go:845] [D] | GET        | /connect/qq_callback                     | 2.3001315s       | match      | /connect/qq_callback/*                   | 
+2014/11/15 21:33:24 [log.go:108] [D] Controller:Connect Action:SignTrace Info:创建新的账户 
+2014/11/15 21:33:25 [log.go:108] [D] Controller:Connect Action:SignTrace Info:&{1   哈利蔺特 769730D627FD70BF6FBC376B5554E4C5  哈利蔺特 1 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/40 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/100 5B9F45C11278896121B34468BBEE2C0D 17B16261244FECB04470F4002D52FF4E 0 0 0 1416058404786 127.0.0.1} 
+2014/11/15 21:33:25 [router.go:845] [D] | GET        | /connect/signtrace                       | 233.0134ms       | match      | /connect/signtrace/*                     | 
+2014/11/15 21:33:36 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 21:33:37 [app.go:96] [I] http server Running on :80
+2014/11/15 21:35:38 [router.go:845] [D] | GET        | /ifr_status/                             | 16.001ms         | notmatch   | 
+2014/11/15 21:37:06 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2014/11/15 22:05:38 [router.go:845] [D] | GET        | /ifr_status/                             | 29.0017ms        | notmatch   | 
+2014/11/15 22:20:11 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 22:20:11 [main.go:18] [I] 1416061211472 
+2014/11/15 22:20:11 [main.go:19] [I] 2014-11-15 22:20:11.472 +0800 CST 
+2014/11/15 22:20:11 [app.go:96] [I] http server Running on :80
+2014/11/15 22:20:15 [router.go:845] [D] | GET        | /ifr_status/                             | 16.0009ms        | notmatch   | 
+2014/11/15 22:41:59 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 22:41:59 [main.go:18] [I] 1416062519612 
+2014/11/15 22:41:59 [main.go:19] [I] 2014-11-15 22:41:59.612 +0800 CST 
+2014/11/15 22:41:59 [app.go:96] [I] http server Running on :80
+2014/11/15 22:42:36 [log.go:108] [D] Loading language: zh-CN 
+2014/11/15 22:42:36 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 22:42:36 [main.go:18] [I] 1416062556444 
+2014/11/15 22:42:36 [main.go:19] [I] 2014-11-15 22:42:36.444 +0800 CST 
+2014/11/15 22:42:36 [app.go:96] [I] http server Running on :80
+2014/11/15 22:47:33 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 22:47:33 [app.go:96] [I] http server Running on :80
+2014/11/15 22:48:09 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 22:48:09 [app.go:96] [I] http server Running on :80
+2014/11/15 22:50:15 [router.go:845] [D] | GET        | /ifr_status/                             | 17.001ms         | notmatch   | 
+2014/11/15 23:09:32 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:09:33 [app.go:96] [I] http server Running on :80
+2014/11/15 23:10:43 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:10:43 [app.go:96] [I] http server Running on :80
+2014/11/15 23:11:46 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:11:46 [app.go:96] [I] http server Running on :80
+2014/11/15 23:15:27 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:15:27 [app.go:96] [I] http server Running on :80
+2014/11/15 23:15:59 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:15:59 [app.go:96] [I] http server Running on :80
+2014/11/15 23:20:15 [router.go:845] [D] | GET        | /ifr_status/                             | 17.001ms         | notmatch   | 
+2014/11/15 23:28:28 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:28:28 [app.go:96] [I] http server Running on :80
+2014/11/15 23:35:21 [router.go:845] [D] | GET        | /                                        | 44.0025ms        | match      | /                                        | 
+2014/11/15 23:35:27 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:35:27 [app.go:96] [I] http server Running on :80
+2014/11/15 23:35:29 [router.go:876] [C] the request url is  /profile 
+2014/11/15 23:35:29 [router.go:877] [C] Handler crashed with error runtime error: invalid memory address or nil pointer dereference 
+2014/11/15 23:35:29 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/15 23:35:29 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2014/11/15 23:35:29 [router.go:883] [C] c:/go/src/pkg/runtime/os_windows.c:359 
+2014/11/15 23:35:29 [router.go:883] [C] F:/baiducloud/GoWalker/src/zouzhe/controllers/c_base.go:304 
+2014/11/15 23:35:29 [router.go:883] [C] F:/baiducloud/GoWalker/src/zouzhe/controllers/c_auth_base.go:13 
+2014/11/15 23:35:29 [router.go:883] [C] F:/baiducloud/GoWalker/src/github.com/astaxie/beego/router.go:760 
+2014/11/15 23:35:29 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/15 23:35:29 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/15 23:35:29 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/15 23:35:56 [router.go:876] [C] the request url is  /profile 
+2014/11/15 23:35:56 [router.go:877] [C] Handler crashed with error runtime error: invalid memory address or nil pointer dereference 
+2014/11/15 23:35:56 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/15 23:35:56 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2014/11/15 23:35:56 [router.go:883] [C] c:/go/src/pkg/runtime/os_windows.c:359 
+2014/11/15 23:35:56 [router.go:883] [C] F:/baiducloud/GoWalker/src/zouzhe/controllers/c_base.go:304 
+2014/11/15 23:35:56 [router.go:883] [C] F:/baiducloud/GoWalker/src/zouzhe/controllers/c_auth_base.go:13 
+2014/11/15 23:35:56 [router.go:883] [C] F:/baiducloud/GoWalker/src/github.com/astaxie/beego/router.go:760 
+2014/11/15 23:35:56 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/15 23:35:56 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/15 23:35:56 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/15 23:38:47 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:38:47 [app.go:96] [I] http server Running on :80
+2014/11/15 23:38:51 [router.go:876] [C] the request url is  /profile 
+2014/11/15 23:38:51 [router.go:877] [C] Handler crashed with error runtime error: invalid memory address or nil pointer dereference 
+2014/11/15 23:38:51 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/15 23:38:51 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2014/11/15 23:38:51 [router.go:883] [C] c:/go/src/pkg/runtime/os_windows.c:359 
+2014/11/15 23:38:51 [router.go:883] [C] F:/baiducloud/GoWalker/src/zouzhe/controllers/c_base.go:304 
+2014/11/15 23:38:51 [router.go:883] [C] F:/baiducloud/GoWalker/src/zouzhe/controllers/c_auth_base.go:13 
+2014/11/15 23:38:51 [router.go:883] [C] F:/baiducloud/GoWalker/src/github.com/astaxie/beego/router.go:760 
+2014/11/15 23:38:51 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/15 23:38:51 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/15 23:38:51 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/15 23:45:14 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:45:14 [app.go:96] [I] http server Running on :80
+2014/11/15 23:47:17 [log.go:108] [D] Profile/GET Info:无效用户 
+2014/11/15 23:47:17 [log.go:108] [D] Profile/GET Info:无效用户 
+2014/11/15 23:47:17 [router.go:845] [D] | GET        | /profile                                 | 42.0024ms        | match      | /profile                                 | 
+2014/11/15 23:48:20 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:48:20 [app.go:96] [I] http server Running on :80
+2014/11/15 23:48:24 [log.go:108] [D] Profile/GET Info:无效用户 
+2014/11/15 23:48:24 [log.go:108] [D] Profile/GET Info:无效用户 
+2014/11/15 23:48:24 [router.go:845] [D] | GET        | /profile                                 | 15.0009ms        | match      | /profile                                 | 
+2014/11/15 23:51:10 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:51:10 [app.go:96] [I] http server Running on :80
+2014/11/15 23:51:15 [log.go:108] [D] Profile/GET Info:无效用户 
+2014/11/15 23:51:15 [log.go:108] [D] Profile/GET Info:zh-CN 
+2014/11/15 23:51:15 [router.go:845] [D] | GET        | /profile                                 | 9.0006ms         | match      | /profile                                 | 
+2014/11/15 23:51:58 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:51:58 [app.go:96] [I] http server Running on :80
+2014/11/15 23:52:02 [log.go:108] [D] Profile/GET Info:无效用户 
+2014/11/15 23:52:02 [log.go:108] [D] Profile/GET Info: 
+2014/11/15 23:52:02 [router.go:845] [D] | GET        | /profile                                 | 16.0009ms        | match      | /profile                                 | 
+2014/11/15 23:54:03 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:54:03 [app.go:96] [I] http server Running on :80
+2014/11/15 23:54:07 [log.go:108] [D] Profile/GET Info:无效用户 
+2014/11/15 23:54:14 [log.go:108] [D] Profile/GET Info:无效用户 
+2014/11/15 23:55:31 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:55:31 [app.go:96] [I] http server Running on :80
+2014/11/15 23:57:26 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/15 23:57:26 [app.go:96] [I] http server Running on :80

@@ -1,10 +1,25 @@
 package controllers
 
+import (
+	"zouzhe/utils"
+)
+
 type Auth struct {
 	Base
 }
 
 func (this *Auth) Prepare() {
+	this.Base.Prepare()
+	// 检查当前用户是否合法用户
+	if !this.allowRequest() {
+		if this.IsAjax() {
+			this.renderJson(utils.JsonMessage(false, "", "无效用户"))
+			this.end()
+		} else {
+			// 跳转到错误页
+			this.end()
+		}
+	}
 	this.Layout = "_frontLayout.html"
 	this.LayoutSections = make(map[string]string)
 	this.LayoutSections["Head"] = "_head.html"
@@ -15,5 +30,5 @@ func (this *Auth) Prepare() {
 }
 
 func (this *Auth) Finish() {
-
+	this.Trace(this.Lang)
 }

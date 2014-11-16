@@ -8,21 +8,30 @@ import (
 	//"notes/logs"
 )
 
+// 账户
 type Accounts struct {
-	Id          int64  `json:"accoundId"`
-	LoginName   string `json:"loginName" valid:"MaxSize(100)"`
-	Password    string `json:"password"`
-	RealName    string `json:"realName" valid:"MaxSize(50)"`
-	OpenId      string `json:"openId" valid:"MaxSize(32)"`
-	OpenFrom    string `json:"openFrom" valid:"MaxSize(10)"`
-	NickName    string `json:"nickName" valid:"MaxSize(50)"`
-	Avatar      string `json:"avatar" valid:"MaxSize(250)"`
-	AccessToken string `json:"accessToken" valid:"MaxSize(32)"`
-	Status      int    `json:"status" valid:"Range(0,1)"`
-	Deleted     int    `json:"deleted" valid:"Range(0,1)"`
-	Updator     int64  `json:"updator"`
-	Updated     int64  `json:"updated"`
-	Ip          string `json:"ip" valid:"MaxSize(23)"`
+	Id           int64  `json:"accoundId"`
+	LoginName    string `json:"loginName" valid:"MaxSize(100)"`
+	Password     string `json:"password"`
+	RealName     string `json:"realName" valid:"MaxSize(50)"`
+	OpenId       string `json:"openId" valid:"MaxSize(32)"`
+	OpenFrom     string `json:"openFrom" valid:"MaxSize(10)"`
+	NickName     string `json:"nickName" valid:"MaxSize(50)"`
+	Gender       int    `json:"gender" valid:"Range(0,1)"`
+	Avatar_1     string `json:"avatar_1" valid:"MaxSize(250)"`
+	Avatar_2     string `json:"avatar_2" valid:"MaxSize(250)"`
+	AccessToken  string `json:"accessToken" valid:"MaxSize(32)"`
+	RefreshToken string `json:"refreshToken" valid:"MaxSize(32)"`
+	Status       int    `json:"status" valid:"Range(0,1)"`
+	Deleted      int    `json:"deleted" valid:"Range(0,1)"`
+	Updator      int64  `json:"updator"`
+	Updated      int64  `json:"updated"`
+	Ip           string `json:"ip" valid:"MaxSize(23)"`
+}
+
+// 账号是否存在
+func (this *Accounts) Exists() (bool, error) {
+	return db.Get(this)
 }
 
 //
@@ -34,7 +43,7 @@ func (this *Accounts) Valid(v *validation.Validation) {
 }
 
 //
-func (this *Accounts) New() (int64, error, []Error) {
+func (this *Accounts) Post() (int64, error, []Error) {
 
 	if this.RealName == "" {
 		this.RealName = this.NickName
@@ -48,7 +57,16 @@ func (this *Accounts) New() (int64, error, []Error) {
 	return id, err, nil
 }
 
-//是否存在
-func (this *Accounts) Exists() (bool, error) {
-	return db.Get(this)
+// --------------------------------------------------
+// 登录日志
+type LoginLog struct {
+	Id        int64  `json:"loginId"`
+	AccountId int64  `json:"accoundId"`
+	Updated   int64  `json:"loginTime"`
+	Ip        string `json:"ip" valid:"MaxSize(23)"`
+}
+
+//
+func (this *LoginLog) Post() (int64, error) {
+	return db.Insert(this)
 }

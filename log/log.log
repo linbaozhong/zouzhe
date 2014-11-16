@@ -1,0 +1,159 @@
+2014/11/16 00:02:39 [router.go:845] [D] | GET        | /                                        | 34.0019ms        | match      | /                                        | 
+2014/11/16 00:02:55 [router.go:845] [D] | GET        | /account/signOut                         | 0                | match      | /account/signout/*                       | 
+2014/11/16 00:03:02 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2014/11/16 00:03:10 [log.go:108] [D] Connect/QQ_Callback Info:&{0  0 qq 769730D627FD70BF6FBC376B5554E4C5 5B9F45C11278896121B34468BBEE2C0D 17B16261244FECB04470F4002D52FF4E 哈利蔺特 男 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/40 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/100} 
+2014/11/16 00:03:10 [router.go:845] [D] | GET        | /connect/qq_callback                     | 2.5281446s       | match      | /connect/qq_callback/*                   | 
+2014/11/16 00:03:11 [log.go:108] [D] Connect/SignTrace Info:创建新的账户 
+2014/11/16 00:03:11 [router.go:876] [C] the request url is  /connect/signtrace 
+2014/11/16 00:03:11 [router.go:877] [C] Handler crashed with error runtime error: invalid memory address or nil pointer dereference 
+2014/11/16 00:03:11 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/16 00:03:11 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2014/11/16 00:03:11 [router.go:883] [C] c:/go/src/pkg/runtime/os_windows.c:359 
+2014/11/16 00:03:11 [router.go:883] [C] F:/baiducloud/GoWalker/src/zouzhe/controllers/c_connect.go:338 
+2014/11/16 00:03:11 [router.go:883] [C] c:/go/src/pkg/runtime/asm_386.s:383 
+2014/11/16 00:03:11 [router.go:883] [C] c:/go/src/pkg/reflect/value.go:563 
+2014/11/16 00:03:11 [router.go:883] [C] c:/go/src/pkg/reflect/value.go:411 
+2014/11/16 00:03:11 [router.go:883] [C] F:/baiducloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2014/11/16 00:03:11 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/16 00:03:11 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/16 00:03:11 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/16 00:03:15 [router.go:845] [D] | GET        | /                                        | 37.0021ms        | match      | /                                        | 
+2014/11/16 00:14:17 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 00:14:17 [app.go:96] [I] http server Running on :80
+2014/11/16 00:38:28 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 00:38:28 [app.go:96] [I] http server Running on :80
+2014/11/16 00:39:03 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 00:39:03 [app.go:96] [I] http server Running on :80
+2014/11/16 00:40:52 [router.go:845] [D] | GET        | /                                        | 34.002ms         | match      | /                                        | 
+2014/11/16 00:53:16 [router.go:845] [D] | GET        | /                                        | 26.0015ms        | match      | /                                        | 
+2014/11/16 00:53:48 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2014/11/16 00:53:53 [log.go:108] [D] Connect/QQ_Callback Info:&{0  0 qq 769730D627FD70BF6FBC376B5554E4C5 5B9F45C11278896121B34468BBEE2C0D 17B16261244FECB04470F4002D52FF4E 哈利蔺特 男 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/40 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/100} 
+2014/11/16 00:53:53 [router.go:845] [D] | GET        | /connect/qq_callback                     | 2.0021145s       | match      | /connect/qq_callback/*                   | 
+2014/11/16 00:53:53 [log.go:108] [D] Connect/SignTrace Info:记录登录日志 
+2014/11/16 00:53:53 [router.go:876] [C] the request url is  /connect/signtrace 
+2014/11/16 00:53:53 [router.go:877] [C] Handler crashed with error runtime error: invalid memory address or nil pointer dereference 
+2014/11/16 00:53:53 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/16 00:53:53 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2014/11/16 00:53:53 [router.go:883] [C] c:/go/src/pkg/runtime/os_windows.c:359 
+2014/11/16 00:53:53 [router.go:883] [C] F:/baiducloud/GoWalker/src/zouzhe/controllers/c_connect.go:339 
+2014/11/16 00:53:53 [router.go:883] [C] c:/go/src/pkg/runtime/asm_386.s:383 
+2014/11/16 00:53:53 [router.go:883] [C] c:/go/src/pkg/reflect/value.go:563 
+2014/11/16 00:53:53 [router.go:883] [C] c:/go/src/pkg/reflect/value.go:411 
+2014/11/16 00:53:53 [router.go:883] [C] F:/baiducloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2014/11/16 00:53:53 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/16 00:53:53 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/16 00:53:53 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/16 00:57:20 [router.go:845] [D] | GET        | /                                        | 40.0023ms        | match      | /                                        | 
+2014/11/16 01:00:26 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 01:00:26 [app.go:96] [I] http server Running on :80
+2014/11/16 01:01:31 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 01:01:31 [app.go:96] [I] http server Running on :80
+2014/11/16 17:34:26 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 17:34:32 [app.go:96] [I] http server Running on :80
+2014/11/16 17:34:59 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 17:34:59 [app.go:96] [I] http server Running on :80
+2014/11/16 17:35:46 [router.go:845] [D] | GET        | /                                        | 35.002ms         | match      | /                                        | 
+2014/11/16 17:35:54 [router.go:845] [D] | GET        | /                                        | 25.0014ms        | match      | /                                        | 
+2014/11/16 17:36:03 [router.go:845] [D] | GET        | /                                        | 43.0024ms        | match      | /                                        | 
+2014/11/16 17:36:27 [router.go:845] [D] | GET        | /connect/qq_login                        | 1ms              | match      | /connect/qq_login/*                      | 
+2014/11/16 17:36:34 [log.go:108] [D] Connect/QQ_Callback Info:&{0  0 qq 769730D627FD70BF6FBC376B5554E4C5 5B9F45C11278896121B34468BBEE2C0D 17B16261244FECB04470F4002D52FF4E 哈利蔺特 男 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/40 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/100} 
+2014/11/16 17:36:34 [router.go:845] [D] | GET        | /connect/qq_callback                     | 1.7120979s       | match      | /connect/qq_callback/*                   | 
+2014/11/16 17:36:35 [log.go:108] [D] Connect/SignTrace Info:记录登录日志 
+2014/11/16 17:36:35 [router.go:845] [D] | GET        | /connect/signtrace                       | 288.0165ms       | match      | /connect/signtrace/*                     | 
+2014/11/16 17:36:42 [router.go:845] [D] | GET        | /                                        | 34.0019ms        | match      | /                                        | 
+2014/11/16 17:37:10 [router.go:845] [D] | GET        | /                                        | 27.0016ms        | match      | /                                        | 
+2014/11/16 17:37:13 [router.go:845] [D] | GET        | /                                        | 26.0015ms        | match      | /                                        | 
+2014/11/16 17:38:02 [log.go:108] [D] Profile/GET Info:zh-CN 
+2014/11/16 17:38:02 [router.go:845] [D] | GET        | /profile                                 | 31.0018ms        | match      | /profile                                 | 
+2014/11/16 17:42:41 [log.go:108] [D] Profile/GET Info:zh-CN 
+2014/11/16 17:42:41 [router.go:845] [D] | GET        | /profile                                 | 34.0019ms        | match      | /profile                                 | 
+2014/11/16 17:43:46 [log.go:108] [D] Profile/GET Info:zh-CN 
+2014/11/16 17:43:46 [router.go:845] [D] | GET        | /profile                                 | 41.0024ms        | match      | /profile                                 | 
+2014/11/16 17:48:39 [log.go:108] [D] Profile/GET Info:zh-CN 
+2014/11/16 17:48:39 [router.go:845] [D] | GET        | /profile                                 | 46.0026ms        | match      | /profile                                 | 
+2014/11/16 17:53:51 [router.go:845] [D] | GET        | /                                        | 35.002ms         | match      | /                                        | 
+2014/11/16 18:02:56 [router.go:845] [D] | GET        | /ifr_status/                             | 1ms              | notmatch   | 
+2014/11/16 18:16:54 [router.go:845] [D] | GET        | /ifr_status/                             | 1ms              | notmatch   | 
+2014/11/16 19:19:56 [router.go:845] [D] | GET        | /account/signOut                         | 206.0118ms       | match      | /account/signout/*                       | 
+2014/11/16 19:20:01 [router.go:845] [D] | GET        | /                                        | 388.0222ms       | match      | /                                        | 
+2014/11/16 19:20:57 [router.go:845] [D] | GET        | /                                        | 46.0026ms        | match      | /                                        | 
+2014/11/16 19:21:10 [router.go:845] [D] | GET        | /                                        | 41.0023ms        | match      | /                                        | 
+2014/11/16 19:22:36 [router.go:845] [D] | GET        | /                                        | 37.0022ms        | match      | /                                        | 
+2014/11/16 19:37:51 [router.go:845] [D] | GET        | /                                        | 87.005ms         | match      | /                                        | 
+2014/11/16 19:42:19 [router.go:845] [D] | GET        | /                                        | 54.0031ms        | match      | /                                        | 
+2014/11/16 19:44:25 [router.go:845] [D] | GET        | /                                        | 61.0035ms        | match      | /                                        | 
+2014/11/16 19:45:55 [router.go:845] [D] | GET        | /                                        | 50.0029ms        | match      | /                                        | 
+2014/11/16 19:47:34 [router.go:845] [D] | GET        | /ifr_status/                             | 141.0081ms       | notmatch   | 
+2014/11/16 20:17:34 [router.go:845] [D] | GET        | /ifr_status/                             | 1ms              | notmatch   | 
+2014/11/16 20:19:22 [router.go:845] [D] | GET        | /                                        | 70.004ms         | match      | /                                        | 
+2014/11/16 20:19:31 [router.go:845] [D] | GET        | /                                        | 36.002ms         | match      | /                                        | 
+2014/11/16 20:20:38 [router.go:845] [D] | GET        | /                                        | 95.0055ms        | match      | /                                        | 
+2014/11/16 20:22:05 [router.go:845] [D] | GET        | /                                        | 47.0027ms        | match      | /                                        | 
+2014/11/16 20:22:10 [router.go:845] [D] | GET        | /connect/qq_login                        | 95.0054ms        | match      | /connect/qq_login/*                      | 
+2014/11/16 20:22:26 [router.go:845] [D] | GET        | /                                        | 110.0063ms       | match      | /                                        | 
+2014/11/16 20:22:49 [router.go:845] [D] | GET        | /                                        | 60.0035ms        | match      | /                                        | 
+2014/11/16 20:22:54 [router.go:845] [D] | GET        | /account/signUp                          | 1ms              | notmatch   | 
+2014/11/16 20:25:16 [router.go:845] [D] | GET        | /                                        | 46.0027ms        | match      | /                                        | 
+2014/11/16 20:25:19 [router.go:845] [D] | GET        | /account/signUp                          | 0                | notmatch   | 
+2014/11/16 20:25:29 [router.go:845] [D] | GET        | /                                        | 101.0058ms       | match      | /                                        | 
+2014/11/16 20:25:32 [router.go:845] [D] | GET        | /account/signUp                          | 1ms              | notmatch   | 
+2014/11/16 20:47:34 [router.go:845] [D] | GET        | /ifr_status/                             | 2.0001ms         | notmatch   | 
+2014/11/16 21:42:09 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 21:42:09 [app.go:96] [I] http server Running on :80
+2014/11/16 21:42:34 [router.go:845] [D] | GET        | /                                        | 58.0033ms        | match      | /                                        | 
+2014/11/16 21:46:46 [router.go:845] [D] | GET        | /                                        | 38.0022ms        | match      | /                                        | 
+2014/11/16 21:46:53 [router.go:845] [D] | GET        | /passwordreset                           | 1ms              | notmatch   | 
+2014/11/16 21:48:30 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 21:48:30 [app.go:96] [I] http server Running on :80
+2014/11/16 21:49:56 [router.go:845] [D] | GET        | /passwordreset                           | 34.002ms         | match      | /passwordreset                           | 
+2014/11/16 21:50:24 [router.go:845] [D] | GET        | /signUp                                  | 2.0001ms         | notmatch   | 
+2014/11/16 21:51:42 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 21:51:42 [app.go:96] [I] http server Running on :80
+2014/11/16 21:51:52 [log.go:108] [D] template Execute err: template: account/signup.html:2:11: executing "account/signup.html" at <.sign.loginName>: loginName is not a field of struct type interface {} 
+2014/11/16 21:51:52 [router.go:876] [C] the request url is  /signUp 
+2014/11/16 21:51:52 [router.go:877] [C] Handler crashed with error template: account/signup.html:2:11: executing "account/signup.html" at <.sign.loginName>: loginName is not a field of struct type interface {} 
+2014/11/16 21:51:52 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/16 21:51:52 [router.go:883] [C] F:/baiducloud/GoWalker/src/github.com/astaxie/beego/router.go:802 
+2014/11/16 21:51:52 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/16 21:51:52 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/16 21:51:52 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/16 22:00:22 [router.go:845] [D] | GET        | /ifr_status/                             | 1.0001ms         | notmatch   | 
+2014/11/16 22:08:57 [router.go:845] [D] | GET        | /signUp                                  | 7.0004ms         | match      | /signup                                  | 
+2014/11/16 22:12:30 [router.go:845] [D] | GET        | /signUp                                  | 15.0008ms        | match      | /signup                                  | 
+2014/11/16 22:12:36 [router.go:845] [D] | GET        | /signUp                                  | 32.0019ms        | match      | /signup                                  | 
+2014/11/16 22:27:36 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 22:27:36 [app.go:96] [I] http server Running on :80
+2014/11/16 22:31:17 [router.go:845] [D] | GET        | /                                        | 53.0031ms        | match      | /                                        | 
+2014/11/16 22:55:59 [log.go:108] [D] Loading language: en-US 
+2014/11/16 22:55:59 [log.go:108] [D] Loading language: zh-CN 
+2014/11/16 22:55:59 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 22:56:00 [app.go:96] [I] http server Running on :80
+2014/11/16 22:56:35 [log.go:108] [D] Loading language: en-US 
+2014/11/16 22:56:35 [log.go:108] [D] Loading language: zh-CN 
+2014/11/16 22:56:35 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 22:56:35 [app.go:96] [I] http server Running on :80
+2014/11/16 22:57:10 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 22:57:10 [app.go:96] [I] http server Running on :80
+2014/11/16 23:03:27 [log.go:108] [D] Loading language: en-US 
+2014/11/16 23:03:27 [log.go:108] [D] Loading language: zh-CN 
+2014/11/16 23:03:27 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 23:03:27 [app.go:96] [I] http server Running on :80
+2014/11/16 23:03:55 [router.go:845] [D] | GET        | /                                        | 92.0053ms        | match      | /                                        | 
+2014/11/16 23:04:04 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 23:04:04 [app.go:96] [I] http server Running on :80
+2014/11/16 23:04:38 [log.go:108] [D] Loading language: en-US 
+2014/11/16 23:04:38 [log.go:108] [D] Loading language: zh-CN 
+2014/11/16 23:04:38 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 23:04:39 [app.go:96] [I] http server Running on :80
+2014/11/16 23:05:47 [router.go:845] [D] | GET        | /                                        | 58.0033ms        | match      | /                                        | 
+2014/11/16 23:08:57 [router.go:845] [D] | GET        | /                                        | 43.0025ms        | match      | /                                        | 
+2014/11/16 23:19:11 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 23:19:11 [app.go:96] [I] http server Running on :80
+2014/11/16 23:19:39 [router.go:845] [D] | GET        | /                                        | 51.0029ms        | match      | /                                        | 
+2014/11/16 23:19:47 [router.go:845] [D] | GET        | /signIn                                  | 0                | match      | /signin                                  | 
+2014/11/16 23:20:06 [router.go:845] [D] | GET        | /signIn                                  | 0                | match      | /signin                                  | 
+2014/11/16 23:21:30 [router.go:845] [D] | GET        | /                                        | 37.0021ms        | match      | /                                        | 
+2014/11/16 23:46:25 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/16 23:46:26 [app.go:96] [I] http server Running on :80
+2014/11/16 23:46:35 [router.go:845] [D] | POST       | /signIn                                  | 21.0012ms        | match      | /signin                                  | 
+2014/11/16 23:46:53 [router.go:845] [D] | POST       | /signIn                                  | 1.0001ms         | match      | /signin                                  | 

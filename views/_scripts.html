@@ -18,9 +18,12 @@
 		openFrom:$.cookie('from'),
 		accessToken:$.cookie('token')
 	};
-	snow.checkin = $.cookie('_snow_key') && $.cookie('_snow_key').length>0;
+	snow.checkin = $.cookie('_snow_token') && $.cookie('_snow_token').length>0;
 	snow.api={
-		signTrace:'/connect/signtrace'
+		signUp:'/signUp'
+		,signIn:'/signIn'
+		,signOut:'/signOut'
+		,signTrace:'/connect/signtrace'
 	};
 
 	/*
@@ -80,11 +83,14 @@
 	 */
 	function checkout() {
 		var _checkout = [];
-		_checkout.push('<button id="checkin" class="element image-button image-left">');
+		_checkout.push('<button id="checkin" class="element image-button">');
 		_checkout.push('登录');
-		_checkout.push('<img src="http://tp2.sinaimg.cn/1771925961/50/5705822772/1">');
+		//_checkout.push('<img src="http://tp2.sinaimg.cn/1771925961/50/5705822772/1">');
 		_checkout.push('</button>');
-
+		_checkout.push('<button id="register" class="element image-button">');
+		_checkout.push('注册');
+		_checkout.push('</button>');
+		
 		$("#account").empty().html(_checkout.join(''));
 	};
 
@@ -121,6 +127,9 @@
 			_win.css({
 				left: (_dlg.width() - _win.width()) / 2
 			}).animate({top: (_dlg.height() - _win.height()) / 2},snow.speed);
+			//
+			_win.find('.checkin').show();
+			_win.find('#btn-login').text('登录').data('role','0');
 		}).on('click','button.btn-close',function(){
 			var _win= $(this).parents('.window')
 			_win.animate({top:-_win.height()},snow.speed);
@@ -130,7 +139,20 @@
 			});
 
 		}).on('click', '#checkout', function() {
-			QC.Login.signOut();
+			$.get(snow.api.signOut,function(d){
+				if (d.ok) {
+					checkout();
+				};
+			});
+		}).on('click','#register',function(){
+			var _dlg = $("#checkin-dialog").fadeIn(snow.speed);
+			var _win = _dlg.children('.window:first');
+			_win.css({
+				left: (_dlg.width() - _win.width()) / 2
+			}).animate({top: (_dlg.height() - _win.height()) / 2},snow.speed);
+			//
+			_win.find('.checkin').hide();
+			_win.find('#btn-login').text('注册').data('role','1');
 			/*
 			 * 下拉控制菜单
 			 */

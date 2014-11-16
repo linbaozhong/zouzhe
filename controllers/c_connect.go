@@ -5,11 +5,11 @@ package controllers
 
 import (
 	"errors"
-	"fmt"
-	"strings"
-	"zouzhe/utils"
-
 	"github.com/astaxie/beego/httplib"
+	"strconv"
+	"strings"
+	"zouzhe/models"
+	"zouzhe/utils"
 )
 
 type Connect struct {
@@ -19,12 +19,12 @@ type Connect struct {
 type OpenSign struct {
 	Ret      string //返回码 qq=0表示成功
 	Msg      string //错误时的消息提示
-	Id       string //本站账户id
+	Id       int64  //本站账户id
 	From     string //第三方标识
 	OpenId   string //账户id
 	Token    string //access_token
 	Refresh  string //refresh_token
-	Nickname string //昵称
+	NickName string //昵称
 	Gender   string //性别
 	Avatar_1 string //40*40的qq头像
 	Avatar_2 string //100*100的qq头像
@@ -127,11 +127,10 @@ func (this *Connect) QQ_Callback() {
 	}
 
 	// 写入cookie
-	//this.cookie("openid", _account.OpenId)
+	this.cookie("openid", _account.OpenId)
 	this.cookie("token", _account.Token)
-	this.cookie("nickname", _account.Nickname)
+	this.cookie("nickname", _account.NickName)
 	this.cookie("avatar", _account.Avatar_1)
-	this.cookie("from", _account.From)
 
 	this.Trace(_account)
 	//
@@ -193,7 +192,7 @@ func (this *Connect) qq_userinfo(act *OpenSign) (err error) {
 			act.Ret = utils.Interface2str(jmap["ret"])
 			//--- 检查返回码是否正确
 			if act.Ret == "0" {
-				act.Nickname = utils.Interface2str(jmap["nickname"])
+				act.NickName = utils.Interface2str(jmap["nickname"])
 				act.Gender = utils.Interface2str(jmap["gender"])
 				act.Avatar_1 = utils.Interface2str(jmap["figureurl_qq_1"])
 				act.Avatar_2 = utils.Interface2str(jmap["figureurl_qq_2"])
@@ -258,33 +257,86 @@ func (this *Connect) Connect_Error() {
 func (this *Connect) SignTrace() {
 
 	_account := new(OpenSign)
-	_account.Id = this.Ctx.GetCookie("_snow_id")
+	_account.Id, _ = strconv.ParseInt(this.Ctx.GetCookie("_snow_id"), 10, 64)
 	_account.From = this.GetString("from")
 	_account.Gender = this.GetString("gender")
-	_account.Nickname = this.GetString("nickName")
+	_account.NickName = this.GetString("nickName")
 	_account.OpenId = this.GetString("openId")
 	_account.Token = this.GetString("token")
 	_account.Refresh = this.GetString("refresh")
 	_account.Avatar_1 = this.GetString("avatar_1")
 	_account.Avatar_2 = this.GetString("avatar_2")
 
-	//无效的请求
-	if _account.Id == "" && _account.OpenId == "" {
-		this.renderJson(utils.JsonMessage(false, "", ""))
+	// 账号id和第三方账号id均为空，视为无效的请求
+	if _account.Id == 0 && _account.OpenId == "" {
+		this.Trace("无效的账户信息")
+		this.renderJson(utils.JsonData(false, "", errors.New("无效的账户信息")))
 		return
 	}
-	// 1.检查该账户是否存在，
-	// 如果不存在，创建之，反之，记录登录日期和ip地址
-	// 保存登录状态
-	this.signin(this._sonw_key(_account.Id, _account.From))
 
-	// 并返回是否需要续期
-	_needRefresh := false
-
-	// 2.续期
-	if _needRefresh {
-		this.qq_refresh(_account)
+	var _m_account *models.Accounts
+	// 如果_account.Id>0 检查该账户是否存在
+	if _account.Id > 0 {
+		_m_account = &models.Accounts{Id: _account.Id}
+	} else {
+		_m_account = &models.Accounts{OpenId: _account.OpenId, OpenFrom: _account.From}
 	}
+
+	has, err := _m_account.Exists()
+	if err != nil {
+		this.Trace(err.Error())
+		this.renderJson(utils.JsonData(false, "", err))
+		return
+	}
+	// 如果账户存在
+	if has {
+		this.Trace("记录登录日志")
+
+		// 记录登录日志
+		_m_log := new(models.LoginLog)
+		_m_log.AccountId = _m_account.Id
+
+		this.Extend(_m_log)
+
+		_, err = _m_log.Post()
+
+		// 检查access_token是否需要续期(有效期一般是3个月)
+		if _m_account.RefreshToken != "" && _m_account.AccessToken != "" {
+			_needRefresh := (utils.Msec2Time(_m_log.Updated).Sub(utils.Msec2Time(_m_account.Updated)).Hours() > 24*40*2)
+			// 2.续期
+			if _needRefresh {
+				this.Trace("access_token续期")
+				this.qq_refresh(_account)
+			}
+		}
+	} else {
+		this.Trace("创建新的账户")
+		// 反之，创建新账户
+		_m_account.OpenFrom = _account.From
+		if _account.Gender == "男" {
+			_m_account.Gender = 1
+		}
+		_m_account.NickName = _account.NickName
+		_m_account.AccessToken = _account.Token
+		_m_account.RefreshToken = _account.Refresh
+		_m_account.Avatar_1 = _account.Avatar_1
+		_m_account.Avatar_2 = _account.Avatar_2
+
+		this.Extend(_m_account)
+		// errs:记录返回的数据校验错误
+		_, err, errs := _m_account.Post()
+
+		if err != nil {
+			this.renderJson(utils.JsonData(false, "", errs))
+			return
+		}
+	}
+
+	this.currentUser.Id = _m_account.Id
+	this.currentUser.From = _m_account.OpenFrom
+
+	// 保存登录状态
+	this.loginIn(_account.Id, _account.From)
 
 	this.renderJson(utils.JsonMessage(true, "", ""))
 }

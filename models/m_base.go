@@ -26,7 +26,8 @@ type Page struct {
 type Current struct {
 	Id     int64  `json:"id"`
 	Name   string `json:"name"`
-	Avatar string `json:avatar`
+	Avatar string `json:"avatar"`
+	From   string `json:"from"`
 	Role   string `json:"role"`
 }
 

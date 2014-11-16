@@ -35,12 +35,12 @@ func (this *Account) New() {
 	} else {
 
 		oa.AccessToken = this.GetString("accessToken")
-		oa.Avatar = this.GetString("avatar")
+		oa.Avatar_1 = this.GetString("avatar")
 		oa.NickName = this.GetString("nickName")
 
 		this.Extend(oa)
 
-		if _, err, _ = oa.New(); err == nil {
+		if _, err, _ = oa.Post(); err == nil {
 			this.Trace(oa)
 		} else {
 			this.Trace(err)
@@ -58,8 +58,40 @@ func (this *Account) New() {
 	}
 
 	this.Ctx.SetCookie(beego.AppConfig.String("CookieName"),
-		utils.CookieEncode(fmt.Sprintf("%d|%s|%s", oa.Id, oa.NickName, oa.Avatar)),
+		utils.CookieEncode(fmt.Sprintf("%d|%s|%s", oa.Id, oa.NickName, oa.Avatar_1)),
 		cookieDuration, "/")
 
 	this.renderJson(utils.JsonData(true, "", oa))
+}
+
+// 注册
+func (this *Account) SignUp() {
+	_m_account := new(models.Accounts)
+	_m_account.LoginName = this.GetString("loginName")
+	_m_account.Password = this.GetString("password")
+
+	this.Data["sign"] = _m_account
+	this.Data["auto"] = this.getCheckboxBool("auto")
+	this.SetTplNames()
+}
+
+// 签入
+func (this *Account) SignIn() {
+	_m_account := new(models.Accounts)
+	_m_account.LoginName = this.GetString("loginName")
+	_m_account.Password = this.GetString("password")
+	_m_account.Gender = this.getCheckboxInt("auto")
+
+	this.renderJson(utils.JsonData(true, "", _m_account))
+}
+
+// 签出
+func (this *Account) SignOut() {
+	this.loginOut()
+	this.renderJson(utils.JsonMessage(true, "", ""))
+}
+
+// 密码重置
+func (this *Account) PasswordReset() {
+	this.SetTplNames()
 }
