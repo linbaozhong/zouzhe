@@ -21,11 +21,6 @@ type Account struct {
 * 新账户
  */
 func (this *Account) New() {
-	// //过滤跨域
-	// if ok, _ := this.CheckXsrf(); !ok {
-	// 	this.renderLoseToken()
-	// 	return
-	// }
 
 	oa := &models.Accounts{OpenId: this.GetString("openId"), OpenFrom: this.GetString("openFrom")}
 

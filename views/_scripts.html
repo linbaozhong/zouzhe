@@ -93,13 +93,46 @@
 		
 		$("#account").empty().html(_checkout.join(''));
 	};
-
+	/*
+	* 解决传统浏览器不支持placeholder问题
+	*/
+	function placeholder() {
+	   
+	    if (!('placeholder' in document.createElement('input'))) {
+	        
+	        $('input[placeholder],textarea[placeholder]').each(function () {
+	            
+	            var that = $(this),text = that.attr('placeholder');
+				
+	            if (that.val() === "") {
+	                that.val(text).addClass('placeholder');
+	            }
+	            that.focus(function () {
+	                if (that.val() === text) {
+	                    that.val("").removeClass('placeholder');
+	                }
+	            }).blur(function () {
+	                if (that.val() === "") {
+	                    that.val(text).addClass('placeholder');
+	                }
+	            }).closest('form').submit(function () {
+	                if (that.val() === text) {
+	                    that.val('');
+	                }
+	            });
+	        });
+	    }
+	};
+	
 	$(function() {
+		
 		setTimeout(function() {
 			headerPosition();
 			footerPosition();
-			//拉取数据
+			// 拉取数据
 			dataLoading();
+			// 解决传统浏览器不支持placeholder问题
+			placeholder();
 		}, 100);
 		// 选中
 		$('body').on('click', '.horizontal-list ul li', function() {
@@ -139,7 +172,7 @@
 			});
 
 		}).on('click', '#checkout', function() {
-			$.get(snow.api.signOut,function(d){
+			$.post(snow.api.signOut,function(d){
 				if (d.ok) {
 					checkout();
 				};

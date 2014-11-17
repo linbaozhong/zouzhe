@@ -42,7 +42,7 @@ func (this *Accounts) Valid(v *validation.Validation) {
 	}
 }
 
-//
+// 增加新账户
 func (this *Accounts) Post() (int64, error, []Error) {
 
 	if this.RealName == "" {
@@ -55,6 +55,11 @@ func (this *Accounts) Post() (int64, error, []Error) {
 	//
 	id, err := db.Insert(this)
 	return id, err, nil
+}
+
+// 刷新token
+func (this *Accounts) RefreshAccessToken() (int64, error) {
+	return db.Id(this.Id).Cols("accessToken", "refreshToken", "updated").Update(this)
 }
 
 // --------------------------------------------------

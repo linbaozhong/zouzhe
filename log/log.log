@@ -157,3 +157,124 @@
 2014/11/16 23:46:26 [app.go:96] [I] http server Running on :80
 2014/11/16 23:46:35 [router.go:845] [D] | POST       | /signIn                                  | 21.0012ms        | match      | /signin                                  | 
 2014/11/16 23:46:53 [router.go:845] [D] | POST       | /signIn                                  | 1.0001ms         | match      | /signin                                  | 
+2014/11/17 10:14:08 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/17 10:14:08 [app.go:96] [I] http server Running on :80
+2014/11/17 10:18:07 [router.go:845] [D] | GET        | /                                        | 30.0017ms        | match      | /                                        | 
+2014/11/17 10:18:16 [router.go:845] [D] | GET        | /                                        | 38.0022ms        | match      | /                                        | 
+2014/11/17 10:19:00 [router.go:845] [D] | GET        | /                                        | 45.0026ms        | match      | /                                        | 
+2014/11/17 10:20:07 [router.go:845] [D] | GET        | /ifr_status/                             | 2.0001ms         | notmatch   | 
+2014/11/17 10:21:44 [router.go:845] [D] | GET        | /                                        | 39.0022ms        | match      | /                                        | 
+2014/11/17 10:24:38 [router.go:845] [D] | GET        | /                                        | 34.0019ms        | match      | /                                        | 
+2014/11/17 10:25:26 [router.go:845] [D] | GET        | /                                        | 37.0021ms        | match      | /                                        | 
+2014/11/17 10:26:10 [router.go:845] [D] | GET        | /                                        | 33.0019ms        | match      | /                                        | 
+2014/11/17 10:26:28 [router.go:845] [D] | GET        | /                                        | 40.0022ms        | match      | /                                        | 
+2014/11/17 10:27:04 [router.go:845] [D] | GET        | /                                        | 43.0025ms        | match      | /                                        | 
+2014/11/17 10:27:43 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2014/11/17 10:27:53 [log.go:108] [D] Connect/QQ_Callback Info:&{0  0 qq 769730D627FD70BF6FBC376B5554E4C5 5B9F45C11278896121B34468BBEE2C0D 17B16261244FECB04470F4002D52FF4E 哈利蔺特 男 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/40 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/100} 
+2014/11/17 10:27:53 [router.go:845] [D] | GET        | /connect/qq_callback                     | 2.1801247s       | match      | /connect/qq_callback/*                   | 
+2014/11/17 10:27:53 [log.go:108] [D] Connect/SignTrace Info:记录登录日志 
+2014/11/17 10:27:53 [router.go:845] [D] | POST       | /connect/signtrace                       | 268.0154ms       | match      | /connect/signtrace/*                     | 
+2014/11/17 10:28:06 [router.go:845] [D] | GET        | /                                        | 36.0021ms        | match      | /                                        | 
+2014/11/17 11:05:25 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/17 11:05:26 [app.go:96] [I] http server Running on :80
+2014/11/17 11:05:30 [router.go:845] [D] | GET        | /ifr_status/                             | 1.0001ms         | notmatch   | 
+2014/11/17 11:05:43 [router.go:845] [D] | GET        | /                                        | 32.0018ms        | match      | /                                        | 
+2014/11/17 11:05:51 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/17 11:05:51 [app.go:96] [I] http server Running on :80
+2014/11/17 11:06:08 [router.go:845] [D] | POST       | /signOut                                 | 1ms              | match      | /signout                                 | 
+2014/11/17 11:06:20 [router.go:845] [D] | GET        | /                                        | 55.0031ms        | match      | /                                        | 
+2014/11/17 11:07:15 [router.go:845] [D] | GET        | /                                        | 27.0015ms        | match      | /                                        | 
+2014/11/17 11:07:17 [router.go:845] [D] | GET        | /                                        | 43.0025ms        | match      | /                                        | 
+2014/11/17 11:24:09 [log.go:108] [D] parse template err: _footer.html template: _footer.html:76: unexpected "}" in operand; missing space? 
+2014/11/17 11:24:09 [router.go:845] [D] | GET        | /                                        | 45.0026ms        | match      | /                                        | 
+2014/11/17 11:25:31 [log.go:108] [D] parse template err: _footer.html template: _footer.html:76: unexpected "}" in operand; missing space? 
+2014/11/17 11:25:31 [router.go:845] [D] | GET        | /                                        | 40.0023ms        | match      | /                                        | 
+2014/11/17 11:25:41 [log.go:108] [D] parse template err: _footer.html template: _footer.html:76: unexpected "}" in operand; missing space? 
+2014/11/17 11:25:41 [router.go:845] [D] | GET        | /                                        | 40.0023ms        | match      | /                                        | 
+2014/11/17 11:25:43 [log.go:108] [D] parse template err: _footer.html template: _footer.html:76: unexpected "}" in operand; missing space? 
+2014/11/17 11:25:44 [router.go:845] [D] | GET        | /                                        | 43.0025ms        | match      | /                                        | 
+2014/11/17 11:27:53 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/17 11:27:53 [log.go:108] [D] parse template err: _footer.html template: _footer.html:76: unexpected "}" in operand; missing space? 
+2014/11/17 11:27:53 [app.go:96] [I] http server Running on :80
+2014/11/17 11:28:15 [log.go:108] [D] parse template err: _footer.html template: _footer.html:76: unexpected "}" in operand; missing space? 
+2014/11/17 11:28:15 [router.go:876] [C] the request url is  / 
+2014/11/17 11:28:15 [router.go:877] [C] Handler crashed with error runtime error: invalid memory address or nil pointer dereference 
+2014/11/17 11:28:15 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/17 11:28:15 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2014/11/17 11:28:15 [router.go:883] [C] c:/go/src/pkg/runtime/os_windows.c:359 
+2014/11/17 11:28:15 [router.go:883] [C] c:/go/src/pkg/html/template/template.go:94 
+2014/11/17 11:28:15 [router.go:883] [C] c:/go/src/pkg/html/template/template.go:83 
+2014/11/17 11:28:15 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:226 
+2014/11/17 11:28:15 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2014/11/17 11:28:15 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2014/11/17 11:28:15 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/17 11:28:15 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/17 11:28:15 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/17 11:28:53 [log.go:108] [D] parse template err: _footer.html template: _footer.html:76: unexpected "}" in operand; missing space? 
+2014/11/17 11:28:53 [router.go:876] [C] the request url is  / 
+2014/11/17 11:28:53 [router.go:877] [C] Handler crashed with error runtime error: invalid memory address or nil pointer dereference 
+2014/11/17 11:28:53 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/17 11:28:53 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2014/11/17 11:28:53 [router.go:883] [C] c:/go/src/pkg/runtime/os_windows.c:359 
+2014/11/17 11:28:53 [router.go:883] [C] c:/go/src/pkg/html/template/template.go:94 
+2014/11/17 11:28:53 [router.go:883] [C] c:/go/src/pkg/html/template/template.go:83 
+2014/11/17 11:28:53 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:226 
+2014/11/17 11:28:53 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2014/11/17 11:28:53 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2014/11/17 11:28:53 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/17 11:28:53 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/17 11:28:53 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/17 11:29:24 [log.go:108] [D] template Execute err: template: _footer.html:76:52: executing "_footer.html" at <loadtimes>: wrong number of args for loadtimes: want 1 got 0 
+2014/11/17 11:29:24 [router.go:876] [C] the request url is  / 
+2014/11/17 11:29:24 [router.go:877] [C] Handler crashed with error template: _footer.html:76:52: executing "_footer.html" at <loadtimes>: wrong number of args for loadtimes: want 1 got 0 
+2014/11/17 11:29:24 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/17 11:29:24 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:802 
+2014/11/17 11:29:24 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/17 11:29:24 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/17 11:29:24 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/17 11:30:26 [log.go:108] [D] template Execute err: template: _footer.html:76:52: executing "_footer.html" at <loadtimes>: wrong number of args for loadtimes: want 1 got 0 
+2014/11/17 11:30:26 [router.go:876] [C] the request url is  / 
+2014/11/17 11:30:26 [router.go:877] [C] Handler crashed with error template: _footer.html:76:52: executing "_footer.html" at <loadtimes>: wrong number of args for loadtimes: want 1 got 0 
+2014/11/17 11:30:26 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/17 11:30:26 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:802 
+2014/11/17 11:30:26 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/17 11:30:26 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/17 11:30:26 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/17 11:32:17 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/17 11:32:17 [app.go:96] [I] http server Running on :80
+2014/11/17 11:32:22 [router.go:845] [D] | GET        | /                                        | 41.0024ms        | match      | /                                        | 
+2014/11/17 11:32:25 [router.go:845] [D] | GET        | /                                        | 51.0029ms        | match      | /                                        | 
+2014/11/17 11:32:26 [router.go:845] [D] | GET        | /                                        | 42.0024ms        | match      | /                                        | 
+2014/11/17 11:32:27 [router.go:845] [D] | GET        | /                                        | 51.0029ms        | match      | /                                        | 
+2014/11/17 11:32:28 [router.go:845] [D] | GET        | /                                        | 49.0028ms        | match      | /                                        | 
+2014/11/17 11:32:28 [router.go:845] [D] | GET        | /                                        | 34.0019ms        | match      | /                                        | 
+2014/11/17 11:32:29 [router.go:845] [D] | GET        | /                                        | 51.0029ms        | match      | /                                        | 
+2014/11/17 11:32:52 [router.go:845] [D] | GET        | /                                        | 38.0022ms        | match      | /                                        | 
+2014/11/17 11:33:35 [router.go:876] [C] the request url is  / 
+2014/11/17 11:33:35 [router.go:877] [C] Handler crashed with error unidentified node type in allIdents 
+2014/11/17 11:33:35 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/17 11:33:35 [router.go:883] [C] c:/go/src/pkg/html/template/escape.go:223 
+2014/11/17 11:33:35 [router.go:883] [C] c:/go/src/pkg/html/template/escape.go:249 
+2014/11/17 11:33:35 [router.go:883] [C] c:/go/src/pkg/html/template/escape.go:757 
+2014/11/17 11:33:35 [router.go:883] [C] c:/go/src/pkg/html/template/escape.go:44 
+2014/11/17 11:33:35 [router.go:883] [C] c:/go/src/pkg/html/template/template.go:107 
+2014/11/17 11:33:35 [router.go:883] [C] c:/go/src/pkg/html/template/template.go:83 
+2014/11/17 11:33:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:226 
+2014/11/17 11:33:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2014/11/17 11:33:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2014/11/17 11:33:35 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/17 11:33:35 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/17 11:33:35 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/17 11:33:52 [log.go:108] [D] template Execute err: template: _footer.html:76:39: executing "_footer.html" at <.PageStartTime>: PageStartTime is not a method but has arguments 
+2014/11/17 11:33:52 [router.go:876] [C] the request url is  / 
+2014/11/17 11:33:52 [router.go:877] [C] Handler crashed with error template: _footer.html:76:39: executing "_footer.html" at <.PageStartTime>: PageStartTime is not a method but has arguments 
+2014/11/17 11:33:52 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/17 11:33:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:802 
+2014/11/17 11:33:52 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/17 11:33:52 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/17 11:33:52 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/17 11:34:21 [router.go:845] [D] | GET        | /                                        | 51.0029ms        | match      | /                                        | 
+2014/11/17 11:34:24 [router.go:845] [D] | GET        | /                                        | 51.0029ms        | match      | /                                        | 
+2014/11/17 11:35:30 [router.go:845] [D] | GET        | /ifr_status/                             | 1ms              | notmatch   | 
+2014/11/17 11:44:47 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/17 11:44:47 [app.go:96] [I] http server Running on :80

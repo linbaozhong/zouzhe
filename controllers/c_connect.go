@@ -5,11 +5,12 @@ package controllers
 
 import (
 	"errors"
-	"github.com/astaxie/beego/httplib"
 	"strconv"
 	"strings"
 	"zouzhe/models"
 	"zouzhe/utils"
+
+	"github.com/astaxie/beego/httplib"
 )
 
 type Connect struct {
@@ -281,7 +282,7 @@ func (this *Connect) SignTrace() {
 	} else {
 		_m_account = &models.Accounts{OpenId: _account.OpenId, OpenFrom: _account.From}
 	}
-
+	// 账户是否存在
 	has, err := _m_account.Exists()
 	if err != nil {
 		this.Trace(err.Error())
@@ -297,7 +298,7 @@ func (this *Connect) SignTrace() {
 		_m_log.AccountId = _m_account.Id
 
 		this.Extend(_m_log)
-
+		// 写登录日志
 		_, err = _m_log.Post()
 
 		// 检查access_token是否需要续期(有效期一般是3个月)
@@ -307,6 +308,11 @@ func (this *Connect) SignTrace() {
 			if _needRefresh {
 				this.Trace("access_token续期")
 				this.qq_refresh(_account)
+				// 更新access_token and refresh_token and Updated
+				_m_account.AccessToken = _account.Token
+				_m_account.RefreshToken = _account.Refresh
+				this.Extend(_m_account)
+				_m_account.RefreshAccessToken()
 			}
 		}
 	} else {

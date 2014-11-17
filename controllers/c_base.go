@@ -2,8 +2,6 @@ package controllers
 
 import (
 	"fmt"
-	"github.com/astaxie/beego"
-	"github.com/beego/i18n"
 	"net/url"
 	"reflect"
 	"regexp"
@@ -12,6 +10,9 @@ import (
 	"time"
 	"zouzhe/models"
 	"zouzhe/utils"
+
+	"github.com/astaxie/beego"
+	"github.com/beego/i18n"
 )
 
 type langType struct {
@@ -424,6 +425,11 @@ func (this *Base) cookie(name, value string) {
 	this.Ctx.SetCookie(name, value, 1<<31-1, "/", siteDomain)
 }
 
+// 写入cookie,禁止客户端读取
+func (this *Base) cookieHttpOnly(name, value string) {
+	this.Ctx.SetCookie(name, value, 1<<31-1, "/", siteDomain, "httponly")
+}
+
 // 设置模板文件
 func (this *Base) SetTplNames(name ...string) {
 	c, a := this.Controller.GetControllerAndAction()
@@ -441,8 +447,8 @@ func (this *Base) _sonw_token(id int64, from string) string {
 
 // 签入
 func (this *Base) loginIn(id int64, from string) {
-	this.cookie("from", from)
-	this.cookie("_snow_id", strconv.FormatInt(id, 10))
+	this.cookieHttpOnly("from", from)
+	this.cookieHttpOnly("_snow_id", strconv.FormatInt(id, 10))
 	this.cookie("_snow_token", this._sonw_token(id, from))
 }
 
