@@ -4,7 +4,7 @@
 		width: 100%;
 		min-width: 980px;
 		background: #000 url(/static/images/qyer.jpg) no-repeat center top;
-		background-size:cover;
+		background-size: cover;
 		height: 400px;
 		margin: 0 auto;
 		padding-top: 160px;
@@ -52,7 +52,7 @@
 	</div>
 </div>
 
-<div class="search-result container" style="padding:0 50px;">
+<div class="search-result container" style="max-width:1000px;min-height:500px;">
 	<div class="grid fluid">
 		<div class="row horizontal-list">
 			<dl>
@@ -70,3 +70,52 @@
 		</div>
 	</div>
 </div>
+
+<div id="scroll-tools" class="toolbar">
+	<button class="scroll-top">
+		<i class="icon-arrow-up-5"></i>
+	</button>
+	<button>提问</button>
+	<button class="scroll-bottom">
+		<i class="icon-arrow-down-5"></i>
+	</button>
+</div>
+<script type="text/javascript">
+	$(function() {
+		var _tools = $('#scroll-tools'),
+			_result = $('div.search-result'),
+			_offset = _result.offset();
+
+		_tools.css({
+			top: _offset.top,
+			left: _result.width() + _offset.left
+		});
+		//
+		$(window).scroll(function() {
+			if (_offset.top >= _tools.offset().top) {
+				_tools.css({
+					top: _offset.top,
+					bottom: 'auto'
+				});
+			} else {
+				_tools.css({
+					top: 'auto',
+					bottom: $('#footer').height(),
+				});
+			};
+		}).resize(function() {
+			_tools.css({
+				left: _result.width() + _result.offset().left
+			});
+		});
+		// 向上滚动
+		_tools.find('button.scroll-top').click(function(){
+			$(window).scrollTop(0);
+		});
+		// 向下滚动
+		_tools.find('button.scroll-bottom').click(function(){
+			$(window).scrollTop($(document).height());
+		});
+
+	});
+</script>
