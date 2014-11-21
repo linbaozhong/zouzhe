@@ -7,7 +7,7 @@ type Front struct {
 func (this *Front) Prepare() {
 	this.Base.Prepare()
 
-	this.Layout = "_frontLayout.html"
+	this.Layout = "_indexLayout.html"
 	this.LayoutSections = make(map[string]string)
 	this.LayoutSections["Head"] = "_head.html"
 	this.LayoutSections["Header"] = "_indexHeader.html"

@@ -305,6 +305,7 @@ func (this *Base) getParamsString(key string) string {
 //允许新的请求，数据通用字段初始信息，附带验证用户是否合法(err)，
 func (this *Base) allowRequest() bool {
 
+	this.Trace(this.Ctx.GetCookie("_snow_id"), this.Ctx.GetCookie("from"))
 	this.currentUser.Id, _ = strconv.ParseInt(this.Ctx.GetCookie("_snow_id"), 10, 64)
 
 	if this.currentUser.Id == 0 {
@@ -427,7 +428,7 @@ func (this *Base) cookie(name, value string) {
 
 // 写入cookie,禁止客户端读取
 func (this *Base) cookieHttpOnly(name, value string) {
-	this.Ctx.SetCookie(name, value, 1<<31-1, "/", siteDomain, "httponly")
+	this.Ctx.SetCookie(name, value, 1<<31-1, "/", siteDomain, nil, true)
 }
 
 // 设置模板文件
@@ -462,5 +463,5 @@ func (this *Base) loginOut() {
  */
 func (this *Base) Trace(v ...interface{}) {
 	c, a := this.Controller.GetControllerAndAction()
-	beego.Trace(fmt.Sprintf("%s/%s ", c, a) + fmt.Sprintf("Info:%v", v...))
+	beego.Trace(fmt.Sprintf("%s/%s ", c, a) + fmt.Sprintf("Info:%s", v...))
 }

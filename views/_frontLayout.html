@@ -2,22 +2,82 @@
 <html>
 
 	<head>
-		<meta charset="utf-8">
-		{{.Head}}
-		{{.Scripts}}
+		<meta charset="utf-8"> {{.Head}} {{.Scripts}}
 	</head>
 
 	<body class="metro">
 		<header>
-			{{.Header}}
-			{{.Login}}
+			{{.Header}} {{.Login}}
 		</header>
-		<div class="container" style="min-height: 640px;padding-top: 80px;">
+		<div class="search-result container" style="min-height: 640px;padding: 80px 80px 0;">
 			{{.LayoutContent}}
 		</div>
 		<footer id="footer" class="bg-dark fg-white" style="width:100%;margin-top: 1.5em;bottom: 0;">
 			{{.Footer}}
 		</footer>
+
+		<script type="text/javascript">
+			$(function() {
+				var _tools = $('#scroll-tools'),
+					_result = $('div.search-result');
+
+				_tools.css({
+					bottom: $('#footer').outerHeight()
+				});
+				//
+				$(window).scroll(function() {
+					var _scrollTop = $(document).scrollTop();
+					// 有滚动
+					if (_scrollTop > 0) {
+						_tools.find('button.scroll-top').css({
+							visibility: 'visible'
+						});
+
+					} else {
+						_tools.find('button.scroll-top').css({
+							visibility: 'hidden'
+						});
+					}
+					// 滚动到底部
+					if (_scrollTop + $(window).height() == $(document).height()) {
+						_tools.find('button.scroll-bottom').css({
+							visibility: 'hidden'
+						});
+					} else {
+						_tools.find('button.scroll-bottom').css({
+							visibility: 'visible'
+						});
+					}
+				}).resize(function() {
+					_tools.css({
+						left: _result.width() + _result.offset().left + parseInt(_result.css('padding'))
+					});
+					// 滚动到底部
+					if ($(document).scrollTop() + $(window).height() == $(document).height()) {
+						_tools.find('button.scroll-bottom').css({
+							visibility: 'hidden'
+						});
+					} else {
+						_tools.find('button.scroll-bottom').css({
+							visibility: 'visible'
+						});
+					}
+				}).resize().scroll();
+				// 向上滚动
+				_tools.find('button.scroll-top').click(function() {
+					$(window).scrollTop(0);
+				});
+				// 向下滚动
+				_tools.find('button.scroll-bottom').click(function() {
+					$(window).scrollTop($(document).height());
+				});
+				// 提问
+				_tools.find('button.btnAsk').click(function() {
+					snow.go(snow.api.ask);
+				});
+
+			});
+		</script>
 	</body>
 
 </html>

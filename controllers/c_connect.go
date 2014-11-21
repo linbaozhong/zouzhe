@@ -342,7 +342,7 @@ func (this *Connect) SignTrace() {
 	this.currentUser.From = _m_account.OpenFrom
 
 	// 保存登录状态
-	this.loginIn(_account.Id, _account.From)
+	this.loginIn(_m_account.Id, _m_account.OpenFrom)
 
 	this.renderJson(utils.JsonMessage(true, "", ""))
 }

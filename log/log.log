@@ -392,3 +392,447 @@
 2014/11/20 15:27:26 [router.go:845] [D] | GET        | /                                        | 42.0024ms        | match      | /                                        | 
 2014/11/20 15:34:49 [router.go:845] [D] | GET        | /                                        | 59.0034ms        | match      | /                                        | 
 2014/11/20 15:49:56 [router.go:845] [D] | GET        | /                                        | 53.003ms         | match      | /                                        | 
+2014/11/21 10:15:13 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 10:15:14 [app.go:96] [I] http server Running on :80
+2014/11/21 10:20:40 [router.go:845] [D] | GET        | /                                        | 49.0028ms        | match      | /                                        | 
+2014/11/21 10:28:18 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 10:28:18 [app.go:96] [I] http server Running on :80
+2014/11/21 10:30:31 [router.go:845] [D] | GET        | /ifr_status/                             | 2.0001ms         | notmatch   | 
+2014/11/21 10:32:08 [router.go:845] [D] | GET        | /                                        | 29.0016ms        | match      | /                                        | 
+2014/11/21 10:32:37 [router.go:845] [D] | GET        | /                                        | 52.003ms         | match      | /                                        | 
+2014/11/21 10:32:41 [router.go:845] [D] | GET        | /                                        | 47.0027ms        | match      | /                                        | 
+2014/11/21 10:32:48 [router.go:845] [D] | GET        | /                                        | 29.0017ms        | match      | /                                        | 
+2014/11/21 10:33:03 [router.go:845] [D] | GET        | /                                        | 28.0016ms        | match      | /                                        | 
+2014/11/21 10:33:42 [router.go:845] [D] | GET        | /                                        | 29.0016ms        | match      | /                                        | 
+2014/11/21 10:33:53 [router.go:845] [D] | GET        | /                                        | 41.0023ms        | match      | /                                        | 
+2014/11/21 10:33:54 [router.go:845] [D] | GET        | /                                        | 35.002ms         | match      | /                                        | 
+2014/11/21 10:33:55 [router.go:845] [D] | GET        | /                                        | 29.0017ms        | match      | /                                        | 
+2014/11/21 10:33:55 [router.go:845] [D] | GET        | /                                        | 27.0015ms        | match      | /                                        | 
+2014/11/21 10:33:55 [router.go:845] [D] | GET        | /                                        | 28.0016ms        | match      | /                                        | 
+2014/11/21 10:33:55 [router.go:845] [D] | GET        | /                                        | 29.0017ms        | match      | /                                        | 
+2014/11/21 10:35:01 [router.go:845] [D] | GET        | /                                        | 29.0017ms        | match      | /                                        | 
+2014/11/21 11:00:31 [router.go:845] [D] | GET        | /ifr_status/                             | 1ms              | notmatch   | 
+2014/11/21 11:30:31 [router.go:845] [D] | GET        | /ifr_status/                             | 1.0001ms         | notmatch   | 
+2014/11/21 12:41:50 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 12:41:54 [app.go:96] [I] http server Running on :80
+2014/11/21 12:41:58 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2014/11/21 12:42:17 [router.go:845] [D] | GET        | /question                                | 1.0001ms         | notmatch   | 
+2014/11/21 12:46:04 [router.go:845] [D] | GET        | /question                                | 1.0001ms         | notmatch   | 
+2014/11/21 12:46:26 [router.go:845] [D] | GET        | /                                        | 45.0026ms        | match      | /                                        | 
+2014/11/21 12:46:29 [router.go:845] [D] | GET        | /connect/qq_login                        | 1ms              | match      | /connect/qq_login/*                      | 
+2014/11/21 12:46:35 [log.go:108] [D] Connect/QQ_Callback Info:&{0  0 qq 769730D627FD70BF6FBC376B5554E4C5 5B9F45C11278896121B34468BBEE2C0D 17B16261244FECB04470F4002D52FF4E 哈利蔺特 男 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/40 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/100} 
+2014/11/21 12:46:35 [router.go:845] [D] | GET        | /connect/qq_callback                     | 2.0731185s       | match      | /connect/qq_callback/*                   | 
+2014/11/21 12:46:35 [log.go:108] [D] Connect/SignTrace Info:记录登录日志 
+2014/11/21 12:46:35 [router.go:845] [D] | POST       | /connect/signtrace                       | 100.0057ms       | match      | /connect/signtrace/*                     | 
+2014/11/21 12:46:43 [router.go:845] [D] | GET        | /question                                | 1.0001ms         | notmatch   | 
+2014/11/21 12:47:01 [router.go:845] [D] | GET        | /question                                | 1.0001ms         | notmatch   | 
+2014/11/21 12:48:57 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 12:48:57 [app.go:96] [I] http server Running on :80
+2014/11/21 12:50:40 [router.go:845] [D] | GET        | /question                                | 2.0001ms         | notmatch   | 
+2014/11/21 12:50:51 [router.go:845] [D] | GET        | /question                                | 5.0003ms         | notmatch   | 
+2014/11/21 12:51:14 [log.go:108] [D] Question/Get Info:无效用户 
+2014/11/21 12:51:21 [log.go:108] [D] Question/Index Info:无效用户 
+2014/11/21 12:53:06 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 12:53:06 [app.go:96] [I] http server Running on :80
+2014/11/21 12:55:06 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 12:55:06 [app.go:96] [I] http server Running on :80
+2014/11/21 12:56:13 [log.go:108] [D] Question/Index Info:无效用户 
+2014/11/21 12:56:18 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 12:56:18 [app.go:96] [I] http server Running on :80
+2014/11/21 12:56:57 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 12:56:58 [app.go:96] [I] http server Running on :80
+2014/11/21 12:58:21 [log.go:108] [D] Question/Index Info:无效用户 
+2014/11/21 12:59:34 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 12:59:34 [app.go:96] [I] http server Running on :80
+2014/11/21 13:00:06 [log.go:108] [D] Question/Index Info:无效用户 
+2014/11/21 13:00:17 [log.go:108] [D] Question/GET Info:无效用户 
+2014/11/21 13:00:18 [log.go:108] [D] Question/GET Info:无效用户 
+2014/11/21 13:00:31 [log.go:108] [D] Question/GET Info:无效用户 
+2014/11/21 13:00:37 [log.go:108] [D] Question/Index Info:无效用户 
+2014/11/21 13:00:40 [log.go:108] [D] Question/GET Info:无效用户 
+2014/11/21 13:00:46 [log.go:108] [D] Question/GET Info:无效用户 
+2014/11/21 13:00:54 [log.go:108] [D] Question/Index Info:无效用户 
+2014/11/21 13:01:58 [log.go:108] [D] Question/GET Info:无效用户 
+2014/11/21 13:02:10 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 13:02:10 [app.go:96] [I] http server Running on :80
+2014/11/21 13:02:11 [log.go:108] [D] Question/GET Info:%!(EXTRA string=) 
+2014/11/21 13:02:11 [log.go:108] [D] Question/GET Info:无效用户 
+2014/11/21 13:02:32 [log.go:108] [D] Question/Index Info:%!(EXTRA string=) 
+2014/11/21 13:02:32 [log.go:108] [D] Question/Index Info:无效用户 
+2014/11/21 13:02:46 [router.go:845] [D] | GET        | /                                        | 49.0028ms        | match      | /                                        | 
+2014/11/21 13:09:21 [router.go:845] [D] | POST       | /signOut                                 | 0                | match      | /signout                                 | 
+2014/11/21 13:09:26 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 13:09:26 [app.go:96] [I] http server Running on :80
+2014/11/21 13:09:37 [router.go:845] [D] | GET        | /connect/qq_login                        | 1ms              | match      | /connect/qq_login/*                      | 
+2014/11/21 13:09:42 [log.go:108] [D] Connect/QQ_Callback Info:&{0  %!s(int64=0) qq 769730D627FD70BF6FBC376B5554E4C5 5B9F45C11278896121B34468BBEE2C0D 17B16261244FECB04470F4002D52FF4E 哈利蔺特 男 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/40 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/100} 
+2014/11/21 13:09:42 [router.go:845] [D] | GET        | /connect/qq_callback                     | 2.0621179s       | match      | /connect/qq_callback/*                   | 
+2014/11/21 13:09:42 [log.go:108] [D] Connect/SignTrace Info:记录登录日志 
+2014/11/21 13:09:42 [router.go:845] [D] | POST       | /connect/signtrace                       | 114.0065ms       | match      | /connect/signtrace/*                     | 
+2014/11/21 13:09:55 [router.go:845] [D] | GET        | /                                        | 36.002ms         | match      | /                                        | 
+2014/11/21 13:10:49 [log.go:108] [D] Question/GET Info:0%!(EXTRA string=qq) 
+2014/11/21 13:10:49 [log.go:108] [D] Question/GET Info:无效用户 
+2014/11/21 13:11:09 [log.go:108] [D] Question/Index Info:0%!(EXTRA string=qq) 
+2014/11/21 13:11:09 [log.go:108] [D] Question/Index Info:无效用户 
+2014/11/21 13:11:10 [log.go:108] [D] Question/Index Info:0%!(EXTRA string=qq) 
+2014/11/21 13:11:10 [log.go:108] [D] Question/Index Info:无效用户 
+2014/11/21 13:13:46 [router.go:845] [D] | POST       | /signOut                                 | 0                | match      | /signout                                 | 
+2014/11/21 13:14:04 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 13:14:04 [app.go:96] [I] http server Running on :80
+2014/11/21 13:14:23 [router.go:845] [D] | GET        | /connect/qq_login                        | 1ms              | match      | /connect/qq_login/*                      | 
+2014/11/21 13:14:28 [log.go:108] [D] Connect/QQ_Callback Info:&{0  %!s(int64=0) qq 769730D627FD70BF6FBC376B5554E4C5 5B9F45C11278896121B34468BBEE2C0D 17B16261244FECB04470F4002D52FF4E 哈利蔺特 男 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/40 http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/100} 
+2014/11/21 13:14:28 [router.go:845] [D] | GET        | /connect/qq_callback                     | 2.0751187s       | match      | /connect/qq_callback/*                   | 
+2014/11/21 13:14:28 [log.go:108] [D] Connect/SignTrace Info:记录登录日志 
+2014/11/21 13:14:28 [router.go:845] [D] | POST       | /connect/signtrace                       | 350.02ms         | match      | /connect/signtrace/*                     | 
+2014/11/21 13:14:37 [log.go:108] [D] Question/GET Info:1%!(EXTRA string=qq) 
+2014/11/21 13:14:37 [router.go:876] [C] the request url is  /question 
+2014/11/21 13:14:37 [router.go:877] [C] Handler crashed with error can't find templatefile in the path:question/index.html 
+2014/11/21 13:14:37 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/21 13:14:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:208 
+2014/11/21 13:14:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2014/11/21 13:14:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2014/11/21 13:14:37 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/21 13:14:37 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/21 13:14:37 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/21 13:16:24 [log.go:108] [D] Question/GET Info:1%!(EXTRA string=qq) 
+2014/11/21 13:16:24 [log.go:108] [D] Question/GET Info:zh-CN 
+2014/11/21 13:16:24 [router.go:845] [D] | GET        | /question                                | 50.0028ms        | match      | /question                                | 
+2014/11/21 13:22:32 [router.go:845] [D] | GET        | /                                        | 39.0022ms        | match      | /                                        | 
+2014/11/21 13:22:35 [router.go:845] [D] | GET        | /                                        | 40.0023ms        | match      | /                                        | 
+2014/11/21 13:22:37 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 13:22:37 [router.go:876] [C] the request url is  /question/ask 
+2014/11/21 13:22:37 [router.go:877] [C] Handler crashed with error can't find templatefile in the path:question/ask.html 
+2014/11/21 13:22:37 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/21 13:22:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:208 
+2014/11/21 13:22:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2014/11/21 13:22:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2014/11/21 13:22:37 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/21 13:22:37 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/21 13:22:37 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/21 13:23:19 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 13:23:19 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 13:23:19 [router.go:845] [D] | GET        | /question/ask                            | 30.0017ms        | match      | /question/ask/*                          | 
+2014/11/21 14:09:43 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 14:09:43 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 14:09:43 [router.go:845] [D] | GET        | /question/ask                            | 109.0062ms       | match      | /question/ask/*                          | 
+2014/11/21 14:14:45 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/21 14:14:45 [app.go:96] [I] http server Running on :80
+2014/11/21 14:16:08 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 14:16:08 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 14:16:08 [router.go:845] [D] | GET        | /question/ask                            | 42.0024ms        | match      | /question/ask/*                          | 
+2014/11/21 14:32:35 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 14:32:35 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 14:32:35 [router.go:845] [D] | GET        | /question/ask                            | 49.0028ms        | match      | /question/ask/*                          | 
+2014/11/21 14:34:03 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 14:34:03 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 14:34:03 [router.go:845] [D] | GET        | /question/ask                            | 34.0019ms        | match      | /question/ask/*                          | 
+2014/11/21 14:34:37 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 14:34:37 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 14:34:37 [router.go:845] [D] | GET        | /question/ask                            | 43.0024ms        | match      | /question/ask/*                          | 
+2014/11/21 14:35:05 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 14:35:05 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 14:35:05 [router.go:845] [D] | GET        | /question/ask                            | 50.0029ms        | match      | /question/ask/*                          | 
+2014/11/21 15:24:08 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:24:08 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:24:08 [router.go:845] [D] | GET        | /question/ask                            | 29.0016ms        | match      | /question/ask/*                          | 
+2014/11/21 15:31:22 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:31:22 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:31:22 [router.go:845] [D] | GET        | /question/ask                            | 42.0024ms        | match      | /question/ask/*                          | 
+2014/11/21 15:31:47 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:31:47 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:31:47 [router.go:845] [D] | GET        | /question/ask                            | 42.0024ms        | match      | /question/ask/*                          | 
+2014/11/21 15:35:52 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:35:52 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:35:52 [router.go:845] [D] | GET        | /question/ask                            | 44.0025ms        | match      | /question/ask/*                          | 
+2014/11/21 15:36:10 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:36:10 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:36:10 [router.go:845] [D] | GET        | /question/ask                            | 39.0022ms        | match      | /question/ask/*                          | 
+2014/11/21 15:36:28 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:36:28 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:36:28 [router.go:845] [D] | GET        | /question/ask                            | 34.002ms         | match      | /question/ask/*                          | 
+2014/11/21 15:37:14 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:37:14 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:37:14 [router.go:845] [D] | GET        | /question/ask                            | 60.0034ms        | match      | /question/ask/*                          | 
+2014/11/21 15:38:21 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:38:21 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:38:21 [router.go:845] [D] | GET        | /question/ask                            | 55.0032ms        | match      | /question/ask/*                          | 
+2014/11/21 15:39:00 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:39:00 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:39:00 [router.go:845] [D] | GET        | /question/ask                            | 41.0023ms        | match      | /question/ask/*                          | 
+2014/11/21 15:39:55 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:39:55 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:39:55 [router.go:845] [D] | GET        | /question/ask                            | 32.0018ms        | match      | /question/ask/*                          | 
+2014/11/21 15:40:46 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:40:46 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:40:46 [router.go:845] [D] | GET        | /question/ask                            | 59.0034ms        | match      | /question/ask/*                          | 
+2014/11/21 15:41:09 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:41:09 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:41:09 [router.go:845] [D] | GET        | /question/ask                            | 32.0018ms        | match      | /question/ask/*                          | 
+2014/11/21 15:41:21 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:41:22 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:41:22 [router.go:845] [D] | GET        | /question/ask                            | 29.0017ms        | match      | /question/ask/*                          | 
+2014/11/21 15:42:25 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:42:25 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:42:25 [router.go:845] [D] | GET        | /question/ask                            | 44.0025ms        | match      | /question/ask/*                          | 
+2014/11/21 15:42:58 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:42:58 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:42:58 [router.go:845] [D] | GET        | /question/ask                            | 34.0019ms        | match      | /question/ask/*                          | 
+2014/11/21 15:50:10 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:50:10 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:50:10 [router.go:845] [D] | GET        | /question/ask                            | 46.0026ms        | match      | /question/ask/*                          | 
+2014/11/21 15:50:56 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:50:56 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:50:56 [router.go:845] [D] | GET        | /question/ask                            | 57.0033ms        | match      | /question/ask/*                          | 
+2014/11/21 15:51:02 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:51:02 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:51:02 [router.go:845] [D] | GET        | /question/ask                            | 48.0028ms        | match      | /question/ask/*                          | 
+2014/11/21 15:55:23 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:55:23 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:55:23 [router.go:845] [D] | GET        | /question/ask                            | 34.002ms         | match      | /question/ask/*                          | 
+2014/11/21 15:56:30 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:56:30 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:56:30 [router.go:845] [D] | GET        | /question/ask                            | 47.0027ms        | match      | /question/ask/*                          | 
+2014/11/21 15:56:44 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:56:44 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:56:44 [router.go:845] [D] | GET        | /question/ask                            | 50.0028ms        | match      | /question/ask/*                          | 
+2014/11/21 15:57:28 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:57:28 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:57:28 [router.go:845] [D] | GET        | /question/ask                            | 43.0025ms        | match      | /question/ask/*                          | 
+2014/11/21 15:58:12 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:58:12 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:58:12 [router.go:845] [D] | GET        | /question/ask                            | 35.002ms         | match      | /question/ask/*                          | 
+2014/11/21 15:59:33 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 15:59:33 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 15:59:33 [router.go:845] [D] | GET        | /question/ask                            | 31.0017ms        | match      | /question/ask/*                          | 
+2014/11/21 16:01:18 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:01:18 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:01:18 [router.go:845] [D] | GET        | /question/ask                            | 44.0025ms        | match      | /question/ask/*                          | 
+2014/11/21 16:03:43 [router.go:845] [D] | GET        | /                                        | 41.0024ms        | match      | /                                        | 
+2014/11/21 16:04:38 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:04:38 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:04:38 [router.go:845] [D] | GET        | /question/ask                            | 41.0023ms        | match      | /question/ask/*                          | 
+2014/11/21 16:06:42 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:06:42 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:06:42 [router.go:845] [D] | GET        | /question/ask                            | 54.0031ms        | match      | /question/ask/*                          | 
+2014/11/21 16:08:49 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:08:49 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:08:49 [router.go:845] [D] | GET        | /question/ask                            | 53.003ms         | match      | /question/ask/*                          | 
+2014/11/21 16:09:09 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:09:09 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:09:09 [router.go:845] [D] | GET        | /question/ask                            | 30.0017ms        | match      | /question/ask/*                          | 
+2014/11/21 16:12:42 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:12:42 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:12:42 [router.go:845] [D] | GET        | /question/ask                            | 55.0031ms        | match      | /question/ask/*                          | 
+2014/11/21 16:13:58 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:13:58 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:13:58 [router.go:845] [D] | GET        | /question/ask                            | 65.0037ms        | match      | /question/ask/*                          | 
+2014/11/21 16:14:47 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:14:47 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:14:47 [router.go:845] [D] | GET        | /question/ask                            | 45.0025ms        | match      | /question/ask/*                          | 
+2014/11/21 16:16:30 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:16:30 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:16:30 [router.go:845] [D] | GET        | /question/ask                            | 34.002ms         | match      | /question/ask/*                          | 
+2014/11/21 16:17:47 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:17:47 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:17:47 [router.go:845] [D] | GET        | /question/ask                            | 39.0022ms        | match      | /question/ask/*                          | 
+2014/11/21 16:18:33 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:18:33 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:18:33 [router.go:845] [D] | GET        | /question/ask                            | 40.0023ms        | match      | /question/ask/*                          | 
+2014/11/21 16:18:36 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:18:36 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:18:36 [router.go:845] [D] | GET        | /question/ask                            | 30.0018ms        | match      | /question/ask/*                          | 
+2014/11/21 16:18:44 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:18:44 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:18:44 [router.go:845] [D] | GET        | /question/ask                            | 43.0025ms        | match      | /question/ask/*                          | 
+2014/11/21 16:18:59 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:18:59 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:18:59 [router.go:845] [D] | GET        | /question/ask                            | 47.0027ms        | match      | /question/ask/*                          | 
+2014/11/21 16:21:00 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:21:00 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:21:00 [router.go:845] [D] | GET        | /question/ask                            | 36.0021ms        | match      | /question/ask/*                          | 
+2014/11/21 16:29:16 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:29:16 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:29:16 [router.go:845] [D] | GET        | /question/ask                            | 40.0022ms        | match      | /question/ask/*                          | 
+2014/11/21 16:30:28 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:30:28 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:30:28 [router.go:845] [D] | GET        | /question/ask                            | 51.0029ms        | match      | /question/ask/*                          | 
+2014/11/21 16:30:36 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:30:36 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:30:36 [router.go:845] [D] | GET        | /question/ask                            | 49.0028ms        | match      | /question/ask/*                          | 
+2014/11/21 16:30:47 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:30:47 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:30:47 [router.go:845] [D] | GET        | /question/ask                            | 34.002ms         | match      | /question/ask/*                          | 
+2014/11/21 16:31:13 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:31:13 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:31:13 [router.go:845] [D] | GET        | /question/ask                            | 30.0017ms        | match      | /question/ask/*                          | 
+2014/11/21 16:32:26 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:32:26 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:32:26 [router.go:845] [D] | GET        | /question/ask                            | 48.0028ms        | match      | /question/ask/*                          | 
+2014/11/21 16:33:13 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:33:13 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:33:13 [router.go:845] [D] | GET        | /question/ask                            | 43.0024ms        | match      | /question/ask/*                          | 
+2014/11/21 16:34:03 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:34:03 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:34:03 [router.go:845] [D] | GET        | /question/ask                            | 40.0023ms        | match      | /question/ask/*                          | 
+2014/11/21 16:34:18 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:34:18 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:34:18 [router.go:845] [D] | GET        | /question/ask                            | 50.0028ms        | match      | /question/ask/*                          | 
+2014/11/21 16:34:36 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:34:36 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:34:36 [router.go:845] [D] | GET        | /question/ask                            | 37.0021ms        | match      | /question/ask/*                          | 
+2014/11/21 16:34:54 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:34:54 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:34:54 [router.go:845] [D] | GET        | /question/ask                            | 59.0034ms        | match      | /question/ask/*                          | 
+2014/11/21 16:36:14 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:36:14 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:36:14 [router.go:845] [D] | GET        | /question/ask                            | 49.0028ms        | match      | /question/ask/*                          | 
+2014/11/21 16:37:43 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:37:43 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:37:43 [router.go:845] [D] | GET        | /question/ask                            | 57.0033ms        | match      | /question/ask/*                          | 
+2014/11/21 16:37:57 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:37:58 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:37:58 [router.go:845] [D] | GET        | /question/ask                            | 30.0017ms        | match      | /question/ask/*                          | 
+2014/11/21 16:38:39 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:38:39 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:38:39 [router.go:845] [D] | GET        | /question/ask                            | 44.0025ms        | match      | /question/ask/*                          | 
+2014/11/21 16:41:17 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:41:17 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:41:17 [router.go:845] [D] | GET        | /question/ask                            | 52.003ms         | match      | /question/ask/*                          | 
+2014/11/21 16:42:40 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:42:40 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:42:40 [router.go:845] [D] | GET        | /question/ask                            | 42.0024ms        | match      | /question/ask/*                          | 
+2014/11/21 16:45:40 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:45:40 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:45:40 [router.go:845] [D] | GET        | /question/ask                            | 58.0033ms        | match      | /question/ask/*                          | 
+2014/11/21 16:46:09 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:46:09 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:46:09 [router.go:845] [D] | GET        | /question/ask                            | 41.0023ms        | match      | /question/ask/*                          | 
+2014/11/21 16:47:25 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:47:25 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:47:25 [router.go:845] [D] | GET        | /question/ask                            | 41.0023ms        | match      | /question/ask/*                          | 
+2014/11/21 16:47:29 [router.go:845] [D] | GET        | /                                        | 44.0025ms        | match      | /                                        | 
+2014/11/21 16:48:51 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:48:51 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:48:51 [router.go:845] [D] | GET        | /question/ask                            | 47.0027ms        | match      | /question/ask/*                          | 
+2014/11/21 16:48:57 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2014/11/21 16:49:13 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:49:13 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:49:13 [router.go:845] [D] | GET        | /question/ask                            | 80.0046ms        | match      | /question/ask/*                          | 
+2014/11/21 16:49:18 [router.go:845] [D] | GET        | /                                        | 46.0026ms        | match      | /                                        | 
+2014/11/21 16:49:44 [router.go:845] [D] | GET        | /                                        | 78.0045ms        | match      | /                                        | 
+2014/11/21 16:49:51 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:49:51 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:49:51 [router.go:845] [D] | GET        | /question/ask                            | 123.007ms        | match      | /question/ask/*                          | 
+2014/11/21 16:51:36 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:51:36 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:51:36 [router.go:845] [D] | GET        | /question/ask                            | 80.0046ms        | match      | /question/ask/*                          | 
+2014/11/21 16:55:23 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:55:23 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:55:23 [router.go:845] [D] | GET        | /question/ask                            | 35.002ms         | match      | /question/ask/*                          | 
+2014/11/21 16:55:37 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:55:37 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:55:37 [router.go:845] [D] | GET        | /question/ask                            | 80.0045ms        | match      | /question/ask/*                          | 
+2014/11/21 16:56:27 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:56:27 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:56:27 [router.go:845] [D] | GET        | /question/ask                            | 40.0023ms        | match      | /question/ask/*                          | 
+2014/11/21 16:57:49 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:57:49 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:57:49 [router.go:845] [D] | GET        | /question/ask                            | 58.0033ms        | match      | /question/ask/*                          | 
+2014/11/21 16:58:24 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:58:24 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:58:24 [router.go:845] [D] | GET        | /question/ask                            | 40.0023ms        | match      | /question/ask/*                          | 
+2014/11/21 16:58:47 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:58:47 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:58:47 [router.go:845] [D] | GET        | /question/ask                            | 43.0025ms        | match      | /question/ask/*                          | 
+2014/11/21 16:59:01 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:59:01 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:59:01 [router.go:845] [D] | GET        | /question/ask                            | 32.0019ms        | match      | /question/ask/*                          | 
+2014/11/21 16:59:37 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:59:37 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:59:37 [router.go:845] [D] | GET        | /question/ask                            | 84.0048ms        | match      | /question/ask/*                          | 
+2014/11/21 16:59:58 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 16:59:58 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 16:59:58 [router.go:845] [D] | GET        | /question/ask                            | 44.0025ms        | match      | /question/ask/*                          | 
+2014/11/21 17:00:00 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:00:00 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:00:00 [router.go:845] [D] | GET        | /question/ask                            | 36.002ms         | match      | /question/ask/*                          | 
+2014/11/21 17:01:01 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:01:01 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:01:01 [router.go:845] [D] | GET        | /question/ask                            | 32.0018ms        | match      | /question/ask/*                          | 
+2014/11/21 17:01:03 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:01:03 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:01:03 [router.go:845] [D] | GET        | /question/ask                            | 57.0032ms        | match      | /question/ask/*                          | 
+2014/11/21 17:01:37 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:01:37 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:01:37 [router.go:845] [D] | GET        | /question/ask                            | 46.0026ms        | match      | /question/ask/*                          | 
+2014/11/21 17:01:38 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:01:38 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:01:38 [router.go:845] [D] | GET        | /question/ask                            | 46.0027ms        | match      | /question/ask/*                          | 
+2014/11/21 17:01:49 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:01:49 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:01:49 [router.go:845] [D] | GET        | /question/ask                            | 58.0034ms        | match      | /question/ask/*                          | 
+2014/11/21 17:03:12 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:03:12 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:03:12 [router.go:845] [D] | GET        | /question/ask                            | 32.0018ms        | match      | /question/ask/*                          | 
+2014/11/21 17:05:18 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:05:18 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:05:18 [router.go:845] [D] | GET        | /question/ask                            | 32.0018ms        | match      | /question/ask/*                          | 
+2014/11/21 17:07:41 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:07:41 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:07:41 [router.go:845] [D] | GET        | /question/ask                            | 43.0024ms        | match      | /question/ask/*                          | 
+2014/11/21 17:08:12 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:08:12 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:08:12 [router.go:845] [D] | GET        | /question/ask                            | 58.0033ms        | match      | /question/ask/*                          | 
+2014/11/21 17:08:57 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:08:57 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:08:57 [router.go:845] [D] | GET        | /question/ask                            | 49.0028ms        | match      | /question/ask/*                          | 
+2014/11/21 17:10:49 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:10:50 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:10:50 [router.go:845] [D] | GET        | /question/ask                            | 38.0022ms        | match      | /question/ask/*                          | 
+2014/11/21 17:10:54 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:10:54 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:10:54 [router.go:845] [D] | GET        | /question/ask                            | 47.0027ms        | match      | /question/ask/*                          | 
+2014/11/21 17:12:15 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:12:15 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:12:15 [router.go:845] [D] | GET        | /question/ask                            | 31.0018ms        | match      | /question/ask/*                          | 
+2014/11/21 17:12:44 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:12:44 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:12:44 [router.go:845] [D] | GET        | /question/ask                            | 50.0029ms        | match      | /question/ask/*                          | 
+2014/11/21 17:13:34 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:13:34 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:13:34 [router.go:845] [D] | GET        | /question/ask                            | 32.0018ms        | match      | /question/ask/*                          | 
+2014/11/21 17:14:04 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:14:04 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:14:04 [router.go:845] [D] | GET        | /question/ask                            | 42.0024ms        | match      | /question/ask/*                          | 
+2014/11/21 17:32:43 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:32:43 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:32:43 [router.go:845] [D] | GET        | /question/ask                            | 35.002ms         | match      | /question/ask/*                          | 
+2014/11/21 17:36:07 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:36:07 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:36:07 [router.go:845] [D] | GET        | /question/ask                            | 44.0025ms        | match      | /question/ask/*                          | 
+2014/11/21 17:38:38 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:38:38 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:38:38 [router.go:845] [D] | GET        | /question/ask                            | 42.0024ms        | match      | /question/ask/*                          | 
+2014/11/21 17:40:53 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:40:53 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:40:53 [router.go:845] [D] | GET        | /question/ask                            | 39.0022ms        | match      | /question/ask/*                          | 
+2014/11/21 17:41:21 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:41:22 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:41:22 [router.go:845] [D] | GET        | /question/ask                            | 42.0024ms        | match      | /question/ask/*                          | 
+2014/11/21 17:43:55 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:43:55 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:43:55 [router.go:845] [D] | GET        | /question/ask                            | 29.0017ms        | match      | /question/ask/*                          | 
+2014/11/21 17:45:38 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:45:38 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:45:38 [router.go:845] [D] | GET        | /question/ask                            | 39.0023ms        | match      | /question/ask/*                          | 
+2014/11/21 17:46:53 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:46:53 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:46:53 [router.go:845] [D] | GET        | /question/ask                            | 40.0023ms        | match      | /question/ask/*                          | 
+2014/11/21 17:47:04 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:47:04 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:47:04 [router.go:845] [D] | GET        | /question/ask                            | 30.0017ms        | match      | /question/ask/*                          | 
+2014/11/21 17:47:12 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:47:12 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:47:12 [router.go:845] [D] | GET        | /question/ask                            | 49.0028ms        | match      | /question/ask/*                          | 
+2014/11/21 17:47:24 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/21 17:47:24 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/21 17:47:24 [router.go:845] [D] | GET        | /question/ask                            | 46.0026ms        | match      | /question/ask/*                          | 

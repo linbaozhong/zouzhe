@@ -17,6 +17,7 @@ func (this *Auth) Prepare() {
 			this.end()
 		} else {
 			// 跳转到错误页
+			this.Trace("无效用户")
 			this.end()
 		}
 	}
