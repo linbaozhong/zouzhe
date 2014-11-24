@@ -2,6 +2,7 @@
 <script src="/static/js/jquery.tagsinput.min.js" type="text/javascript" charset="utf-8"></script>
 
 <div class="grid fluid" style="width:400px;">
+	<form>
 	<div class="row horizontal-list">
 		<dl>
 			<dt><h2>线路求助</h2></dt>
@@ -9,18 +10,19 @@
 		</dl>
 	</div>
 	<div class="row input-control text">
-		<input type="text" class="span4" placeholder="时间" name="" id="" value="" />
-		<input type="text" class="span8" placeholder="目的地" name="" id="" value="" />
+		<input type="text" class="span5" placeholder="时间" name="" id="" value="" />
+		<input type="text" class="span7" placeholder="目的地" name="" id="" value="" />
 	</div>
 	<div class="row input-control textarea">
-		<textarea class="" placeholder="详细描述" name="" id="" style="resize:none;height:10em;"></textarea>
+		<textarea class="" placeholder="详细描述" name="" id="" style="resize:none;height:8em;"></textarea>
 	</div>
 	<div class="row input-control">
 		<input type="text" class="" placeholder="新标签" name="" id="tags" value="" />
 	</div>
 	<div class="row">
-		<button class="span4 primary" name="" id="">发布</button>
+		<button class="span4 primary" name="" id="post-ask">发布</button>
 	</div>
+</form>
 </div>
 
 
@@ -33,6 +35,16 @@
 		<i class="icon-arrow-down-5"></i>
 	</button>
 </div>
+
 <script type="text/javascript">
-	$('#tags').tagsInput({width:'auto',height:'auto',defaultText:'新标签'});
+	var _ask_tags = $('#tags').tagsInput({
+		width:'auto',
+		height:'auto',
+		placeholderColor:'#999',
+		defaultText:'新标签'
+	});
+
+	$('#post-ask').click(function(){
+		alert(_ask_tags.val());
+	});
 </script>
