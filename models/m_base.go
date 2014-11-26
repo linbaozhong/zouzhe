@@ -45,8 +45,8 @@ type Field struct {
 
 //错误信息
 type Error struct {
-	Key     string `json:"key"`
-	Message string `json:"message"`
+	Key     string
+	Message string
 }
 
 //分页
