@@ -10,6 +10,10 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
+const (
+	ReviewQuestion = 0
+)
+
 //页面公共信息
 type Page struct {
 	SiteName    string //网站名称

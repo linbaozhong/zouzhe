@@ -463,5 +463,5 @@ func (this *Base) loginOut() {
  */
 func (this *Base) Trace(v ...interface{}) {
 	c, a := this.Controller.GetControllerAndAction()
-	beego.Trace(fmt.Sprintf("%s/%s ", c, a) + fmt.Sprintf("Info:%s", v...))
+	beego.Trace(fmt.Sprintf("%s/%s ", c, a) + fmt.Sprintf("Info:%s", utils.Interface2str(v...)))
 }

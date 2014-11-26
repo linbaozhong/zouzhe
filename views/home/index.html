@@ -128,17 +128,16 @@
 				});
 			}
 		}).resize().scroll();
+		
 		// 向上滚动
-		_tools.find('button.scroll-top').click(function() {
+		_tools.on('click','button.scroll-top',function() {
 			$(window).scrollTop(0);
-		});
+		}).on('click','button.scroll-bottom',function() {
 		// 向下滚动
-		_tools.find('button.scroll-bottom').click(function() {
 			$(window).scrollTop($(document).height());
-		});
+		}).on('click','button.btnAsk',function() {
 		// 提问
-		_tools.find('button.btnAsk').click(function() {
-			snow.go(snow.api.ask);
+			snow.go(snow.api.questionAsk);
 		});
 
 	});
