@@ -29,17 +29,17 @@ type Accounts struct {
 	Ip           string `json:"ip" valid:"MaxSize(23)"`
 }
 
-// 账号是否存在
-func (this *Accounts) Exists() (bool, error) {
-	return db.Get(this)
-}
-
 //
 func (this *Accounts) Valid(v *validation.Validation) {
 	//登录名必须是email
 	if this.LoginName != "" {
 		v.Email(this.LoginName, "loginName")
 	}
+}
+
+// 账号是否存在
+func (this *Accounts) Exists() (bool, error) {
+	return db.Get(this)
 }
 
 // 增加新账户

@@ -836,3 +836,206 @@
 2014/11/21 17:47:24 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
 2014/11/21 17:47:24 [log.go:108] [D] Question/Ask Info:zh-CN 
 2014/11/21 17:47:24 [router.go:845] [D] | GET        | /question/ask                            | 46.0026ms        | match      | /question/ask/*                          | 
+2014/11/25 13:16:58 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/25 13:17:25 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/25 13:17:56 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/25 13:18:11 [app.go:96] [I] http server Running on :80
+2014/11/25 15:33:55 [router.go:845] [D] | GET        | /                                        | 36.0021ms        | match      | /                                        | 
+2014/11/25 15:33:58 [router.go:845] [D] | GET        | /undefined                               | 1ms              | notmatch   | 
+2014/11/25 15:36:12 [router.go:845] [D] | GET        | /                                        | 48.0028ms        | match      | /                                        | 
+2014/11/25 15:36:13 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/25 15:36:13 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/25 15:36:13 [router.go:845] [D] | GET        | /question/ask                            | 49.0028ms        | match      | /question/ask/*                          | 
+2014/11/25 15:36:20 [log.go:108] [D] Question/Insert Info:1%!(EXTRA string=qq) 
+2014/11/25 15:36:20 [log.go:108] [D] Question/Insert Info:zh-CN 
+2014/11/25 15:36:20 [router.go:845] [D] | POST       | /question/insert                         | 1ms              | match      | /question/insert/*                       | 
+2014/11/25 15:36:20 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/25 15:36:20 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/25 15:36:20 [router.go:845] [D] | GET        | /question/ask                            | 39.0023ms        | match      | /question/ask/*                          | 
+2014/11/25 15:37:21 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/25 15:37:21 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/25 15:37:21 [router.go:845] [D] | GET        | /question/ask                            | 59.0034ms        | match      | /question/ask/*                          | 
+2014/11/25 15:37:24 [log.go:108] [D] Question/Insert Info:1%!(EXTRA string=qq) 
+2014/11/25 15:37:24 [log.go:108] [D] Question/Insert Info:zh-CN 
+2014/11/25 15:37:24 [router.go:845] [D] | POST       | /question/insert                         | 1ms              | match      | /question/insert/*                       | 
+2014/11/25 15:40:08 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/25 15:40:09 [app.go:96] [I] http server Running on :80
+2014/11/25 15:48:56 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2014/11/25 15:54:45 [log.go:108] [D] Question/Insert Info:1%!(EXTRA string=qq) 
+2014/11/25 15:54:45 [log.go:108] [D] Question/Insert Info:zh-CN 
+2014/11/25 15:54:45 [router.go:845] [D] | POST       | /question/insert                         | 0                | match      | /question/insert/*                       | 
+2014/11/25 15:58:00 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/25 15:58:01 [app.go:96] [I] http server Running on :80
+2014/11/25 16:00:40 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/25 16:00:40 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/25 16:00:40 [router.go:845] [D] | GET        | /question/ask                            | 48.0028ms        | match      | /question/ask/*                          | 
+2014/11/25 16:00:43 [log.go:108] [D] Question/Insert Info:1%!(EXTRA string=qq) 
+2014/11/25 16:00:43 [log.go:108] [D] Question/Insert Info:valid方法错误 
+2014/11/25 16:00:43 [log.go:108] [D] Question/Insert Info:zh-CN 
+2014/11/25 16:00:43 [router.go:845] [D] | POST       | /question/insert                         | 0                | match      | /question/insert/*                       | 
+2014/11/25 16:38:37 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/25 16:38:38 [app.go:96] [I] http server Running on :80
+2014/11/25 16:39:00 [log.go:108] [D] Question/Insert Info:1%!(EXTRA string=qq) 
+2014/11/25 16:39:00 [log.go:108] [D] Question/Insert Info:&{%!s(int64=0)     %!s(int=0) %!s(int=0) %!s(int64=1) %!s(int64=1416904740609) %!s(int64=1) %!s(int64=1416904740609) 127.0.0.1} 
+2014/11/25 16:39:00 [log.go:108] [D] Question/Insert Info:valid方法错误 
+2014/11/25 16:39:00 [log.go:108] [D] Question/Insert Info:zh-CN 
+2014/11/25 16:39:00 [router.go:845] [D] | POST       | /question/insert                         | 1.0001ms         | match      | /question/insert/*                       | 
+2014/11/25 16:41:48 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/25 16:41:48 [app.go:96] [I] http server Running on :80
+2014/11/25 16:51:37 [log.go:108] [D] Question/Insert Info:1%!(EXTRA string=qq) 
+2014/11/25 16:51:37 [log.go:108] [D] Question/Insert Info:valid方法错误 
+2014/11/25 16:51:37 [log.go:108] [D] Question/Insert Info:zh-CN 
+2014/11/25 16:51:37 [router.go:845] [D] | POST       | /question/insert                         | 3.0002ms         | match      | /question/insert/*                       | 
+2014/11/25 16:52:26 [log.go:108] [D] Question/Insert Info:1%!(EXTRA string=qq) 
+2014/11/25 16:52:26 [log.go:108] [D] Question/Insert Info:valid方法错误 
+2014/11/25 16:52:26 [log.go:108] [D] Question/Insert Info:zh-CN 
+2014/11/25 16:52:26 [router.go:845] [D] | POST       | /question/insert                         | 14.0008ms        | match      | /question/insert/*                       | 
+2014/11/25 16:53:07 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/25 16:53:07 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/25 16:53:07 [router.go:845] [D] | GET        | /question/ask                            | 49.0028ms        | match      | /question/ask/*                          | 
+2014/11/25 16:53:43 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/25 16:53:43 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/25 16:53:43 [router.go:845] [D] | GET        | /question/ask                            | 50.0028ms        | match      | /question/ask/*                          | 
+2014/11/25 16:55:19 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/25 16:55:19 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/25 16:55:19 [router.go:845] [D] | GET        | /question/ask                            | 49.0029ms        | match      | /question/ask/*                          | 
+2014/11/25 16:55:41 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/25 16:55:41 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/25 16:55:41 [router.go:845] [D] | GET        | /question/ask                            | 32.0018ms        | match      | /question/ask/*                          | 
+2014/11/25 16:56:22 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/25 16:56:22 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/25 16:56:22 [router.go:845] [D] | GET        | /question/ask                            | 61.0035ms        | match      | /question/ask/*                          | 
+2014/11/25 16:57:02 [log.go:108] [D] Question/Ask Info:1%!(EXTRA string=qq) 
+2014/11/25 16:57:02 [log.go:108] [D] Question/Ask Info:zh-CN 
+2014/11/25 16:57:02 [router.go:845] [D] | GET        | /question/ask                            | 42.0024ms        | match      | /question/ask/*                          | 
+2014/11/26 09:55:13 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 09:55:13 [app.go:96] [I] http server Running on :80
+2014/11/26 10:12:35 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 10:12:35 [app.go:96] [I] http server Running on :80
+2014/11/26 10:14:03 [router.go:845] [D] | GET        | /                                        | 34.0019ms        | match      | /                                        | 
+2014/11/26 10:14:09 [log.go:108] [D] Question/Ask Info:[Debug] at (*Base).Trace() [G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_base.go:468]
+
+[Variables]
+1 = "qq"
+ 
+2014/11/26 10:14:09 [router.go:876] [C] the request url is  /question/ask 
+2014/11/26 10:14:09 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2014/11/26 10:14:09 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/26 10:14:09 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2014/11/26 10:14:09 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:466 
+2014/11/26 10:14:09 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/utils/debug.go:69 
+2014/11/26 10:14:09 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/utils/debug.go:52 
+2014/11/26 10:14:09 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_base.go:468 
+2014/11/26 10:14:09 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_auth_base.go:34 
+2014/11/26 10:14:09 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:809 
+2014/11/26 10:14:09 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/26 10:14:09 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/26 10:14:09 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/26 10:14:22 [log.go:108] [D] Question/Ask Info:[Debug] at (*Base).Trace() [G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_base.go:468]
+
+[Variables]
+1 = "qq"
+ 
+2014/11/26 10:14:22 [router.go:876] [C] the request url is  /question/ask 
+2014/11/26 10:14:22 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2014/11/26 10:14:22 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/26 10:14:22 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2014/11/26 10:14:22 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:466 
+2014/11/26 10:14:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/utils/debug.go:69 
+2014/11/26 10:14:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/utils/debug.go:52 
+2014/11/26 10:14:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_base.go:468 
+2014/11/26 10:14:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_auth_base.go:34 
+2014/11/26 10:14:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:809 
+2014/11/26 10:14:22 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/26 10:14:22 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/26 10:14:22 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/26 10:16:12 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 10:16:12 [app.go:96] [I] http server Running on :80
+2014/11/26 10:16:16 [log.go:108] [D] Question/Ask Info:[Debug] at (*Base).Trace() [G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_base.go:468]
+
+[Variables]
+1 = "qq"
+ 
+2014/11/26 10:16:16 [router.go:876] [C] the request url is  /question/ask 
+2014/11/26 10:16:16 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2014/11/26 10:16:16 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/26 10:16:16 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2014/11/26 10:16:16 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:466 
+2014/11/26 10:16:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/utils/debug.go:69 
+2014/11/26 10:16:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/utils/debug.go:52 
+2014/11/26 10:16:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_base.go:468 
+2014/11/26 10:16:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_auth_base.go:34 
+2014/11/26 10:16:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:809 
+2014/11/26 10:16:16 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/26 10:16:16 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/26 10:16:16 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/26 10:18:35 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 10:18:35 [app.go:96] [I] http server Running on :80
+2014/11/26 10:19:58 [log.go:108] [D] Question/Ask Info:[Debug] at (*Base).Trace() [G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_base.go:468]
+
+[Variables]
+1 = "qq"
+ 
+2014/11/26 10:19:59 [router.go:845] [D] | GET        | /question/ask                            | 42.0024ms        | match      | /question/ask/*                          | 
+2014/11/26 10:22:38 [router.go:845] [D] | GET        | /ifr_status/                             | 1ms              | notmatch   | 
+2014/11/26 10:50:50 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 10:50:50 [app.go:96] [I] http server Running on :80
+2014/11/26 10:50:55 [log.go:108] [D] Question/Ask Info:1 = "qq"
+ 
+2014/11/26 10:50:55 [router.go:876] [C] the request url is  /question/ask 
+2014/11/26 10:50:55 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2014/11/26 10:50:55 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2014/11/26 10:50:55 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2014/11/26 10:50:55 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:466 
+2014/11/26 10:50:55 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/utils/convert.go:50 
+2014/11/26 10:50:55 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_base.go:467 
+2014/11/26 10:50:55 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/controllers/c_auth_base.go:34 
+2014/11/26 10:50:55 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:809 
+2014/11/26 10:50:55 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2014/11/26 10:50:55 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2014/11/26 10:50:55 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2014/11/26 10:52:38 [router.go:845] [D] | GET        | /ifr_status/                             | 1ms              | notmatch   | 
+2014/11/26 10:53:49 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 10:53:49 [app.go:96] [I] http server Running on :80
+2014/11/26 10:56:38 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 10:56:39 [app.go:96] [I] http server Running on :80
+2014/11/26 10:56:44 [log.go:108] [D] Question/Ask Info:"1"
+"qq"
+ 
+2014/11/26 10:56:44 [log.go:108] [D] Question/Ask Info:"zh-CN"
+ 
+2014/11/26 10:56:44 [router.go:845] [D] | GET        | /question/ask                            | 54.0031ms        | match      | /question/ask/*                          | 
+2014/11/26 11:08:04 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 11:08:04 [app.go:96] [I] http server Running on :80
+2014/11/26 11:09:08 [log.go:108] [D] Question/Ask Info:"1""qq" 
+2014/11/26 11:09:08 [log.go:108] [D] Question/Ask Info:"zh-CN" 
+2014/11/26 11:09:08 [router.go:845] [D] | GET        | /question/ask                            | 36.0021ms        | match      | /question/ask/*                          | 
+2014/11/26 11:16:58 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 11:16:58 [app.go:96] [I] http server Running on :80
+2014/11/26 11:17:17 [log.go:108] [D] Question/Ask Info:  "1",  "qq", 
+2014/11/26 11:17:17 [log.go:108] [D] Question/Ask Info:  "zh-CN" 
+2014/11/26 11:17:17 [router.go:845] [D] | GET        | /question/ask                            | 43.0024ms        | match      | /question/ask/*                          | 
+2014/11/26 11:21:29 [log.go:108] [D] Question/Insert Info:  "1",  "qq", 
+2014/11/26 11:21:29 [log.go:108] [D] Question/Insert Info:  "valid方法错误" 
+2014/11/26 11:21:29 [log.go:108] [D] Question/Insert Info:  "zh-CN" 
+2014/11/26 11:21:29 [router.go:845] [D] | POST       | /question/insert                         | 1.0001ms         | match      | /question/insert/*                       | 
+2014/11/26 11:22:51 [router.go:845] [D] | GET        | /ifr_status/                             | 1.0001ms         | notmatch   | 
+2014/11/26 11:23:33 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 11:23:34 [app.go:96] [I] http server Running on :80
+2014/11/26 11:23:36 [log.go:108] [D] Question/Insert Info:  "1",  "qq" 
+2014/11/26 11:23:36 [log.go:108] [D] Question/Insert Info:  "数据校验错误" 
+2014/11/26 11:23:36 [log.go:108] [D] Question/Insert Info:  "zh-CN" 
+2014/11/26 11:23:36 [router.go:845] [D] | POST       | /question/insert                         | 1ms              | match      | /question/insert/*                       | 
+2014/11/26 11:25:02 [log.go:108] [D] Question/Insert Info:  "1",  "qq" 
+2014/11/26 11:25:02 [log.go:108] [D] Question/Insert Info:  "正在保存" 
+2014/11/26 11:25:02 [log.go:108] [D] Question/Insert Info:  "zh-CN" 
+2014/11/26 11:25:02 [router.go:845] [D] | POST       | /question/insert                         | 40.0023ms        | match      | /question/insert/*                       | 
+2014/11/26 11:51:25 [log.go:108] [D] Question/Insert Info:  "1",  "qq" 
+2014/11/26 11:51:25 [log.go:108] [D] Question/Insert Info:  "正在保存" 
+2014/11/26 11:51:25 [log.go:108] [D] Question/Insert Info:  "zh-CN" 
+2014/11/26 11:51:25 [router.go:845] [D] | POST       | /question/insert                         | 194.0111ms       | match      | /question/insert/*                       | 
+2014/11/26 11:52:51 [router.go:845] [D] | GET        | /ifr_status/                             | 1.0001ms         | notmatch   | 
+2014/11/26 11:56:07 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 11:56:07 [app.go:96] [I] http server Running on :80
+2014/11/26 11:57:22 [main.go:17] [I] zouzhe 0.1.14.1105 
+2014/11/26 11:57:22 [app.go:96] [I] http server Running on :80
