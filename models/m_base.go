@@ -2,12 +2,12 @@ package models
 
 import (
 	"errors"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/validation"
 	"github.com/go-xorm/core"
 	"github.com/go-xorm/xorm"
 	_ "github.com/mattn/go-sqlite3"
+	"math"
 )
 
 const (
@@ -131,4 +131,9 @@ func parseDb(dbs []map[string][]byte) []map[string]string {
 		_st = append(_st, _mt)
 	}
 	return _st
+}
+
+// 根据记录总数，返回总页数
+func getPageCount(rows int64, page *Pagination) {
+	page.Count = int(math.Ceil(float64(rows / int64(page.Size))))
 }

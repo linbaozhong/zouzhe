@@ -33,3 +33,19 @@ func (this *Question) Insert() (int64, error) {
 func (this *Question) Get() (bool, error) {
 	return db.Get(this)
 }
+
+// 分页读取符合条件的记录
+func (this *Question) List(where string, page *Pagination) ([]Question, error) {
+	qs := make([]Question, 0)
+	// 符合条件的记录总数
+	q := new(Question)
+
+	if rows, err := db.Where(where).Count(q); err != nil {
+		return qs, err
+	} else {
+		getPageCount(rows, page)
+	}
+
+	err := db.Where(where).Limit(page.Size, page.Index*page.Size).Find(&qs)
+	return qs, err
+}

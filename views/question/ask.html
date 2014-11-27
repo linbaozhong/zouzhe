@@ -1,30 +1,41 @@
+
 <link rel="stylesheet" type="text/css" href="../../static/css/jquery.tagsinput.css"/>
 <script src="/static/js/jquery.tagsinput.min.js" type="text/javascript" charset="utf-8"></script>
 
-<div class="grid fluid" style="width:400px;">
-	<form id="question-form">
-	<div class="row horizontal-list">
-		<dl>
-			<dt><h2>线路求助</h2></dt>
-			<dd style="margin-top: 23px;"></dd>
-		</dl>
-	</div>
-	<div class="row input-control text">
-		<input type="text" class="span5" placeholder="时间" name="when" id="question-when" value="" />
-		<input type="text" class="span7" placeholder="目的地" name="where" id="question-where" value="" />
-	</div>
-	<div class="row input-control textarea">
-		<textarea class="" placeholder="详细描述" name="intro" id="question-intro" style="resize:none;height:8em;"></textarea>
-	</div>
-	<div class="row input-control">
-		<input type="text" class="" placeholder="新标签" name="tags" id="question-tags" value="" />
-	</div>
+<div class="grid fluid">
 	<div class="row">
-		<button type="button" class="span4 primary" name="" id="question-post">发布</button>
+		<div class="container span5">
+			<div class="grid fluid">
+				<form id="question-form">
+				<div class="row horizontal-list">
+					<dl>
+						<dt><h2>线路求助</h2></dt>
+						<dd style="margin-top: 23px;"></dd>
+					</dl>
+				</div>
+				<div class="row input-control text">
+					<input type="text" class="span5" placeholder="时间" name="when" id="question-when" value="" />
+					<input type="text" class="span7" placeholder="目的地" name="where" id="question-where" value="" />
+				</div>
+				<div class="row input-control textarea">
+					<textarea class="" placeholder="详细描述" name="intro" id="question-intro" style="resize:none;height:8em;"></textarea>
+				</div>
+				<div class="row input-control">
+					<input type="text" class="" placeholder="新标签" name="tags" id="question-tags" value="" />
+				</div>
+				<div class="row">
+					<button type="button" class="span4 primary" name="" id="question-post">发布</button>
+				</div>
+				</form>
+			</div>
+		</div>
+		<div class="container span7">
+			<div id="question-list" class="grid fluid">
+				<!-- 这里读入求助列表 -->
+			</div>
+		</div>
 	</div>
-</form>
 </div>
-
 
 <div id="scroll-tools" class="toolbar">
 	<button class="scroll-top">
@@ -51,6 +62,22 @@
 	$('#question-post').click(function(){
 		$.post(snow.api.questionInsert,$('#question-form').serialize(),function(d){
 			log(d);
+		});
+	});
+
+	$(function(){
+		// 读取求助列表
+		$.post(snow.api.questionList,{},function(d){
+			if (d.ok) {
+				var q_list = $('#question-list');
+				$.each(d.data,function(i,q){
+					var row = $('<div class="row" />');
+					row.append('<div class="span3">'+q.when+'</div>');
+					row.append('<div class="span3">'+q.where+'</div>');
+					row.append('<div class="span6">'+q.intro+'</div>');
+					q_list.append(row);
+				});
+			};
 		});
 	});
 </script>

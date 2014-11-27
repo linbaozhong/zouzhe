@@ -2,6 +2,9 @@ package controllers
 
 import (
 	"fmt"
+	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/validation"
+	"github.com/beego/i18n"
 	"net/url"
 	"reflect"
 	"regexp"
@@ -10,9 +13,6 @@ import (
 	"time"
 	"zouzhe/models"
 	"zouzhe/utils"
-
-	"github.com/astaxie/beego"
-	"github.com/beego/i18n"
 )
 
 type langType struct {
@@ -464,4 +464,15 @@ func (this *Base) loginOut() {
 func (this *Base) Trace(v ...interface{}) {
 	c, a := this.Controller.GetControllerAndAction()
 	beego.Trace(fmt.Sprintf("%s/%s ", c, a) + fmt.Sprintf("Info:%s", utils.Interface2str(v...)))
+}
+
+/*
+* 读取数据校验错误
+ */
+func getValidErrors(valid *validation.Validation) []models.Error {
+	errs := make([]models.Error, 0)
+	for _, err := range valid.Errors {
+		errs = append(errs, models.Error{Key: err.Key, Message: err.Message})
+	}
+	return errs
 }

@@ -19,13 +19,16 @@
 		accessToken:$.cookie('token')
 	};
 	snow.checkin = $.cookie('_snow_token') && $.cookie('_snow_token').length>0;
-	snow.api={
+
+	snow.api = {
 		signUp:'/signUp'
 		,signIn:'/signIn'
 		,signOut:'/signOut'
 		,signTrace:'/connect/signtrace'
 		,questionAsk:'/question/ask'
 		,questionInsert:'/question/insert'
+		,questionList:'/question/list'
+		,questionGet:'/question/get'
 	};
 
 	snow.go = function(url){
