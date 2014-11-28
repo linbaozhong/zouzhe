@@ -25,8 +25,13 @@ func (this *Question) Valid(v *validation.Validation) {
 }
 
 // 新问题
-func (this *Question) Insert() (int64, error) {
-	return db.Insert(this)
+func (this *Question) Save() (int64, error) {
+	if this.Id == 0 {
+		return db.Insert(this)
+	} else {
+		return db.Id(this.Id).Update(this)
+	}
+
 }
 
 // 读取一个问题

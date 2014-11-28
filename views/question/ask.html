@@ -4,7 +4,7 @@
 
 <div class="grid fluid">
 	<div class="row">
-		<div class="container span5">
+		<div class="container span5" style="padding:0 40px 0 80px">
 			<div class="grid fluid">
 				<form id="question-form">
 				<div class="row horizontal-list">
@@ -23,13 +23,22 @@
 				<div class="row input-control">
 					<input type="text" class="" placeholder="新标签" name="tags" id="question-tags" value="" />
 				</div>
-				<div class="row">
+				<div class="row input-control">
+					<input type="hidden" name="id" id="question-id" value="0" />
+				</div>
+				<div class="row input-control text">
 					<button type="button" class="span4 primary" name="" id="question-post">发布</button>
 				</div>
 				</form>
 			</div>
 		</div>
-		<div class="container span7">
+		<div class="container span7" style="padding:0 80px 0 40px">
+			<div class="row horizontal-list">
+					<dl>
+						<dt><h2>相似问题</h2></dt>
+						<dd style="margin-top: 23px;"></dd>
+					</dl>
+				</div>
 			<div id="question-list" class="grid fluid">
 				<!-- 这里读入求助列表 -->
 			</div>
@@ -48,6 +57,9 @@
 </div>
 
 <script type="text/javascript">
+	var q_form = $('#question-form'),
+		q_list = $('#question-list');
+
 	var _ask_tags = $('#question-tags').tagsInput({
 		width:'auto',
 		height:'auto',
@@ -60,8 +72,24 @@
 	});
 	
 	$('#question-post').click(function(){
-		$.post(snow.api.questionInsert,$('#question-form').serialize(),function(d){
-			log(d);
+		$.post(snow.api.questionSave,q_form.serialize(),function(d){
+			//重置表单
+			q_form[0].reset();
+			// 重置标签插件
+			_ask_tags.importTags("");
+		});
+	});
+
+
+	q_list.on('click','a.question-edit',function(){
+		$.post(snow.api.questionGet,{id:$(this).data('id')},function(d){
+			if (d.ok) {
+				$('#question-id').val(d.data.id);
+				$('#question-when').val(d.data.when);
+				$('#question-where').val(d.data.where);
+				$('#question-intro').val(d.data.intro);
+				_ask_tags.importTags(d.data.tags);
+			};
 		});
 	});
 
@@ -69,12 +97,14 @@
 		// 读取求助列表
 		$.post(snow.api.questionList,{},function(d){
 			if (d.ok) {
-				var q_list = $('#question-list');
+				// 清空
+				q_list.empty();
 				$.each(d.data,function(i,q){
 					var row = $('<div class="row" />');
 					row.append('<div class="span3">'+q.when+'</div>');
 					row.append('<div class="span3">'+q.where+'</div>');
-					row.append('<div class="span6">'+q.intro+'</div>');
+					row.append('<div class="span4">'+q.intro+'</div>');
+					row.append('<div class="span2"><a href="javascript:;" data-id="'+q.id+'" class="question-edit" title="修改"><i class="icon-pencil"></i></a></div>');
 					q_list.append(row);
 				});
 			};

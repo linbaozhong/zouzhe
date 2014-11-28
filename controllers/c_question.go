@@ -11,9 +11,31 @@ type Question struct {
 	Auth
 }
 
-//
+/*
+方法：读取一条数据
+参数：id
+*/
 func (this *Question) Get() {
-	this.SetTplNames("index")
+	id, err := this.GetInt64("id")
+
+	if err != nil {
+		this.renderJson(utils.JsonMessage(false, "", "参数错误"))
+		return
+	}
+
+	//
+	q := new(models.Question)
+	q.Id = id
+
+	if has, err := q.Get(); err == nil {
+		if has {
+			this.renderJson(utils.JsonData(true, "", q))
+		} else {
+			this.renderJson(utils.JsonMessage(false, "", "数据不存在"))
+		}
+	} else {
+		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+	}
 }
 
 //
@@ -21,14 +43,28 @@ func (this *Question) Ask() {
 	this.SetTplNames()
 }
 
-//
-func (this *Question) Insert() {
+/*
+发布一条线路求助
+*/
+func (this *Question) Save() {
 	q := new(models.Question)
+
+	if id, err := this.GetInt64("id"); err == nil {
+		q.Id = id
+	} else {
+		q.Id = 0
+	}
 	q.When = this.GetString("when")
 	q.Where = this.GetString("where")
 	q.Intro = this.GetString("intro")
 	q.Tags = this.GetString("tags")
-	this.ExtendEx(q)
+
+	// Id>0是Update，Id=0是insert
+	if q.Id == 0 {
+		this.ExtendEx(q)
+	} else {
+		this.Extend(q)
+	}
 
 	// 检验数据的有效性
 	valid := validation.Validation{}
@@ -40,13 +76,19 @@ func (this *Question) Insert() {
 		return
 	}
 	// 写入数据库
-	if _, err := q.Insert(); err == nil {
+	if _, err := q.Save(); err == nil {
 		this.renderJson(utils.JsonData(true, "", q))
 	} else {
 		this.renderJson(utils.JsonMessage(false, "", err.Error()))
 	}
 }
 
+// @Title List
+// @Description 分页拉取问题列表
+// @Param   size  form  int  false        "每页的记录条数"
+// @Success 200 {object} utils.Response
+// @Failure 200 {object} utils.Response
+// @router /List [post]
 func (this *Question) List() {
 	// 读取分页规则
 	p := new(models.Pagination)
@@ -58,7 +100,7 @@ func (this *Question) List() {
 	// 读取查询条件
 	when := this.GetString("when")
 	where := this.GetString("where")
-
+	// 构造查询字符串
 	cond := "1=1"
 	if when != "" {
 		cond += fmt.Sprintf(" and when='%s'", when)
