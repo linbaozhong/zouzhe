@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="../../static/css/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.tagsinput.css"/>
 <script src="/static/js/jquery.tagsinput.min.js" type="text/javascript" charset="utf-8"></script>
 
 <div class="grid fluid">
@@ -39,7 +39,7 @@
 						<dd style="margin-top: 23px;"></dd>
 					</dl>
 				</div>
-			<div id="question-list" class="grid fluid">
+			<div id="question-list" class="listview">
 				<!-- 这里读入求助列表 -->
 			</div>
 		</div>
@@ -100,12 +100,30 @@
 				// 清空
 				q_list.empty();
 				$.each(d.data,function(i,q){
-					var row = $('<div class="row" />');
-					row.append('<div class="span3">'+q.when+'</div>');
-					row.append('<div class="span3">'+q.where+'</div>');
-					row.append('<div class="span4">'+q.intro+'</div>');
-					row.append('<div class="span2"><a href="javascript:;" data-id="'+q.id+'" class="question-edit" title="修改"><i class="icon-pencil"></i></a></div>');
-					q_list.append(row);
+
+					var _list = ['<div class="list bg-lightBlue fg-white">'];
+					_list.push('<div class="list-content">');
+					_list.push('<img src="'+snow.account.avatar+'" class="icon" />');
+					_list.push('<div class="data">');
+					_list.push('<div class="list-title"><span>'+q.when+'</span> <span>'+q.where+'</span></div>');
+
+					_list.push('<div style="margin:10px 0;">'+q.intro+'</div><div class="list-remark"><small><span class="icon-tag"></span>');
+					// 分拆标签
+					var tags = q.tags.split(',');
+					for (var i = tags.length - 1; i >= 0; i--) {
+						_list.push('<span class="margin5">'+tags[i]+'</span>');
+					};
+					_list.push('</small>');
+
+					_list.push('<span class="place-right"><a href="javascript:;" data-id="'+q.id+'" class="question-edit fg-white" title="修改"><i class="icon-pencil"></i></a></span>');
+					_list.push('</div>');
+
+					_list.push('</div>');
+					_list.push('</div>');
+					_list.push('</div>');
+
+					q_list.append(_list.join(''));
+
 				});
 			};
 		});
