@@ -1,0 +1,129 @@
+<style type="text/css">
+	.index-search {
+		position: relative;
+		width: 100%;
+		min-width: 980px;
+		background: #000 url(/static/images/qyer.jpg) no-repeat center top;
+		background-size: cover;
+		height: 400px;
+		margin: 0 auto;
+		padding-top: 40px;
+	}
+	.index-search-box {
+		position: relative;
+		width: 30em;
+		margin: 0 auto;
+		/*padding: 20px;*/
+		border-radius: 3px;
+		background: rgba(0, 0, 0, 0.6);
+		color: #fff;
+	}
+	.input-font-size {
+		font-size: 1.5em;
+	}
+	.font-small {
+		font-size: .8em;
+	}
+	.font-big {
+		font-size: 1.2em;
+	}
+	.travel-point {
+		cursor: pointer;
+	}
+</style>
+<div class="index-search">
+	<div class="index-search-box element searchform">
+		<div class="content" style="padding:25px 40px 1px;width:30em;">
+			<form class="user-input">
+				<div class="input-control text">
+					<input type="text" name="loginName" placeholder="Email" style="padding-left: 2.6em;"> <i class="icon-user pos-abs bg-gray fg-white" style=" height: 100%; top: 0;left:0; padding: 6px; font-size: 1.4em; " title="账号"></i>
+				</div>
+				<div class="input-control password">
+					<input type="password" name="password" placeholder="密码" style="padding-left: 2.6em;">
+					<i class="icon-unlocked pos-abs bg-gray fg-white" style=" height: 100%; top: 0;left:0; padding: 6px; font-size: 1.4em; " title="密码"></i>
+				</div>
+				<div class="input-control" style="margin:1.5em 0;"></div>
+				<div class="checkin">
+					<div class="input-control checkbox">
+						<label>
+							<input type="checkbox" name="auto" checked="checked">
+							<span class="check"></span>
+							自动登录
+						</label>
+					</div>
+					<a href="/passwordreset" style="margin-left: 2em;">忘记密码？</a>
+				</div>
+				<div class="form-actions">
+					<button id="btn-login" type="button" data-role="0" class="button primary" style="width: 100%;height:3em;">登录</button>
+				</div>
+				<div class="form-actions">
+					<div class="text-muted" style="margin-top:1.5em;">使用合作网站账户登录:</div>
+					<div class="horizontal-list">
+						<ul>
+							<li class="padding5 margin5" id="qqLogin">QQ</li>
+							<li class="padding5 margin5">新浪微博(暂不可用)</li>
+						</ul>
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="horizontal-list place-bottom-right fg-white font-small">
+		<dl>
+			<dd>2014-10-21</dd>
+			<dd>北京</dd>
+			<dd>@哈利蔺特</dd>
+		</dl>
+	</div>
+</div>
+<script type="text/javascript">
+	$('#btn-login').click(function(){
+		var _this = $(this);
+		// 登录
+		if(_this.data('role')=='0'){
+			log(_this.closest('form').serialize());
+			$.post(snow.api.signIn,_this.closest('form').serialize(),function(d){
+				log(d);
+			});
+		}else{
+			// 注册
+			log(_this.closest('form'));
+			_this.closest('form').attr({
+				'action':snow.api.signUp
+				//,'target':'_blank'
+			}).submit();
+		}
+	});
+	alert(0)
+	$("#qqLogin").click(function() {
+		window.open('/connect/qq_login','sign_dialog','width=600,height=420,menubar=no,scrollbars=yes, resizable=yes,status=yes,titlebar=no,toolbar=no,location=yes');
+	});
+
+	function open_login(u){
+		snow.account.nickName = u.NickName;
+		snow.account.gender = u.Gender;
+		snow.account.avatar = u.Avatar_1;
+		snow.account.openFrom = u.From;
+		snow.account.openId = u.OpenId;
+		snow.account.accessToken = u.Token;
+
+		checkin();
+		$("#checkin-dialog").fadeOut(snow.speed);
+
+		//记录登录状态
+		$.post(snow.api.signTrace,{
+			from:u.From,
+			token:u.Token,
+			openId:u.OpenId,
+			nickName:u.NickName,
+			gender:u.Gender,
+			refresh:u.Refresh,
+			avatar_1:u.Avatar_1,
+			avatar_2:u.Avatar_2
+		},function(d){
+			log(d);
+		});
+	}
+</script>

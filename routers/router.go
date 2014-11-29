@@ -10,10 +10,13 @@ func init() {
 	// 屏蔽路由大小写敏感
 	beego.RouterCaseSensitive = false
 
-	beego.Router("/", &controllers.Home{})
+	home := &controllers.Home{}
+	beego.Router("/", home, "get:Get")
+	beego.Router("/login", home, "get:Login")
 
-	beego.Router("/connect/qq_error/:msg", &controllers.Connect{})
-	beego.AutoRouter(&controllers.Connect{})
+	conn := &controllers.Connect{}
+	beego.Router("/connect/qq_error/:msg", conn)
+	beego.AutoRouter(conn)
 
 	qst := &controllers.Question{}
 	beego.Router("/question", qst)
