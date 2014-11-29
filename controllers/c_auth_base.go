@@ -17,7 +17,7 @@ func (this *Auth) Prepare() {
 			this.end()
 		} else {
 			// 跳转到错误页
-			this.Redirect("/login", 302)
+			this.Redirect("/login?returnurl="+this.Ctx.Request.URL.String(), 302)
 			this.end()
 		}
 	}

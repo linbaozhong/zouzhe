@@ -40,10 +40,10 @@ func Interface2str(data ...interface{}) string {
 	n := len(data)
 	for i := 0; i < n; i++ {
 		var output = fomateinfo(data[i])
-		fmt.Fprintf(buf, "  %s", output)
+		fmt.Fprintf(buf, "%s", output)
 
 		if i < n-1 {
-			fmt.Fprintf(buf, ",")
+			fmt.Fprintf(buf, ",  ")
 		}
 	}
 	return buf.String()
@@ -168,7 +168,8 @@ func printKeyValue(buf *bytes.Buffer, val reflect.Value, pointers **pointerInfo,
 
 		printKeyValue(buf, val.Elem(), pointers, interfaces, structFilter, formatOutput, indent, level)
 	case reflect.String:
-		fmt.Fprint(buf, "\"", val.String(), "\"")
+		//fmt.Fprint(buf, "\"", val.String(), "\"")
+		fmt.Fprint(buf, val.String())
 	case reflect.Interface:
 		var value = val.Elem()
 

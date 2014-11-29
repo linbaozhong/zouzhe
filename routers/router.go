@@ -12,7 +12,6 @@ func init() {
 
 	home := &controllers.Home{}
 	beego.Router("/", home, "get:Get")
-	beego.Router("/login", home, "get:Login")
 
 	conn := &controllers.Connect{}
 	beego.Router("/connect/qq_error/:msg", conn)
@@ -25,6 +24,7 @@ func init() {
 	beego.Router("/profile", &controllers.Profile{})
 
 	act := &controllers.Account{}
+	beego.Router("/login", act, "get:Login")
 	beego.Router("/signin", act, "post:SignIn")
 	beego.Router("/signout", act, "post:SignOut")
 	beego.Router("/signup", act, "get:SignUp")

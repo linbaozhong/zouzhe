@@ -60,8 +60,8 @@
 					<div class="text-muted" style="margin-top:1.5em;">使用合作网站账户登录:</div>
 					<div class="horizontal-list">
 						<ul>
-							<li class="padding5 margin5" id="qqLogin">QQ</li>
-							<li class="padding5 margin5">新浪微博(暂不可用)</li>
+							<li class="padding5 margin5 fg-white" id="qqLogin">QQ</li>
+							<li class="padding5 margin5 fg-white">新浪微博(暂不可用)</li>
 						</ul>
 
 					</div>
@@ -96,7 +96,7 @@
 			}).submit();
 		}
 	});
-	alert(0)
+	
 	$("#qqLogin").click(function() {
 		window.open('/connect/qq_login','sign_dialog','width=600,height=420,menubar=no,scrollbars=yes, resizable=yes,status=yes,titlebar=no,toolbar=no,location=yes');
 	});
@@ -108,9 +108,6 @@
 		snow.account.openFrom = u.From;
 		snow.account.openId = u.OpenId;
 		snow.account.accessToken = u.Token;
-
-		checkin();
-		$("#checkin-dialog").fadeOut(snow.speed);
 
 		//记录登录状态
 		$.post(snow.api.signTrace,{
@@ -124,6 +121,10 @@
 			avatar_2:u.Avatar_2
 		},function(d){
 			log(d);
+			if (d.ok) {
+				snow.go({{.returnUrl}});
+			};
 		});
 	}
+
 </script>

@@ -90,3 +90,13 @@ func (this *Account) SignOut() {
 func (this *Account) PasswordReset() {
 	this.SetTplNames()
 }
+
+// 独立登录页面
+func (this *Account) Login() {
+	this.Layout = "_noneLayout.html"
+	this.LayoutSections["Header"] = "_noneHeader.html"
+	this.LayoutSections["Login"] = ""
+
+	this.Data["returnUrl"] = this.GetString("returnurl")
+	this.SetTplNames()
+}

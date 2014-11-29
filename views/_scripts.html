@@ -212,11 +212,13 @@
 		/*
 		 * 检查登录状态
 		 */
-		if (snow.checkin) {
-			checkin();
-		} else {
-			checkout();
-		}
+		if ($("#account").length>0) {
+			if (snow.checkin) {
+				checkin();
+			} else {
+				checkout();
+			}
+		};
 	});
 
 	$(window).scroll(function() {

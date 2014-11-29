@@ -114,14 +114,14 @@ func (this *Connect) QQ_Callback() {
 	}
 
 	//---创建读取openid的请求
-	if this.qq_openid(_account) != nil {
+	if qq_openid(_account) != nil {
 		//---跳转至错误页
 		this.Redirect(this.UrlFor("Connect.Connect_Error", ":msg", err.Error()), 302)
 		return
 	}
 
 	//---创建读取userinfo的请求
-	if this.qq_userinfo(_account) != nil {
+	if qq_userinfo(_account) != nil {
 		//---跳转至错误页
 		this.Redirect(this.UrlFor("Connect.Connect_Error", ":msg", err.Error()), 302)
 		return
@@ -144,7 +144,7 @@ func (this *Connect) QQ_Callback() {
 /*
 * QQ登录获取openid
  */
-func (this *Connect) qq_openid(act *OpenSign) (err error) {
+func qq_openid(act *OpenSign) (err error) {
 	//---创建读取openid的请求
 	req := httplib.Get(appconf("qq::openid"))
 	req.Param("access_token", act.Token)
@@ -173,18 +173,17 @@ func (this *Connect) qq_openid(act *OpenSign) (err error) {
 /*
 * QQ登录用户信息
  */
-func (this *Connect) qq_userinfo(act *OpenSign) (err error) {
+func qq_userinfo(act *OpenSign) (err error) {
 	//---创建读取userinfo的请求
 	req := httplib.Get(appconf("qq::userinfo"))
 	req.Param("access_token", act.Token)
 	req.Param("openid", act.OpenId)
 	req.Param("oauth_consumer_key", appid)
-
+	req.Debug(true)
 	//---读取返回的内容
 	rep, err := req.String()
 
 	if err == nil {
-
 		//---解析返回的内容,检查如果包含callback,读取openid
 		jmap := utils.JsonString2map(rep)
 
@@ -199,6 +198,7 @@ func (this *Connect) qq_userinfo(act *OpenSign) (err error) {
 				act.Avatar_2 = utils.Interface2str(jmap["figureurl_qq_2"])
 			} else {
 				act.Msg = utils.Interface2str(jmap["msg"])
+				err = errors.New(act.Msg)
 			}
 		} else {
 			err = errors.New("return value is empty")
@@ -211,7 +211,7 @@ func (this *Connect) qq_userinfo(act *OpenSign) (err error) {
 /*
 * QQ登录access_token续期
  */
-func (this *Connect) qq_refresh(act *OpenSign) (err error) {
+func qq_refresh(act *OpenSign) (err error) {
 	//---创建读取token的请求
 	req := httplib.Get(appconf("qq::token"))
 	req.Param("grant_type", "refresh_token")
@@ -236,8 +236,6 @@ func (this *Connect) qq_refresh(act *OpenSign) (err error) {
 		act.Token = jmap["access_token"]
 		//--- refresh_token
 		act.Refresh = jmap["refresh_token"]
-		// 写入cookie
-		this.cookie("token", act.Token)
 	}
 	return
 }
@@ -307,12 +305,16 @@ func (this *Connect) SignTrace() {
 			// 2.续期
 			if _needRefresh {
 				this.Trace("access_token续期")
-				this.qq_refresh(_account)
-				// 更新access_token and refresh_token and Updated
-				_m_account.AccessToken = _account.Token
-				_m_account.RefreshToken = _account.Refresh
-				this.Extend(_m_account)
-				_m_account.RefreshAccessToken()
+				err = qq_refresh(_account)
+				if err != nil {
+					// 写入cookie
+					this.cookie("token", _account.Token)
+					// 更新access_token and refresh_token and Updated
+					_m_account.AccessToken = _account.Token
+					_m_account.RefreshToken = _account.Refresh
+					this.Extend(_m_account)
+					_m_account.RefreshAccessToken()
+				}
 			}
 		}
 	} else {
