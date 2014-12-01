@@ -12,11 +12,27 @@ type Account struct {
 	Base
 }
 
-// var (
-// 	m_account     = &models.Account{}
-// 	m_openAccount = &models.OpenAccount{}
-// )
-
+func (this *Account) Prepare() {
+	this.Base.Prepare()
+	// 检查当前用户是否合法用户
+	// if !this.allowRequest() {
+	// 	if this.IsAjax() {
+	// 		this.renderJson(utils.JsonMessage(false, "", "无效用户,请登录……"))
+	// 		this.end()
+	// 	} else {
+	// 		// 跳转到错误页
+	// 		this.Redirect("/login?returnurl="+this.Ctx.Request.URL.String(), 302)
+	// 		this.end()
+	// 	}
+	// }
+	this.Layout = "_noneLayout.html"
+	this.LayoutSections = make(map[string]string)
+	this.LayoutSections["Head"] = "_head.html"
+	this.LayoutSections["Header"] = "_noneHeader.html"
+	this.LayoutSections["Login"] = ""
+	this.LayoutSections["Footer"] = "_footer.html"
+	this.LayoutSections["Scripts"] = "_scripts.html"
+}
 /*
 * 新账户
  */
@@ -93,10 +109,6 @@ func (this *Account) PasswordReset() {
 
 // 独立登录页面
 func (this *Account) Login() {
-	this.Layout = "_noneLayout.html"
-	this.LayoutSections["Header"] = "_noneHeader.html"
-	this.LayoutSections["Login"] = ""
-
 	this.Data["returnUrl"] = this.GetString("returnurl")
 	this.SetTplNames()
 }
