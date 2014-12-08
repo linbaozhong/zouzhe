@@ -5,6 +5,7 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/validation"
 	"github.com/beego/i18n"
+	"html/template"
 	"net/url"
 	"reflect"
 	"regexp"
@@ -34,7 +35,6 @@ var (
 )
 
 func init() {
-
 	siteDomain = appconf("site::domain")
 
 	// 引用beego官网代码
@@ -246,6 +246,32 @@ func (this *Base) isOutLink() bool {
 		return true
 	}
 	return this.Ctx.Request.Host != host.Host
+}
+
+// 渲染字符串模板
+func (this *Base) renderTemplateString(tplString string) error {
+	// 读取当前控制器和方法名称
+	a, c := this.GetControllerAndAction()
+
+	// 查找模板是否已经存在
+	name := "/" + a + "/" + c
+	t := beego.BeeTemplates[name]
+
+	if t == nil {
+		// 解析传入的字符串
+		var err error
+		t, err = template.New(name).Parse(tplString)
+		if err != nil {
+			return err
+		}
+
+		t = t.Delims(beego.TemplateLeft, beego.TemplateRight)
+
+		beego.BeeTemplates[name] = t
+	}
+
+	// 渲染并输出
+	return t.Execute(this.Ctx.ResponseWriter, this.Data)
 }
 
 ////文件服务
