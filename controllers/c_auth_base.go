@@ -31,5 +31,5 @@ func (this *Auth) Prepare() {
 }
 
 func (this *Auth) Finish() {
-	this.Trace(this.Lang)
+	this.trace(this.Lang)
 }

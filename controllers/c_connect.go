@@ -133,11 +133,11 @@ func (this *Connect) QQ_Callback() {
 	this.cookie("nickname", _account.NickName)
 	this.cookie("avatar", _account.Avatar_1)
 
-	this.Trace(_account)
+	this.trace(_account)
 	//
 	this.Data["sign"] = _account
 
-	this.SetTplNames("callback")
+	this.setTplNames("callback")
 
 }
 
@@ -244,7 +244,7 @@ func qq_refresh(act *OpenSign) (err error) {
 * 登录错误地址
  */
 func (this *Connect) Connect_Error() {
-	this.Trace(this.GetString("msg"))
+	this.trace(this.GetString("msg"))
 	this.Data["message"] = this.GetString("msg")
 }
 
@@ -268,7 +268,7 @@ func (this *Connect) SignTrace() {
 
 	// 账号id和第三方账号id均为空，视为无效的请求
 	if _account.Id == 0 && _account.OpenId == "" {
-		this.Trace("无效的账户信息")
+		this.trace("无效的账户信息")
 		this.renderJson(utils.JsonData(false, "", errors.New("无效的账户信息")))
 		return
 	}
@@ -283,19 +283,19 @@ func (this *Connect) SignTrace() {
 	// 账户是否存在
 	has, err := _m_account.Exists()
 	if err != nil {
-		this.Trace(err.Error())
+		this.trace(err.Error())
 		this.renderJson(utils.JsonData(false, "", err))
 		return
 	}
 	// 如果账户存在
 	if has {
-		this.Trace("记录登录日志")
+		this.trace("记录登录日志")
 
 		// 记录登录日志
 		_m_log := new(models.LoginLog)
 		_m_log.AccountId = _m_account.Id
 
-		this.Extend(_m_log)
+		this.extend(_m_log)
 		// 写登录日志
 		_, err = _m_log.Post()
 
@@ -304,7 +304,7 @@ func (this *Connect) SignTrace() {
 			_needRefresh := (utils.Msec2Time(_m_log.Updated).Sub(utils.Msec2Time(_m_account.Updated)).Hours() > 24*40*2)
 			// 2.续期
 			if _needRefresh {
-				this.Trace("access_token续期")
+				this.trace("access_token续期")
 				err = qq_refresh(_account)
 				if err != nil {
 					// 写入cookie
@@ -312,13 +312,13 @@ func (this *Connect) SignTrace() {
 					// 更新access_token and refresh_token and Updated
 					_m_account.AccessToken = _account.Token
 					_m_account.RefreshToken = _account.Refresh
-					this.Extend(_m_account)
+					this.extend(_m_account)
 					_m_account.RefreshAccessToken()
 				}
 			}
 		}
 	} else {
-		this.Trace("创建新的账户")
+		this.trace("创建新的账户")
 		// 反之，创建新账户
 		_m_account.OpenFrom = _account.From
 		if _account.Gender == "男" {
@@ -330,7 +330,7 @@ func (this *Connect) SignTrace() {
 		_m_account.Avatar_1 = _account.Avatar_1
 		_m_account.Avatar_2 = _account.Avatar_2
 
-		this.Extend(_m_account)
+		this.extend(_m_account)
 		// errs:记录返回的数据校验错误
 		_, err, errs := _m_account.Post()
 

@@ -9,5 +9,5 @@ type Home struct {
 }
 
 func (this *Home) Get() {
-	this.SetTplNames("index")
+	this.setTplNames("index")
 }

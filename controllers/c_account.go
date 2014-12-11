@@ -33,6 +33,7 @@ func (this *Account) Prepare() {
 	this.LayoutSections["Footer"] = "_footer.html"
 	this.LayoutSections["Scripts"] = "_scripts.html"
 }
+
 /*
 * 新账户
  */
@@ -49,12 +50,12 @@ func (this *Account) New() {
 		oa.Avatar_1 = this.GetString("avatar")
 		oa.NickName = this.GetString("nickName")
 
-		this.Extend(oa)
+		this.extend(oa)
 
 		if _, err, _ = oa.Post(); err == nil {
-			this.Trace(oa)
+			this.trace(oa)
 		} else {
-			this.Trace(err)
+			this.trace(err)
 		}
 
 	}
@@ -83,7 +84,7 @@ func (this *Account) SignUp() {
 
 	this.Data["sign"] = _m_account
 	this.Data["auto"] = this.getCheckboxBool("auto")
-	this.SetTplNames()
+	this.setTplNames()
 }
 
 // 签入
@@ -104,11 +105,11 @@ func (this *Account) SignOut() {
 
 // 密码重置
 func (this *Account) PasswordReset() {
-	this.SetTplNames()
+	this.setTplNames()
 }
 
 // 独立登录页面
 func (this *Account) Login() {
 	this.Data["returnUrl"] = this.GetString("returnurl")
-	this.SetTplNames()
+	this.setTplNames()
 }

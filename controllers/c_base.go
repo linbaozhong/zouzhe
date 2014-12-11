@@ -163,7 +163,7 @@ func (this *Base) setLangVer() bool {
 }
 
 //公共字段
-func (this *Base) Extend(dst interface{}) {
+func (this *Base) extend(dst interface{}) {
 	d := reflect.Indirect(reflect.ValueOf(dst))
 	if v := d.FieldByName("Updator"); v.IsValid() && v.Int() == 0 && this.currentUser != nil {
 		v.SetInt(this.currentUser.Id)
@@ -177,8 +177,9 @@ func (this *Base) Extend(dst interface{}) {
 }
 
 //公共字段
-func (this *Base) ExtendEx(dst interface{}) {
+func (this *Base) extendEx(dst interface{}) {
 	d := reflect.Indirect(reflect.ValueOf(dst))
+
 	if v := d.FieldByName("Updator"); v.IsValid() && v.Int() == 0 && this.currentUser != nil {
 		v.SetInt(this.currentUser.Id)
 	}
@@ -193,6 +194,35 @@ func (this *Base) ExtendEx(dst interface{}) {
 	}
 	if v := d.FieldByName("Ip"); v.IsValid() && v.String() == "" {
 		v.SetString(this.Ctx.Input.IP())
+	}
+}
+
+/*
+* 读取request数据填充struct
+ */
+func (this *Base) fillModel(dst interface{}) {
+	v := reflect.ValueOf(dst).Elem()
+	t := v.Type()
+	// 判断参数的类型是否struct
+	if t.Kind() == reflect.Struct {
+		//遍历struct的field
+		for i := 0; i < t.NumField(); i++ {
+			f := t.Field(i)
+			// 根据field类型,读取request数据并赋值
+			if d := v.FieldByName(f.Name); d.IsValid() {
+				switch f.Type.Kind() {
+				//整形
+				case reflect.Int64, reflect.Int32, reflect.Int16, reflect.Int8, reflect.Int:
+					n, _ := this.GetInt64(strings.ToLower(f.Name))
+					d.SetInt(int64(n))
+				//字符串
+				case reflect.String:
+					d.SetString(this.GetString(strings.ToLower(f.Name)))
+					//其他类型，以此实现
+					//case reflect.Bool:
+				}
+			}
+		}
 	}
 }
 
@@ -229,7 +259,7 @@ func (this *Base) renderJsonp(data interface{}) {
 }
 
 //返回html字符串格式响应
-func (this *Base) ServeString(arg string) {
+func (this *Base) serveString(arg string) {
 	this.Ctx.Output.Body([]byte(arg))
 }
 
@@ -331,7 +361,7 @@ func (this *Base) getParamsString(key string) string {
 //允许新的请求，数据通用字段初始信息，附带验证用户是否合法(err)，
 func (this *Base) allowRequest() bool {
 
-	this.Trace(this.Ctx.GetCookie("_snow_id"), this.Ctx.GetCookie("from"))
+	this.trace(this.Ctx.GetCookie("_snow_id"), this.Ctx.GetCookie("from"))
 	this.currentUser.Id, _ = strconv.ParseInt(this.Ctx.GetCookie("_snow_id"), 10, 64)
 
 	if this.currentUser.Id == 0 {
@@ -387,25 +417,25 @@ func (this *Base) getCheckboxInt(key string) int {
 /*
 * 解析首尾#中的字符串
  */
-func (this *Base) ParseSharp(str string) []string {
+func (this *Base) parseSharp(str string) []string {
 	//匹配字符串
 	p := fmt.Sprintf("#([%s]+)#[^%s]*", sub, sub)
-	return this.ParseString(str, p)
+	return this.parseString(str, p)
 }
 
 /*
 * 解析首字符@尾字符是空格中的子串
  */
-func (this *Base) ParseAite(str string) []string {
+func (this *Base) parseAite(str string) []string {
 	//匹配字符串
 	p := fmt.Sprintf("@([%s]+)", sub)
-	return this.ParseString(str, p)
+	return this.parseString(str, p)
 }
 
 /*
 * 解析指定首尾字符中的字符串
  */
-func (this *Base) ParseString(str, p string) []string {
+func (this *Base) parseString(str, p string) []string {
 	//正则
 	re := regexp.MustCompile(p)
 
@@ -427,7 +457,7 @@ func (this *Base) ParseString(str, p string) []string {
 /*
 * xsrf过滤
  */
-func (this *Base) CheckXsrf() (bool, string) {
+func (this *Base) checkXsrf() (bool, string) {
 	if this.CheckXsrfCookie() {
 		return true, this.XsrfToken()
 	}
@@ -458,7 +488,7 @@ func (this *Base) cookieHttpOnly(name, value string) {
 }
 
 // 设置模板文件
-func (this *Base) SetTplNames(name ...string) {
+func (this *Base) setTplNames(name ...string) {
 	c, a := this.Controller.GetControllerAndAction()
 
 	if len(name) > 0 && name[0] != "" {
@@ -487,7 +517,7 @@ func (this *Base) loginOut() {
 /*
 * 跟踪
  */
-func (this *Base) Trace(v ...interface{}) {
+func (this *Base) trace(v ...interface{}) {
 	c, a := this.Controller.GetControllerAndAction()
 	beego.Trace(fmt.Sprintf("%s/%s ", c, a) + fmt.Sprintf("Info:%s", utils.Interface2str(v...)))
 }
