@@ -163,8 +163,8 @@ func (this *Base) setLangVer() bool {
 }
 
 //公共字段
-func (this *Base) extend(dst interface{}) {
-	d := reflect.Indirect(reflect.ValueOf(dst))
+func (this *Base) extend(bean interface{}) {
+	d := reflect.Indirect(reflect.ValueOf(bean))
 	if v := d.FieldByName("Updator"); v.IsValid() && v.Int() == 0 && this.currentUser != nil {
 		v.SetInt(this.currentUser.Id)
 	}
@@ -177,8 +177,8 @@ func (this *Base) extend(dst interface{}) {
 }
 
 //公共字段
-func (this *Base) extendEx(dst interface{}) {
-	d := reflect.Indirect(reflect.ValueOf(dst))
+func (this *Base) extendEx(bean interface{}) {
+	d := reflect.Indirect(reflect.ValueOf(bean))
 
 	if v := d.FieldByName("Updator"); v.IsValid() && v.Int() == 0 && this.currentUser != nil {
 		v.SetInt(this.currentUser.Id)
@@ -200,16 +200,18 @@ func (this *Base) extendEx(dst interface{}) {
 /*
 * 读取request数据填充struct
  */
-func (this *Base) fillModel(dst interface{}) {
-	v := reflect.ValueOf(dst).Elem()
+func (this *Base) fillModel(bean interface{}) {
+	// 获取接口指向的实例
+	v := reflect.ValueOf(bean).Elem()
+	// 实例的类型
 	t := v.Type()
-	// 判断参数的类型是否struct
+	// 判断实例的类型是否struct
 	if t.Kind() == reflect.Struct {
 		//遍历struct的field
 		for i := 0; i < t.NumField(); i++ {
 			f := t.Field(i)
-			// 根据field类型,读取request数据并赋值
 			if d := v.FieldByName(f.Name); d.IsValid() {
+				// 根据field数据类型,读取request数据并赋值
 				switch f.Type.Kind() {
 				//整形
 				case reflect.Int64, reflect.Int32, reflect.Int16, reflect.Int8, reflect.Int:
