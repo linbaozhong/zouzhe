@@ -2,6 +2,8 @@ package models
 
 import (
 	"github.com/astaxie/beego/validation"
+	"reflect"
+	"fmt"
 )
 
 type Question struct {
@@ -44,6 +46,9 @@ func (this *Question) List(where string, page *Pagination) ([]Question, error) {
 	qs := make([]Question, 0)
 	// 符合条件的记录总数
 	q := new(Question)
+
+	fmt.Println(reflect.ValueOf(q).Elem().Type())
+	//qs := make([]reflect.ValueOf(q).Elem().Type(), 0)
 
 	if rows, err := db.Where(where).Count(q); err != nil {
 		return qs, err
