@@ -40,7 +40,7 @@ func (this *Question) Get() {
 
 //
 func (this *Question) Ask() {
-	this.SetTplNames()
+	this.setTplNames()
 }
 
 /*
@@ -61,9 +61,9 @@ func (this *Question) Save() {
 
 	// Id>0是Update，Id=0是insert
 	if q.Id == 0 {
-		this.ExtendEx(q)
+		this.extendEx(q)
 	} else {
-		this.Extend(q)
+		this.extend(q)
 	}
 
 	// 检验数据的有效性
