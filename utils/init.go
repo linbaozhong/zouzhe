@@ -3,7 +3,6 @@ package utils
 import (
 	"os"
 	"regexp"
-	"sort"
 	"strings"
 	"time"
 )
@@ -59,15 +58,4 @@ func GetIp(addr string) string {
 		return addr[:pos]
 	}
 	return addr
-}
-
-//移除slice中的元素
-func RemoveStringSlice(s string, slice []string) []string {
-	sort.Strings(slice)
-	i := sort.SearchStrings(slice, s)
-
-	if i < len(slice) && slice[i] == s {
-		return append(slice[:i], slice[i+1:]...)
-	}
-	return slice
 }

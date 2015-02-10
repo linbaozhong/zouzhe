@@ -1,7 +1,7 @@
 package utils
 
 import (
-//"fmt"
+	"sort"
 )
 
 //列表是否包含给定项
@@ -25,4 +25,15 @@ func StringsContains(list []string, key string) (finded bool) {
 		}
 	}
 	return
+}
+
+//移除slice中的元素
+func RemoveStringSlice(s string, slice []string) []string {
+	sort.Strings(slice)
+	i := sort.SearchStrings(slice, s)
+
+	if i < len(slice) && slice[i] == s {
+		return append(slice[:i], slice[i+1:]...)
+	}
+	return slice
 }

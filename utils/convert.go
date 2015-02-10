@@ -15,9 +15,27 @@ type pointerInfo struct {
 	used []int
 }
 
+// []byte转int
+func Bytes2int(b []byte) int {
+	return int(Bytes2int64(b))
+}
+
+// []byte转int32
+func Bytes2int32(b []byte) int32 {
+	return int32(Bytes2int64(b))
+}
+
+// []byte转int64
+func Bytes2int64(b []byte) int64 {
+	return Str2int64(string(b))
+}
+
 //字符串转长整型
-func Str2int64(s string) (int64, error) {
-	return strconv.ParseInt(s, 10, 64)
+func Str2int64(s string) int64 {
+	if i, err := strconv.ParseInt(s, 10, 64); err == nil {
+		return i
+	}
+	return 0
 }
 
 //字符串转整形
