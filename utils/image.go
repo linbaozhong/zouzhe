@@ -125,5 +125,5 @@ func (this *Image) resize(filename string, w, h, s int) (string, error) {
 		return "", err
 	}
 	//保存文件
-	return dstfile, imaging.Save(dst, dstfile)
+	return filepath.ToSlash(dstfile), imaging.Save(dst, dstfile)
 }

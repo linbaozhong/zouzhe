@@ -2,7 +2,7 @@ package models
 
 import (
 	// "errors"
-	// "fmt"
+	//"fmt"
 	"github.com/astaxie/beego/validation"
 	//"notes/utils"
 	//"notes/logs"
@@ -11,7 +11,7 @@ import (
 // 账户
 type Accounts struct {
 	Id           int64  `json:"accoundId"`
-	LoginName    string `json:"loginName" valid:"MaxSize(100)"`
+	LoginName    string `json:"loginName" valid:"MaxSize(50)"`
 	Password     string `json:"password"`
 	RealName     string `json:"realName" valid:"MaxSize(50)"`
 	OpenId       string `json:"openId" valid:"MaxSize(32)"`
@@ -31,7 +31,7 @@ type Accounts struct {
 
 // 账号是否存在
 func (this *Accounts) Exists() (bool, error) {
-	return db.Get(this)
+	return db.Cols("id").Get(this)
 }
 
 //
