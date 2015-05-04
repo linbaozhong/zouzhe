@@ -13,6 +13,12 @@ func init() {
 
 }
 
+func Str2Time(s string) time.Time {
+	s = strings.Replace(s, "/", "-", 0)
+	t, _ := time.Parse(time.RFC3339, s)
+	return t
+}
+
 //将标准时间转为自1970-1-1开始的毫秒数
 func Millisecond(t time.Time) int64 {
 	return t.UnixNano() / 1000000

@@ -107,6 +107,12 @@ func UrlEncode(s string) string {
 	return url.QueryEscape(s)
 }
 
+//url解码
+func UrlDecode(s string) string {
+	cook, _ := url.QueryUnescape(s)
+	return cook
+}
+
 //Cookie编码
 func CookieEncode(src string) string {
 	//aes编码
