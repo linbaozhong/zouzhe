@@ -109,13 +109,8 @@ func UrlEncode(s string) string {
 
 //url解码
 func UrlDecode(s string) string {
-<<<<<<< HEAD
-	cook, _ := url.QueryUnescape(s)
-	return cook
-=======
 	code, _ := url.QueryUnescape(s)
 	return code
->>>>>>> origin/master
 }
 
 //Cookie编码
