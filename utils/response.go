@@ -7,7 +7,7 @@ type Response struct {
 }
 
 //返回JSON格式消息
-func JsonMessage(ok bool, k, d string) *Response {
+func JsonMessage(ok bool, k string, d interface{}) *Response {
 	var r = new(Response)
 	r.Ok = ok
 	r.Key = k
