@@ -17,7 +17,7 @@ func (this *Account) Prepare() {
 	// 检查当前用户是否合法用户
 	// if !this.allowRequest() {
 	// 	if this.IsAjax() {
-	// 		this.renderJson(utils.JsonMessage(false, "", "无效用户,请登录……"))
+	// 		this.renderJson(utils.JsonResult(false, "", "无效用户,请登录……"))
 	// 		this.end()
 	// 	} else {
 	// 		// 跳转到错误页
@@ -73,7 +73,7 @@ func (this *Account) New() {
 		utils.CookieEncode(fmt.Sprintf("%d|%s|%s", oa.Id, oa.NickName, oa.Avatar_1)),
 		cookieDuration, "/")
 
-	this.renderJson(utils.JsonData(true, "", oa))
+	this.renderJson(utils.JsonResult(true, "", oa))
 }
 
 // 注册
@@ -94,13 +94,13 @@ func (this *Account) SignIn() {
 	_m_account.Password = this.GetString("password")
 	_m_account.Gender = this.getCheckboxInt("auto")
 
-	this.renderJson(utils.JsonData(true, "", _m_account))
+	this.renderJson(utils.JsonResult(true, "", _m_account))
 }
 
 // 签出
 func (this *Account) SignOut() {
 	this.loginOut()
-	this.renderJson(utils.JsonMessage(true, "", ""))
+	this.renderJson(utils.JsonResult(true, "", ""))
 }
 
 // 密码重置

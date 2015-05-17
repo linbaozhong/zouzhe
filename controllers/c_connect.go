@@ -269,7 +269,7 @@ func (this *Connect) SignTrace() {
 	// 账号id和第三方账号id均为空，视为无效的请求
 	if _account.Id == 0 && _account.OpenId == "" {
 		this.trace("无效的账户信息")
-		this.renderJson(utils.JsonData(false, "", errors.New("无效的账户信息")))
+		this.renderJson(utils.JsonResult(false, "", errors.New("无效的账户信息")))
 		return
 	}
 
@@ -284,7 +284,7 @@ func (this *Connect) SignTrace() {
 	has, err := _m_account.Exists()
 	if err != nil {
 		this.trace(err.Error())
-		this.renderJson(utils.JsonData(false, "", err))
+		this.renderJson(utils.JsonResult(false, "", err))
 		return
 	}
 	// 如果账户存在
@@ -335,7 +335,7 @@ func (this *Connect) SignTrace() {
 		_, err, errs := _m_account.Post()
 
 		if err != nil {
-			this.renderJson(utils.JsonData(false, "", errs))
+			this.renderJson(utils.JsonResult(false, "", errs))
 			return
 		}
 	}
@@ -346,5 +346,5 @@ func (this *Connect) SignTrace() {
 	// 保存登录状态
 	this.loginIn(_m_account.Id, _m_account.OpenFrom)
 
-	this.renderJson(utils.JsonMessage(true, "", ""))
+	this.renderJson(utils.JsonResult(true, "", ""))
 }

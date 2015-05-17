@@ -19,7 +19,7 @@ func (this *Question) Get() {
 	id, err := this.GetInt64("id")
 
 	if err != nil {
-		this.renderJson(utils.JsonMessage(false, "", "参数错误"))
+		this.renderJson(utils.JsonResult(false, "", "参数错误"))
 		return
 	}
 
@@ -29,12 +29,12 @@ func (this *Question) Get() {
 
 	if has, err := q.Get(); err == nil {
 		if has {
-			this.renderJson(utils.JsonData(true, "", q))
+			this.renderJson(utils.JsonResult(true, "", q))
 		} else {
-			this.renderJson(utils.JsonMessage(false, "", "数据不存在"))
+			this.renderJson(utils.JsonResult(false, "", "数据不存在"))
 		}
 	} else {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		this.renderJson(utils.JsonResult(false, "", err.Error()))
 	}
 }
 
@@ -69,17 +69,17 @@ func (this *Question) Save() {
 	// 检验数据的有效性
 	valid := validation.Validation{}
 	if ok, err := valid.Valid(q); err != nil {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		this.renderJson(utils.JsonResult(false, "", err.Error()))
 		return
 	} else if !ok {
-		this.renderJson(utils.JsonData(false, "", getValidErrors(&valid)))
+		this.renderJson(utils.JsonResult(false, "", getValidErrors(&valid)))
 		return
 	}
 	// 写入数据库
 	if _, err := q.Save(); err == nil {
-		this.renderJson(utils.JsonData(true, "", q))
+		this.renderJson(utils.JsonResult(true, "", q))
 	} else {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		this.renderJson(utils.JsonResult(false, "", err.Error()))
 	}
 }
 
@@ -113,8 +113,8 @@ func (this *Question) List() {
 	q := new(models.Question)
 
 	if qs, err := q.List(cond, p); err != nil {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		this.renderJson(utils.JsonResult(false, "", err.Error()))
 	} else {
-		this.renderJson(utils.JsonData(true, "", qs))
+		this.renderJson(utils.JsonResult(true, "", qs))
 	}
 }
