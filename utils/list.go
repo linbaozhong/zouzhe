@@ -37,3 +37,12 @@ func RemoveStringSlice(s string, slice []string) []string {
 	}
 	return slice
 }
+
+//int slice to string slice
+func Int64s2Strings(i64 []int64) []string {
+	s := make([]string, len(i64))
+	for index, i := range i64 {
+		s[index] = Int642str(i)
+	}
+	return s
+}
